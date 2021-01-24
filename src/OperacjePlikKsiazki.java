@@ -7,7 +7,7 @@ public class OperacjePlikKsiazki{
 
 
 
-    public static void Zapisywanie(Ksiazka NowaKsiazka) throws IOException {
+    public static void ZapisywanieKsiazek(Ksiazka NowaKsiazka) throws IOException {
         RandomAccessFile baza =new RandomAccessFile("Books.bin","rw");
 
         baza.seek(baza.length());
