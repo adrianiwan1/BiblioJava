@@ -127,7 +127,7 @@ public class Ksiazka
 	{
 		return RokTermin;
 	}
-	public boolean GetCzyPoTerminie()
+	public  boolean GetCzyPoTerminie()
 	{
 		return CzyPoTerminie;
 	}
@@ -140,5 +140,8 @@ public class Ksiazka
 	}
 
 
-
+public static void ShowDane(Ksiazka DoOdczytania)
+{
+System.out.println(DoOdczytania.GetIdKsiazki() + DoOdczytania.GetNazwaKsiazki());
+}
 }

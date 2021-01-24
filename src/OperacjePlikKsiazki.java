@@ -1,8 +1,9 @@
+import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-public class OperacjePlik{
+public class OperacjePlikKsiazki{
 
 
 
@@ -33,16 +34,17 @@ public class OperacjePlik{
 
     }
 
-    public static Ksiazka Odczytywanie(RandomAccessFile baza)  {
+    public static Ksiazka OdczytywanieKsiazek(RandomAccessFile baza) throws IOException
+    {
 
 
         Ksiazka OdczytywanaKsiazka=null;
         try {
             OdczytywanaKsiazka = new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean(), baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean());
             //baza.seek(364);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Błąd odczytywania");
+        } catch (EOFException ex)
+        {
+            //System.out.println("Błąd odczytywania");
         }
 
 
@@ -51,22 +53,10 @@ public class OperacjePlik{
     }
 
 
-    public static RandomAccessFile OtwarciePlik() throws FileNotFoundException {
+    public static RandomAccessFile OtwarciePlikKsiazki() throws FileNotFoundException {
         RandomAccessFile baza =new RandomAccessFile("Books.bin","r");
         return baza;
     }
-
-    public static void ZamknieciePlik(RandomAccessFile plik)
-    {
-
-    }
-
-    public static long DlugoscPliku(RandomAccessFile Plik) throws IOException {
-        return Plik.length();
-    }
-
-
-
 
 
 }
