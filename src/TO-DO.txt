@@ -1,0 +1,11 @@
+Dominik:
+
+Tworzenie obiektu Książka
+Wpisywanie int,char,string
+Wyświetlanie wszystkich książek
+MENU
+
+Adrian
+
+Zapis do pliku binarnego
+Odczyt z pliku binarnego
