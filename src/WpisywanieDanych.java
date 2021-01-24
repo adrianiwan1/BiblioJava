@@ -27,7 +27,7 @@ public class WpisywanieDanych
 	}
 	//
 	//
-	public static String WpisanieSlowa()// Pozwala na wpisanie Slowa do String
+	public static String WpisanieSlowa()// Pozwala na wpisanie slowa do String
 	{
 		boolean OK; // Wszystkie dane inicjowane sa jako puste
 		String Slowo = "Nie Podano";
