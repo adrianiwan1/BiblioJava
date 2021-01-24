@@ -142,6 +142,6 @@ public class Ksiazka
 
 public static void ShowDane(Ksiazka DoOdczytania)
 {
-System.out.println(DoOdczytania.GetIdKsiazki() + DoOdczytania.GetNazwaKsiazki());
+System.out.println(DoOdczytania.GetIdKsiazki() + DoOdczytania.GetNazwaKsiazki() +  DoOdczytania.GetAutor() + DoOdczytania.GetGatunek() + DoOdczytania.GetGatunek() );
 }
 }

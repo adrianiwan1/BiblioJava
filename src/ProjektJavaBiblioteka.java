@@ -13,7 +13,6 @@ public class ProjektJavaBiblioteka {
 
 
 		int i =0;
-
 		try
 		{
 			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
