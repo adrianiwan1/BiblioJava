@@ -1,29 +1,26 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Ksiazka
 {
 	//Inicjacja wszystkich potrzebnych zmiennych
 
 	//DDla obiektu Ksiazka
-	private int IdKsiazki;
-	private String NazwaKsiazki;
-	private String Autor;
-	private String Gatunek;
-	private String DataWydania;
-	private String Wyporzyczajacy;
+	private int IdKsiazki=12;
+	private String NazwaKsiazki="asaaaa";
+	private String Autor="bbbbbb";
+	private String Gatunek="zbcd";
+	private String DataWydania="12.23.2131";
+	private String Wyporzyczajacy="ghufgbf";
 
 	//Pozostale
-	private int DniWyporzyczenia;
-	private int MiesiaceWyporzyczenia;
-	private int RokWyporzyczenia;
+	private int DniWyporzyczenia=0;
+	private int MiesiaceWyporzyczenia=0;
+	private int RokWyporzyczenia=0;
 	private boolean CzyWyporzyczona = false;
-	private int DniTermin;
-	private int MiesiaceTermin;
-	private int RokTermin;
+	private int DniTermin=0;
+	private int MiesiaceTermin=0;
+	private int RokTermin=0;
 	private boolean CzyPoTerminie = false;
 	//Konstruktor
-	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy)
+	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,int DniWyporzyczenia,int MiesiaceWyporzyczenia,int RokWyporzyczenia,boolean CzyWyporzyczona,int DniTermin,int MiesiaceTermin,int RokTermin,boolean CzyPoTerminie)
 	{
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
@@ -31,6 +28,15 @@ public class Ksiazka
 		this.Gatunek=Gatunek;
 		this.DataWydania=DataWydania;
 		this.Wyporzyczajacy=Wyporzyczajacy;
+		this.DniWyporzyczenia=DniWyporzyczenia;
+		this.MiesiaceWyporzyczenia=MiesiaceWyporzyczenia;
+		this.RokWyporzyczenia=RokWyporzyczenia;
+		this.CzyWyporzyczona=CzyWyporzyczona;
+		this.DniTermin=DniTermin;
+		this.MiesiaceTermin=MiesiaceTermin;
+		this.RokTermin=RokTermin;
+		this.CzyPoTerminie=CzyPoTerminie;
+
 	}
 	public static Ksiazka TworzenieKsiazka() // Metoda pozwalajaca stworzyc Obiekt Ksiazke z wpisanie wszystkich danych
 	{
@@ -50,10 +56,20 @@ public class Ksiazka
 		Gatunek = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = WpisywanieDanych.WpisanieSlowa();
-		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy); // Tworzenie Ksiazki za pomoca Konstruktora
+		int DniWyporzyczenia=0;
+		int MiesiaceWyporzyczenia=0;
+		int RokWyporzyczenia=0;
+		boolean CzyWyporzyczona=false;
+		int DniTermin=0;
+		int MiesiaceTermin=0;
+		int RokTermin=0;
+		boolean CzyPoTerminie=false;
+
+		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy,DniWyporzyczenia,MiesiaceWyporzyczenia,RokWyporzyczenia,CzyWyporzyczona,DniTermin,MiesiaceTermin,RokTermin,CzyPoTerminie); // Tworzenie Ksiazki za pomoca Konstruktora
 
 		return ObiektKsiazka; //Zwraca obiekt ksiazka.
 	}
+
 	//Getery dla innych klas
 
 	public int GetIdKsiazki()
@@ -115,6 +131,14 @@ public class Ksiazka
 	{
 		return CzyPoTerminie;
 	}
+
+	//Setery dla innych Klas
+
+	public void SetIdKsiazki(int IdKsiazki)
+	{
+		 this.IdKsiazki=IdKsiazki;
+	}
+
 
 
 }
