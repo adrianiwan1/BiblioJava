@@ -6,7 +6,7 @@ public class OperacjePlik{
 
 
 
-    public void Zapisywanie(Ksiazka NowaKsiazka) throws IOException {
+    public static void Zapisywanie(Ksiazka NowaKsiazka) throws IOException {
         RandomAccessFile baza =new RandomAccessFile("Books.bin","rw");
 
         baza.seek(baza.length());
@@ -33,15 +33,36 @@ public class OperacjePlik{
 
     }
 
-    public Ksiazka Odczytywanie() throws IOException {
-        RandomAccessFile baza =new RandomAccessFile("Books.bin","rw");
-        baza.seek(0);
+    public static Ksiazka Odczytywanie(RandomAccessFile baza)  {
 
-        Ksiazka OdczytywanaKsiazka= new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean(), baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean());
-        baza.seek(364);
+
+        Ksiazka OdczytywanaKsiazka=null;
+        try {
+            OdczytywanaKsiazka = new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean(), baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean());
+            //baza.seek(364);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Błąd odczytywania");
+        }
+
 
         return OdczytywanaKsiazka;
 
+    }
+
+
+    public static RandomAccessFile OtwarciePlik() throws FileNotFoundException {
+        RandomAccessFile baza =new RandomAccessFile("Books.bin","r");
+        return baza;
+    }
+
+    public static void ZamknieciePlik(RandomAccessFile plik)
+    {
+
+    }
+
+    public static long DlugoscPliku(RandomAccessFile Plik) throws IOException {
+        return Plik.length();
     }
 
 

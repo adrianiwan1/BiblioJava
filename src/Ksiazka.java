@@ -38,7 +38,7 @@ public class Ksiazka
 		this.CzyPoTerminie=CzyPoTerminie;
 
 	}
-	public  Ksiazka TworzenieKsiazka() // Metoda pozwalajaca stworzyc Obiekt Ksiazke z wpisanie wszystkich danych
+	public static Ksiazka TworzenieKsiazka() // Metoda pozwalajaca stworzyc Obiekt Ksiazke z wpisanie wszystkich danych
 	{
 		int IdKsiazki;
 		String NazwaKsiazki;
@@ -56,6 +56,15 @@ public class Ksiazka
 		Gatunek = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = WpisywanieDanych.WpisanieSlowa();
+		int DniWyporzyczenia=0;
+		int MiesiaceWyporzyczenia=0;
+		int RokWyporzyczenia=0;
+		boolean CzyWyporzyczona=false;
+		int DniTermin=0;
+		int MiesiaceTermin=0;
+		int RokTermin=0;
+		boolean CzyPoTerminie=false;
+
 		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy,DniWyporzyczenia,MiesiaceWyporzyczenia,RokWyporzyczenia,CzyWyporzyczona,DniTermin,MiesiaceTermin,RokTermin,CzyPoTerminie); // Tworzenie Ksiazki za pomoca Konstruktora
 
 		return ObiektKsiazka; //Zwraca obiekt ksiazka.
