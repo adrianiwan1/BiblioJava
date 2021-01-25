@@ -21,6 +21,7 @@ public class Menu
 				}
 				i++;
 			} while(i < 200);
+			PlikOdczytany.close();
 		} catch(IOException e)
 		{
 			e.printStackTrace();

@@ -32,9 +32,9 @@ public class OperacjePlikKsiazki{
         baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataTermin()));
         baza.writeBoolean(NowaKsiazka.GetCzyPoTerminie()); //1
 
-        System.out.println("ZApis udany");
+        System.out.println("Zapis udany");
 
-
+        baza.close();
     }
 
     public static Ksiazka OdczytywanieKsiazek(RandomAccessFile baza) throws IOException

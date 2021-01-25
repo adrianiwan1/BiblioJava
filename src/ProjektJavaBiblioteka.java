@@ -14,13 +14,6 @@ public class ProjektJavaBiblioteka
 
 	public static void main(String[] args)
 	{
-
-
-		System.out.println("Wszystkie Ksiazki");
-		Menu.WpisywanieKsiazek();
-		System.out.println("Wyszukiwane");
-		Wyszukiwanie.WyszukiwanieAutora();
-
 	}
 }
 

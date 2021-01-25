@@ -43,6 +43,45 @@ public class Wyszukiwanie
 			System.out.println("Nie znaleziono ksiazek z podanego autora.");
 			}
 	}
+	public static void WyszukiwanieID()
+	{
+		int i = 0;
+		int SzukanyID = 0;
+		int Znalezione = 0;
+
+		try
+		{
+			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+			System.out.println("Wpisz autora ktorego ksiaz chcesz znalezc");
+			SzukanyID = WpisywanieDanych.WpisanieLiczby();
+
+			do
+			{
+				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
+				if(OdczytaneDane != null)
+				{
+					int OdczytaneID = OdczytaneDane.GetIdKsiazki();
+					if(SzukanyID == OdczytaneID)
+					{
+						System.out.println(OdczytaneDane.ShowDane());
+						Znalezione++;
+					}
+				} else
+				{
+					i = 300;
+				}
+				i++;
+			} while(i < 200);
+			PlikOdczytany.close();
+		} catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		if(Znalezione == 0)
+		{
+			System.out.println("Nie znaleziono ksiazek z podanego autora.");
+		}
+	}
 
 
 
