@@ -3,7 +3,7 @@ import java.io.RandomAccessFile;
 
 public class Menu
 {
-	public void WpisywanieKsiazek()
+	public static void WpisywanieKsiazek()
 	{
 		int i = 0;
 		try

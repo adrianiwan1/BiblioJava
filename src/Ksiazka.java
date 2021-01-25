@@ -89,7 +89,10 @@ public class Ksiazka
 			{
 				System.out.println("Podaj prosze termin wyporzyczenia.");
 				DataTermin = Data.WpisanieDaty();
-			}
+			}else
+				{
+					DataTermin=Data.TerminOddania(DataWyporzyczenia);
+				}
 
 		}
 
@@ -191,19 +194,19 @@ public class Ksiazka
 		String TekstWyswietl;
 		if(GetCzyWyporzyczona() == true)
 		{
-			if(GetCzyPoTerminie() != true)
+			if(GetCzyPoTerminie() == true)
 			{
-				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\\tt" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
-						  + GetDataWyporzyczenia() + " Tak " + GetDataTermin());
+				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t" + " Tak " +
+						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + " Tak " + "\t\t\t" + GetDataTermin());
 			}
 			else{
-				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\\tt" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
-						  + GetDataWyporzyczenia() + " Tak " + GetDataTermin());
+				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t" + " Tak " +
+				"\t\t\t"+ GetDataWyporzyczenia() +"\t\t\t" + " Nie " + "\t\t\t" + GetDataTermin());
 			}
 		}
 		else
 		{
-			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetGatunek() + GetDataWydania());
+			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetGatunek() + GetDataWydania());
 		}
 	}
 //

@@ -11,5 +11,23 @@ import java.text.ParseException;
 public class ProjektJavaBiblioteka
 {
 
+
+	public static void main(String[] args)
+	{
+		/*
+		Ksiazka NowaKsiazka = Ksiazka.TworzenieKsiazka();
+		try
+		{
+			OperacjePlikKsiazki.ZapisywanieKsiazek(NowaKsiazka);
+		} catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		 */
+
+
+		Menu.WpisywanieKsiazek();
+	}
 }
 

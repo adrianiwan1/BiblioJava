@@ -13,15 +13,15 @@ public class Data
 		int Year;
 		int Day;
 		boolean OK = true;
-		System.out.println("Proszę wpisać rok wydania");
+		System.out.println("Proszę podac rok.");
 		Rok = WpisywanieDanych.WpisanieLiczby();
 		do
 		{
-			System.out.println("Proszę wpisać miesiąc wydania. 1-12");
+			System.out.println("Proszę podac miesiąc. 1-12");
 			Miesiac = (WpisywanieDanych.WpisanieLiczby() - 1);
 		}while (Miesiac < 0 || Miesiac > 11 );
 		do{
-			System.out.println("Proszę wpisać dzień wydania.");
+			System.out.println("Proszę podac dzień.");
 			Dzien = WpisywanieDanych.WpisanieLiczby();
 			Calendar Kalendarz = new GregorianCalendar(Rok,Miesiac,Dzien); //rok , miesiac , dzien
 			Day = Kalendarz.get(Calendar.DAY_OF_MONTH);
@@ -31,7 +31,10 @@ public class Data
 			{
 				System.out.println("Podano zbyt duza ilosc dni do podanego miesiaca.\n");
 				OK = false;
-			}
+			}else
+				{
+					OK = true;
+				}
 		}while(OK != true);
 		System.out.println(Day+"-"+(Month+1)+"-"+Year);
 		String Data = (Day+"-"+(Month+1)+"-"+Year);
