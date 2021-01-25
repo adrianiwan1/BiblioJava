@@ -76,7 +76,6 @@ public class WpisywanieDanych
 		boolean Wybor = false; // Boolean potrzebny do wpisania w return
 		do
 		{
-			System.out.println("\nCzy Chcesz sprobowac ponownie? Tak/Nie");
 			Scanner WpisanyWybor = new Scanner(System.in); // Nowy Scaner
 			String WpisanyWyborString = WpisanyWybor.nextLine().toLowerCase(); // Zamiana na male slowo wyboru
 			switch (WpisanyWyborString)

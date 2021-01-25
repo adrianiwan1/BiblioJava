@@ -46,6 +46,14 @@ public class Ksiazka
 		String Gatunek;
 		String DataWydania;
 		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce
+		boolean CzyWyporzyczona;
+		int DniWyporzyczenia=0;
+		int MiesiaceWyporzyczenia=0;
+		int RokWyporzyczenia=0;
+		int DniTermin=0;
+		int MiesiaceTermin=0;
+		int RokTermin=0;
+		boolean CzyPoTerminie=false;
 		System.out.println("Podaj prosze ID.");
 		IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 		System.out.println("Podaj prosze nazwie ksiazki.");
@@ -56,15 +64,10 @@ public class Ksiazka
 		Gatunek = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = WpisywanieDanych.WpisanieSlowa();
+		System.out.println("Czy ksiazka jest juz wyporzyczona?");
 
-		int DniWyporzyczenia=0;
-		int MiesiaceWyporzyczenia=0;
-		int RokWyporzyczenia=0;
-		boolean CzyWyporzyczona=false;
-		int DniTermin=0;
-		int MiesiaceTermin=0;
-		int RokTermin=0;
-		boolean CzyPoTerminie=false;
+
+
 
 		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy,DniWyporzyczenia,MiesiaceWyporzyczenia,RokWyporzyczenia,CzyWyporzyczona,DniTermin,MiesiaceTermin,RokTermin,CzyPoTerminie); // Tworzenie Ksiazki za pomoca Konstruktora
 
