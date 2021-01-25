@@ -1,3 +1,7 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
 public class Ksiazka
 {
 	//Inicjacja wszystkich potrzebnych zmiennych
@@ -158,7 +162,7 @@ public class Ksiazka
 	//public static boolean CzyPoTerminie()
 	//{
 
-	//}
+	// }
 
 
 	// Funkcja pokazujaca wszystkei dane
@@ -187,5 +191,27 @@ public class Ksiazka
 		{
 			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetGatunek() + GetDataWydania());
 		}
+	}
+
+	public static void WpisanieDatyWydania()
+	{
+		System.out.println("Proszę wpisać rok wydania");
+		int rok = WpisywanieDanych.WpisanieLiczby();
+		System.out.println("Proszę wpisać miesiąc wydania");
+		int miesiac = WpisywanieDanych.WpisanieLiczby();
+
+		if( miesiac == 2)
+		{
+			System.out.println("Proszę wpisać dzień wydania");
+			int dzien = WpisywanieDanych.WpisanieLiczby();
+
+		}
+
+		Calendar Kalendarz = new GregorianCalendar(rok,miesiac,dzien); //rok , miesiac , dzien
+		int day = Kalendarz.get(Calendar.DAY_OF_MONTH);
+		int month = Kalendarz.get(Calendar.MONTH);
+		int year = Kalendarz.get(Calendar.YEAR);
+		System.out.println(day+"-"+month+"-"+year);
+		System.out.println(month);
 	}
 }
