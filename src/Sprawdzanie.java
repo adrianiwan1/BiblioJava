@@ -65,7 +65,7 @@ public class Sprawdzanie
 	{
 		int i = 0;
 		int Znalezione = 0;
-		boolean Istnieje = false;
+		boolean Istnieje;
 
 		try
 		{
@@ -96,7 +96,7 @@ public class Sprawdzanie
 			return Istnieje = false;
 		}else
 			{
-			return Istnieje == true;
+			return Istnieje = true;
 			}
 	}
 }

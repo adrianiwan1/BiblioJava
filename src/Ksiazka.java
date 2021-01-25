@@ -65,11 +65,11 @@ public class Ksiazka
 		{
 			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 			OK=Sprawdzanie.CzyPodaneIdIstnieje(IdKsiazki);
-			if(OK != true )
+			if(OK != false )
 			{
 			System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
 			}
-		}while(OK != true);
+		}while(OK != false);
 		System.out.println("Podaj prosze nazwie ksiazki.");
 		NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze autora.");
@@ -220,7 +220,7 @@ public class Ksiazka
 		}
 		else
 		{
-			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetGatunek() + GetDataWydania());
+			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
 		}
 	}
 //
