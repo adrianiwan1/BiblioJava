@@ -36,7 +36,7 @@ public class WpisywanieDanych
 
 				OK = true;
 				Scanner Wprowadzenie_Slowa = new Scanner(System.in); // Nowy Scaner
-				Slowo = Wprowadzenie_Slowa.nextLine(); // Wpisanie slowa
+				Slowo = Wprowadzenie_Slowa.nextLine().toLowerCase();; // Wpisanie slowa
 				if(Slowo == null)
 				{
 				System.out.println("Podane slowo nie moze byc puste");

@@ -59,14 +59,28 @@ public class Ksiazka
 		String DataTermin = null;
 		boolean CzyPoTerminie=false;
 		boolean CzyWpisacRecznie=true;
+		boolean OK = true;
 		System.out.println("Podaj prosze ID.");
-		IdKsiazki = WpisywanieDanych.WpisanieLiczby();
+		do
+		{
+			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
+			OK=Sprawdzanie.CzyPodaneIdIstnieje(IdKsiazki);
+			if(OK != true )
+			{
+			System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
+			}
+		}while(OK != true);
 		System.out.println("Podaj prosze nazwie ksiazki.");
 		NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze autora.");
 		Autor = WpisywanieDanych.WpisanieSlowa();
+		DostepneGatunki();
 		System.out.println("Podaj prosze gatunek ksiazki.");
-		Gatunek = WpisywanieDanych.WpisanieSlowa();
+		do
+		{
+			Gatunek = WpisywanieDanych.WpisanieSlowa();
+			OK = Sprawdzanie.SprawdzanieGatunku(Gatunek);
+		}while(OK != true );
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = Data.WpisanieDaty();
 		System.out.println("Czy ksiazka jest juz wyporzyczona? Tak/Nie");
@@ -210,5 +224,8 @@ public class Ksiazka
 		}
 	}
 //
-
+	public static void DostepneGatunki()
+	{
+		System.out.println("Dostepne gatunki: \nsci-fi , drama , literatura faktu , horror , biografia , romans , komedia , kryminal , thriller , naukowe , poradniki , przygodowe.");
+	}
 }
