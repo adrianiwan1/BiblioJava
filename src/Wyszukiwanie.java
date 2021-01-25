@@ -334,43 +334,8 @@ public class Wyszukiwanie
 			System.out.println("Nie znaleziono.");
 		}
 	}
-	public static void WyszukiwanieArrayListaID(ArrayList<Integer> ListaID) // Wyszukiwanie inta - > ID
-	{
-		int i = 0;
-		int j = 0;
-		int Dlugosc = ListaID.size();
-		int Porownywana = 0;
-		do
-		{
-			i = 0;
-			try
-			{
-				RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-				do
-				{
-					Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-					if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-					{
-						int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
-						Porownywana = ListaID.get(j);
-						if(Porownywana == Odczyt) // Porownanie odczytu.
-						{
-							System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						}
-					} else
-						{
-							i = 9002; // Zakonczenie petli jesli null
-						}
-					i++;
-				} while(i < 9000); // Maksymalna wartosc petli
-				PlikOdczytany.close(); // Zamkniecie odczytu
-			} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-			{
-				e.printStackTrace();
-			}
-			j++;
-		}while((Dlugosc) != j);
-	}
+	//
+	//
 	public  static String BezSpacji(String Slowo)
 	{
 		String GotoweSlowo = null;

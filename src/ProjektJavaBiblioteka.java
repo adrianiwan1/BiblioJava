@@ -33,7 +33,7 @@ public class ProjektJavaBiblioteka
 		 */
 
 
-			Wyszukiwanie.WyszukiwanieArrayListaID(Sortowanie.PoId());
+			Sortowanie.WyswietlaniePosortowaneID(Sortowanie.PoId());
 
 	}
 }
