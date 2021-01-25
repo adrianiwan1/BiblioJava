@@ -16,18 +16,22 @@ public class ProjektJavaBiblioteka
 	{
 
 
-		for(int i=0; i<2; i++)
+		Menu.WypisywanieKsiazek();
+		OperacjePlikKsiazki.UsuwanieKsiazki();
+		Menu.WypisywanieKsiazek();
+		/*for(int i=0; i<4; i++)
 		{
 			Ksiazka Nowa = Ksiazka.TworzenieKsiazka();
 			try
 			{
-				OperacjePlikKsiazki.ZapisywanieKsiazek(Nowa);
+				OperacjePlikKsiazki.ZapisywanieKsiazek(Nowa,"Books.bin");
 			} catch(IOException e)
 			{
-				e.printStackTrace();
+
 			}
 		}
-		Menu.WypisywanieKsiazek();
+		 */
+
 	}
 }
 

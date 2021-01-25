@@ -25,6 +25,7 @@ public class Menu
 			PlikOdczytany.close();
 		} catch(IOException e )
 		{
+
 		}
 	}public static void WypisywanieUrzytkownikow()
 	{

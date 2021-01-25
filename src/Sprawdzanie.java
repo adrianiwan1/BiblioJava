@@ -99,4 +99,6 @@ public class Sprawdzanie
 			return Istnieje = true;
 			}
 	}
+
+
 }
