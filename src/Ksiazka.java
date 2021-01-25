@@ -56,6 +56,7 @@ public class Ksiazka
 		Gatunek = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = WpisywanieDanych.WpisanieSlowa();
+
 		int DniWyporzyczenia=0;
 		int MiesiaceWyporzyczenia=0;
 		int RokWyporzyczenia=0;
@@ -132,7 +133,7 @@ public class Ksiazka
 		return CzyPoTerminie;
 	}
 
-	//Setery dla innych Klas l
+	//Setery dla innych Klas
 
 
 	// Funkcja pokazujaca wszystkei dane
