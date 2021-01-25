@@ -19,14 +19,14 @@ public class Ksiazka
 	//private int MiesiaceWyporzyczenia;
 	//private int RokWyporzyczenia;
 	private String DataWyporzyczenia;
-	private boolean CzyWyporzyczona;
+	private String CzyWyporzyczona;
 	//private int DniTermin;
 	//private int MiesiaceTermin;
 	//private int RokTermin;
 	private String DataTermin;
-	private boolean CzyPoTerminie;
+	private String CzyPoTerminie;
 	//Konstruktor
-	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,String DataWyporzyczenia,boolean CzyWyporzyczona,String DataTermin,boolean CzyPoTerminie)
+	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie)
 	{
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
@@ -54,10 +54,10 @@ public class Ksiazka
 		String Gatunek;
 		String DataWydania;
 		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce.
-		boolean CzyWyporzyczona = false;
+		String CzyWyporzyczona = null;
 		String DataWyporzyczenia = null;
 		String DataTermin = null;
-		boolean CzyPoTerminie=false;
+		String CzyPoTerminie=null;
 		boolean CzyWpisacRecznie=true;
 		boolean OK = true;
 		System.out.println("Podaj prosze ID.");
@@ -84,8 +84,8 @@ public class Ksiazka
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = Data.WpisanieDaty();
 		System.out.println("Czy ksiazka jest juz wyporzyczona? Tak/Nie");
-		CzyWyporzyczona = WpisywanieDanych.WpisanieBool();
-		if (CzyWyporzyczona != false)
+		CzyWyporzyczona = WpisywanieDanych.WpisanieTakLubNie();
+		if (CzyWyporzyczona.equals("tak"))
 		{
 			System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
 			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
@@ -162,7 +162,7 @@ public class Ksiazka
 		return DataWyporzyczenia;
 	}
 
-	public boolean GetCzyWyporzyczona()
+	public String GetCzyWyporzyczona()
 	{
 		return CzyWyporzyczona;
 	}
@@ -185,7 +185,7 @@ public class Ksiazka
 	{
 		return DataTermin;
 	}
-	public  boolean GetCzyPoTerminie()
+	public  String GetCzyPoTerminie()
 	{
 		return CzyPoTerminie;
 	}
@@ -199,16 +199,12 @@ public class Ksiazka
 
 
 	// Funkcja pokazujaca wszystkei dane
-	public static void WszystkieDane()
-	{
-		System.out.println("");
-	}
 	public  String ShowDane()
 	{
 		String TekstWyswietl;
-		if(GetCzyWyporzyczona() == true)
+		if(GetCzyWyporzyczona().equals("tak"))
 		{
-			if(GetCzyPoTerminie() == true)
+			if(GetCzyPoTerminie().equals("tak"))
 			{
 				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t" + " Tak " +
 						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + " Tak " + "\t\t\t" + GetDataTermin());

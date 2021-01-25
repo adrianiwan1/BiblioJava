@@ -31,10 +31,7 @@ public class ProjektJavaBiblioteka
 		}
 
 		 */
-
-
-			Sortowanie.WyswietlaniePosortowaneID(Sortowanie.PoId());
-
+		SortowanieKsiazka.WyswietlaniePosortowaneAutor(SortowanieKsiazka.PoAutor());
 	}
 }
 
