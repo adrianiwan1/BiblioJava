@@ -38,32 +38,4 @@ public class Sortowanie {
         return ListaId;
 
     }
-
-    public static void WypisywanieKsiazekPoId(ArrayList listaId) {
-
-
-        int i = 0;
-        for (int j = 0; j <= listaId.size(); j++) {
-            i = (int) listaId.get(j);
-
-
-            try {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-                do {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                    if (OdczytaneDane != null) {
-                        System.out.println(OdczytaneDane.ShowDane());
-                    } else {
-                        i = 201;
-                    }
-                    i++;
-                } while (i < 200);
-                PlikOdczytany.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-    }
 }
