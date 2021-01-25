@@ -134,14 +134,32 @@ public class Ksiazka
 
 	//Setery dla innych Klas
 
-	public void SetIdKsiazki(int IdKsiazki)
+
+	// Funkcja pokazujaca wszystkei dane
+	public static void WszystkieDane()
 	{
-		 this.IdKsiazki=IdKsiazki;
+		System.out.println("");
 	}
-
-
-public static void ShowDane(Ksiazka DoOdczytania)
-{
-System.out.println(DoOdczytania.GetIdKsiazki() + DoOdczytania.GetNazwaKsiazki() +  DoOdczytania.GetAutor() + DoOdczytania.GetGatunek() + DoOdczytania.GetGatunek() );
-}
+	public  String ShowDane()
+	{
+		String TekstWyswietl;
+		if(GetCzyWyporzyczona() == true)
+		{
+			if(GetCzyPoTerminie() != true)
+			{
+				return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
+						  + GetDniWyporzyczenia() + GetMiesiaceWyporzyczenia() + GetRokWyporzyczenia() + " Nie " + GetDniTermin() + GetMiesiaceTermin()
+						  + GetRokTermin());
+			}
+			else{
+				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\\tt" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
+						  + GetDniWyporzyczenia() + GetMiesiaceWyporzyczenia() + GetRokWyporzyczenia() + " Tak " + GetDniTermin() + GetMiesiaceTermin()
+						  + GetRokTermin());
+			}
+		}
+		else
+		{
+			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetGatunek() + GetDataWydania());
+		}
+	}
 }

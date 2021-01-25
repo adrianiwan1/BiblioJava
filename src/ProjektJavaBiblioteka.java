@@ -20,7 +20,7 @@ public class ProjektJavaBiblioteka {
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
 				if(OdczytaneDane != null) {
-				System.out.println(OdczytaneDane.GetNazwaKsiazki());
+				System.out.println(OdczytaneDane.ShowDane());
 				}else
 				{
 				 i = 4;
