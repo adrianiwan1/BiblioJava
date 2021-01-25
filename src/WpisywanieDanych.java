@@ -60,7 +60,7 @@ public class WpisywanieDanych
 				OK = true;
 				Scanner Wprowadzenie_Stringu = new Scanner(System.in); // Nowy Scaner
 				Slowo = Wprowadzenie_Stringu.nextLine(); // Wpisanie Slowa
-				Pierwszy_Char = Slowo.charAt(0); // Pobranie z Slowa pierwszy Symbol
+				Pierwszy_Char = Slowo.charAt(0); // Pobranie z Slowa pierwszy Symbol.
 				if(Slowo == null || Slowo == "" || Slowo == "	")
 				{
 					System.out.println("Podane slowo nie moze byc puste");

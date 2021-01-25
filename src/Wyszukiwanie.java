@@ -288,7 +288,7 @@ public class Wyszukiwanie
 		{
 			e.printStackTrace();
 		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
+		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci.
 		{
 			System.out.println("Nie znaleziono.");
 		}

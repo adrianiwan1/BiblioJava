@@ -75,7 +75,7 @@ public class Sprawdzanie
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
 				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
 				{
-					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int.
 					if(PodaneID == Odczyt) // Porownanie odczytu.
 					{
 						Znalezione++;
