@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class Ksiazka
+public class Ksiazka implements Serializable
 {
 	//Inicjacja wszystkich potrzebnych zmiennych
 
@@ -195,17 +196,21 @@ public class Ksiazka
 //
 	public static void WpisanieDatyWydania()
 	{
+
+
+		int dzien=0;
 		System.out.println("Proszę wpisać rok wydania");
 		int rok = WpisywanieDanych.WpisanieLiczby();
 		System.out.println("Proszę wpisać miesiąc wydania");
 		int miesiac = WpisywanieDanych.WpisanieLiczby();
 
-		if( miesiac == 2)
-		{
+		if( miesiac == 2) {
 			System.out.println("Proszę wpisać dzień wydania");
-			int dzien = WpisywanieDanych.WpisanieLiczby();
-
+			 dzien = WpisywanieDanych.WpisanieLiczby();
 		}
+
+
+
 
 		Calendar Kalendarz = new GregorianCalendar(rok,miesiac,dzien); //rok , miesiac , dzien
 		int day = Kalendarz.get(Calendar.DAY_OF_MONTH);
@@ -213,5 +218,11 @@ public class Ksiazka
 		int year = Kalendarz.get(Calendar.YEAR);
 		System.out.println(day+"-"+month+"-"+year);
 		System.out.println(month);
+	}
+
+	public String toString()
+	{
+		String wyswietlanie = "Id Ksiazki: "+IdKsiazki+", Autor: "+Autor;
+		return wyswietlanie;
 	}
 }

@@ -1,14 +1,14 @@
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 
 public class Menu
 {
-	public void WpisywanieKsiazek()
+
+	public static void WpisywanieKsiazek()
 	{
 		int i = 0;
 		try
 		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+			ObjectInputStream PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
@@ -21,9 +21,11 @@ public class Menu
 				}
 				i++;
 			} while(i < 200);
-		} catch(IOException e)
+		} catch(IOException| ClassNotFoundException e)
 		{
 			e.printStackTrace();
 		}
+
+
 	}
 }
