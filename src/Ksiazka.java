@@ -46,7 +46,7 @@ public class Ksiazka
 		String Gatunek;
 		String DataWydania;
 		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce
-		boolean CzyWyporzyczona;
+		boolean CzyWyporzyczona = false;
 		int DniWyporzyczenia=0;
 		int MiesiaceWyporzyczenia=0;
 		int RokWyporzyczenia=0;
@@ -64,7 +64,24 @@ public class Ksiazka
 		Gatunek = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = WpisywanieDanych.WpisanieSlowa();
-		System.out.println("Czy ksiazka jest juz wyporzyczona?");
+		System.out.println("Czy ksiazka jest juz wyporzyczona? Tak/Nie");
+		CzyWyporzyczona = WpisywanieDanych.WpisanieBool();
+		if (CzyWyporzyczona != false)
+		{
+			System.out.println("Podaj prosze dzien wyporzyczenia.");
+			DniWyporzyczenia = WpisywanieDanych.WpisanieLiczby();
+			System.out.println("Podaj prosze miesiac wyporzyczenia.");
+			MiesiaceWyporzyczenia = WpisywanieDanych.WpisanieLiczby();
+			System.out.println("Podaj prosze rok wyporzyczenia.");
+			RokWyporzyczenia = WpisywanieDanych.WpisanieLiczby();
+			DniTermin = DniWyporzyczenia;
+			MiesiaceTermin = MiesiaceWyporzyczenia + 1;
+			if (MiesiaceTermin == 13)
+			{
+			MiesiaceTermin = 1;
+			}
+			RokTermin = RokWyporzyczenia;
+		}
 
 
 
@@ -137,6 +154,11 @@ public class Ksiazka
 	}
 
 	//Setery dla innych Klas
+
+	//public static boolean CzyPoTerminie()
+	//{
+
+	//}
 
 
 	// Funkcja pokazujaca wszystkei dane

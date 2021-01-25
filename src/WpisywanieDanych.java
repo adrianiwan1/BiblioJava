@@ -70,7 +70,7 @@ public class WpisywanieDanych
 		return Pierwszy_Char; // Zwraca Char
 	}
 
-	public static boolean WpisanieBool() // Pozwala na wpisanie Bool z stringa
+	public static boolean WpisanieBool() // Pozwala na wpisanie Bool z stringa.
 	{
 		int Liczba_Wybor = 1; // Liczba potrzebna na obsluge petli
 		boolean Wybor = false; // Boolean potrzebny do wpisania w return
