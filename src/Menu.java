@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -22,9 +23,8 @@ public class Menu
 				i++;
 			} while(i < 200);
 			PlikOdczytany.close();
-		} catch(IOException e)
+		} catch(IOException e )
 		{
-			e.printStackTrace();
 		}
 	}public static void WypisywanieUrzytkownikow()
 	{

@@ -97,7 +97,7 @@ public class Ksiazka
 				{
 					DataWyporzyczenia = Data.ObecnaData();
 				}
-			System.out.println("Czy chcesz wpisac recznie date oddania.  Tak/Nie");
+			System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
 			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 			if(CzyWpisacRecznie == true)
 			{
@@ -206,12 +206,12 @@ public class Ksiazka
 		{
 			if(GetCzyPoTerminie().equals("tak"))
 			{
-				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t" + " Tak " +
-						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + " Tak " + "\t\t\t" + GetDataTermin());
+				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t" + GetCzyWyporzyczona() +
+						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
 			}
 			else{
-				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t" + " Tak " +
-				"\t\t\t"+ GetDataWyporzyczenia() +"\t\t\t" + " Nie " + "\t\t\t" + GetDataTermin());
+				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t" + GetCzyWyporzyczona() +
+				"\t\t\t"+ GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
 			}
 		}
 		else

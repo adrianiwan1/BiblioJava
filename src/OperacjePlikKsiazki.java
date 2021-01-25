@@ -24,13 +24,13 @@ public class OperacjePlikKsiazki{
         //baza.writeInt(NowaKsiazka.GetMiesiaceWyporzyczenia());
         //baza.writeInt(NowaKsiazka.GetRokWyporzyczenia());
         baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataWyporzyczenia()));
-        baza.writeUTF(String.format("%1$-3s",NowaKsiazka.GetCzyWyporzyczona())); //1
+        baza.writeUTF(String.format("%1$-4s",NowaKsiazka.GetCzyWyporzyczona())); //1
 
         //baza.writeInt(NowaKsiazka.GetDniTermin());
         //baza.writeInt(NowaKsiazka.GetMiesiaceTermin());
         //baza.writeInt(NowaKsiazka.GetRokTermin());
         baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataTermin()));
-        baza.writeUTF(String.format("%1$-3s",NowaKsiazka.GetCzyPoTerminie()));
+        baza.writeUTF(String.format("%1$-4s",NowaKsiazka.GetCzyPoTerminie()));
 
         System.out.println("Zapis udany");
 
