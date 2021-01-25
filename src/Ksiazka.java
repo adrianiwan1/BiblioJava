@@ -193,25 +193,39 @@ public class Ksiazka
 		}
 	}
 //
-	public static void WpisanieDatyWydania()
+
+	public static String WpisanieDaty()
 	{
+		int Miesiac;
+		int Rok;
+		int Dzien;
+		int Month;
+		int Year;
+		int Day;
+		boolean OK = true;
 		System.out.println("Proszę wpisać rok wydania");
-		int rok = WpisywanieDanych.WpisanieLiczby();
-		System.out.println("Proszę wpisać miesiąc wydania");
-		int miesiac = WpisywanieDanych.WpisanieLiczby();
+		Rok = WpisywanieDanych.WpisanieLiczby();
+		do
+			{
+				System.out.println("Proszę wpisać miesiąc wydania. 1-12");
+				Miesiac = (WpisywanieDanych.WpisanieLiczby() - 1);
+			}while (Miesiac < 0 || Miesiac > 11 );
+		do{
+			System.out.println("Proszę wpisać dzień wydania.");
+			Dzien = WpisywanieDanych.WpisanieLiczby();
+			Calendar Kalendarz = new GregorianCalendar(Rok,Miesiac,Dzien); //rok , miesiac , dzien
+			Day = Kalendarz.get(Calendar.DAY_OF_MONTH);
+			Month = Kalendarz.get(Calendar.MONTH);
+			Year = Kalendarz.get(Calendar.YEAR);
+			if (Month != Miesiac)
+				{
+				System.out.println("Podano zbyt duza ilosc dni do podanego miesiaca.\n");
+				OK = false;
+				}
+			}while(OK != true);
+		System.out.println(Day+"-"+(Month+1)+"-"+Year);
+		String Data = (Day+"-"+(Month+1)+"-"+Year);
 
-		if( miesiac == 2)
-		{
-			System.out.println("Proszę wpisać dzień wydania");
-			int dzien = WpisywanieDanych.WpisanieLiczby();
-
-		}
-
-		Calendar Kalendarz = new GregorianCalendar(rok,miesiac,dzien); //rok , miesiac , dzien
-		int day = Kalendarz.get(Calendar.DAY_OF_MONTH);
-		int month = Kalendarz.get(Calendar.MONTH);
-		int year = Kalendarz.get(Calendar.YEAR);
-		System.out.println(day+"-"+month+"-"+year);
-		System.out.println(month);
+		return Data;
 	}
 }

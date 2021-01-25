@@ -19,7 +19,7 @@ public class WpisywanieDanych
 				Liczba = Integer.parseInt(Liczba_String); //Zamiana String do Int
 			} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 			{
-				System.out.println("To nie jest liczba.");
+				System.out.println("To nie jest liczba.Prosze wpisac liczbe");
 				OK = false;
 			}
 		} while(!OK);
@@ -30,19 +30,18 @@ public class WpisywanieDanych
 	public static String WpisanieSlowa()// Pozwala na wpisanie slowa do String
 	{
 		boolean OK; // Wszystkie dane inicjowane sa jako puste
-		String Slowo = "Nie Podano";
+		String Slowo = null;
 		do
 		{
-			try
-			{
+
 				OK = true;
 				Scanner Wprowadzenie_Slowa = new Scanner(System.in); // Nowy Scaner
 				Slowo = Wprowadzenie_Slowa.nextLine(); // Wpisanie slowa
-			} catch(InputMismatchException ex) // Sprawdzenie
-			{
-				System.out.println("Cos poszlo nie tak.");
+				if(Slowo == null)
+				{
+				System.out.println("Podane slowo nie moze byc puste");
 				OK = false;
-			}
+				}
 		} while(!OK);
 		return Slowo; // Zwraca String
 	}
@@ -53,19 +52,25 @@ public class WpisywanieDanych
 		boolean OK; // Wszystkie dane inicjowane sa jako puste
 		String Slowo;
 		char Pierwszy_Char = 0;
+
 		do
 		{
 			try
 			{
 				OK = true;
-				Scanner Wprowadzenie_Stringu= new Scanner(System.in); // Nowy Scaner
+				Scanner Wprowadzenie_Stringu = new Scanner(System.in); // Nowy Scaner
 				Slowo = Wprowadzenie_Stringu.nextLine(); // Wpisanie Slowa
 				Pierwszy_Char = Slowo.charAt(0); // Pobranie z Slowa pierwszy Symbol
-			} catch(InputMismatchException ex) // Sprawdzenie
-			{
-				System.out.println("Cos poszlo nie tak.");
-				OK = false;
-			}
+				if(Slowo == null || Slowo == "" || Slowo == "	")
+				{
+					System.out.println("Podane slowo nie moze byc puste");
+					OK = false;
+				}
+			} catch(InputMismatchException | StringIndexOutOfBoundsException ex) // Sprawdzenie
+				{
+					System.out.println("Podane slowo nie moze byc puste");
+					OK = false;
+				}
 		} while(!OK);
 		return Pierwszy_Char; // Zwraca Char
 	}
