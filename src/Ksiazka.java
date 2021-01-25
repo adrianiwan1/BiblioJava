@@ -55,13 +55,10 @@ public class Ksiazka
 		String DataWydania;
 		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce
 		boolean CzyWyporzyczona = false;
-		int DniWyporzyczenia=0;
-		int MiesiaceWyporzyczenia=0;
-		int RokWyporzyczenia=0;
-		int DniTermin=0;
-		int MiesiaceTermin=0;
-		int RokTermin=0;
+		String DataWyporzyczenia = null;
+		String DataTermin = null;
 		boolean CzyPoTerminie=false;
+		boolean CzyWpisacRecznie=true;
 		System.out.println("Podaj prosze ID.");
 		IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 		System.out.println("Podaj prosze nazwie ksiazki.");
@@ -71,30 +68,32 @@ public class Ksiazka
 		System.out.println("Podaj prosze gatunek ksiazki.");
 		Gatunek = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze date wydania.");
-		DataWydania = WpisywanieDanych.WpisanieSlowa();
+		DataWydania = Data.WpisanieDaty();
 		System.out.println("Czy ksiazka jest juz wyporzyczona? Tak/Nie");
 		CzyWyporzyczona = WpisywanieDanych.WpisanieBool();
 		if (CzyWyporzyczona != false)
 		{
-			System.out.println("Podaj prosze dzien wyporzyczenia.");
-			DniWyporzyczenia = WpisywanieDanych.WpisanieLiczby();
-			System.out.println("Podaj prosze miesiac wyporzyczenia.");
-			MiesiaceWyporzyczenia = WpisywanieDanych.WpisanieLiczby();
-			System.out.println("Podaj prosze rok wyporzyczenia.");
-			RokWyporzyczenia = WpisywanieDanych.WpisanieLiczby();
-			DniTermin = DniWyporzyczenia;
-			MiesiaceTermin = MiesiaceWyporzyczenia + 1;
-			if (MiesiaceTermin == 13)
+			System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
+			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+			if(CzyWpisacRecznie == false)
 			{
-			MiesiaceTermin = 1;
+				System.out.println("Podaj prosze date wyporzyczenia.");
+				DataWyporzyczenia = Data.WpisanieDaty();
+			}else
+				{
+					DataWyporzyczenia = Data.ObecnaData();
+				}
+			System.out.println("Czy chcesz wpisac recznie date oddania.  Tak/Nie");
+			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+			if(CzyWpisacRecznie == true)
+			{
+				System.out.println("Podaj prosze termin wyporzyczenia.");
+				DataTermin = Data.WpisanieDaty();
 			}
-			RokTermin = RokWyporzyczenia;
+
 		}
 
-
-
-
-		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy,DniWyporzyczenia,MiesiaceWyporzyczenia,RokWyporzyczenia,CzyWyporzyczona,DniTermin,MiesiaceTermin,RokTermin,CzyPoTerminie); // Tworzenie Ksiazki za pomoca Konstruktora
+		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie); // Tworzenie Ksiazki za pomoca Konstruktora
 
 		return ObiektKsiazka; //Zwraca obiekt ksiazka.
 	}
@@ -194,14 +193,12 @@ public class Ksiazka
 		{
 			if(GetCzyPoTerminie() != true)
 			{
-				return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
-						  + GetDniWyporzyczenia() + GetMiesiaceWyporzyczenia() + GetRokWyporzyczenia() + " Nie " + GetDniTermin() + GetMiesiaceTermin()
-						  + GetRokTermin());
+				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\\tt" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
+						  + GetDataWyporzyczenia() + " Tak " + GetDataTermin());
 			}
 			else{
 				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\\tt" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + " Tak "
-						  + GetDniWyporzyczenia() + GetMiesiaceWyporzyczenia() + GetRokWyporzyczenia() + " Tak " + GetDniTermin() + GetMiesiaceTermin()
-						  + GetRokTermin());
+						  + GetDataWyporzyczenia() + " Tak " + GetDataTermin());
 			}
 		}
 		else
@@ -211,38 +208,4 @@ public class Ksiazka
 	}
 //
 
-	public static String WpisanieDaty()
-	{
-		int Miesiac;
-		int Rok;
-		int Dzien;
-		int Month;
-		int Year;
-		int Day;
-		boolean OK = true;
-		System.out.println("Proszę wpisać rok wydania");
-		Rok = WpisywanieDanych.WpisanieLiczby();
-		do
-			{
-				System.out.println("Proszę wpisać miesiąc wydania. 1-12");
-				Miesiac = (WpisywanieDanych.WpisanieLiczby() - 1);
-			}while (Miesiac < 0 || Miesiac > 11 );
-		do{
-			System.out.println("Proszę wpisać dzień wydania.");
-			Dzien = WpisywanieDanych.WpisanieLiczby();
-			Calendar Kalendarz = new GregorianCalendar(Rok,Miesiac,Dzien); //rok , miesiac , dzien
-			Day = Kalendarz.get(Calendar.DAY_OF_MONTH);
-			Month = Kalendarz.get(Calendar.MONTH);
-			Year = Kalendarz.get(Calendar.YEAR);
-			if (Month != Miesiac)
-				{
-				System.out.println("Podano zbyt duza ilosc dni do podanego miesiaca.\n");
-				OK = false;
-				}
-			}while(OK != true);
-		System.out.println(Day+"-"+(Month+1)+"-"+Year);
-		String Data = (Day+"-"+(Month+1)+"-"+Year);
-
-		return Data;
-	}
 }
