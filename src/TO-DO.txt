@@ -1,11 +1,21 @@
-Dominik:
 
-Tworzenie obiektu Książka
-Wpisywanie int,char,string
-Wyświetlanie wszystkich książek
-MENU
+Program winien umożliwiać:
 
-Adrian
+Dopisanie książki do bazy - Bez unikalnego ID. Bez sprawdzania czy istnieje Wyporzyczajacego
+Edycję książki w bazie - Sa funkcje ale nie zaimplementowane
+Usunięcie książki z bazy - Nie
+Szukanie książki w bazie - po wskazanym parametrze - Prawie
+Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe
+Dodanie czytelnika - Gotowe
+Edycję czytelnika
+Zablokowanie czytelnika
+Listing czytelników (również po wskazanym kryterium)
+Wypożyczenie książki
+Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika)
+Terminy wypożyczeń w historii książek, także w historii czytelników.
+Listing książek z przeterminowanymi zwrotami.
+Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i użytkownikami.
 
-Zapis do pliku binarnego
-Odczyt z pliku binarnego
+Ocenie podlega niezawodność działania programu i sposób dekompozycji obiektowej.
+Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.
+

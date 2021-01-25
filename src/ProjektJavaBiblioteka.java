@@ -14,20 +14,13 @@ public class ProjektJavaBiblioteka
 
 	public static void main(String[] args)
 	{
-		/*
-		Ksiazka NowaKsiazka = Ksiazka.TworzenieKsiazka();
-		try
-		{
-			OperacjePlikKsiazki.ZapisywanieKsiazek(NowaKsiazka);
-		} catch(IOException e)
-		{
-			e.printStackTrace();
-		}
-
-		 */
 
 
+		System.out.println("Wszystkie Ksiazki");
 		Menu.WpisywanieKsiazek();
+		System.out.println("Wyszukiwane");
+		Wyszukiwanie.WyszukiwanieAutora();
+
 	}
 }
 

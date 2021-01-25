@@ -29,7 +29,7 @@ public class WpisywanieDanych
 	//
 	public static String WpisanieSlowa()// Pozwala na wpisanie slowa do String
 	{
-		boolean OK; // Wszystkie dane inicjowane sa jako puste
+		boolean OK = false; // Wszystkie dane inicjowane sa jako puste
 		String Slowo = null;
 		do
 		{
