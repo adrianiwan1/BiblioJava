@@ -192,7 +192,7 @@ public class Ksiazka
 			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetGatunek() + GetDataWydania());
 		}
 	}
-
+//
 	public static void WpisanieDatyWydania()
 	{
 		System.out.println("Proszę wpisać rok wydania");
