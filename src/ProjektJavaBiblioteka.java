@@ -12,28 +12,6 @@ public class ProjektJavaBiblioteka {
 
 
 
-		int i =0;
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-				if(OdczytaneDane != null) {
-				System.out.println(OdczytaneDane.ShowDane());
-				}else
-				{
-				 i = 4;
-				}
-				i++;
-			} while(i<3);
-		}catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		System.out.println("Poszlo dalej?");
-
-
 	}
 
 }
