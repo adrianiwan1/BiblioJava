@@ -16,17 +16,20 @@ public class OperacjePlikKsiazki{
         baza.writeUTF(String.format("%1$-32s",NowaKsiazka.GetNazwaKsiazki()));
         baza.writeUTF(String.format("%1$-32s",NowaKsiazka.GetAutor()));
         baza.writeUTF(String.format("%1$-32s",NowaKsiazka.GetGatunek()));
-        baza.writeUTF(String.format("%1$-10s",NowaKsiazka.GetDataWydania()));
+        baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataWydania()));
         baza.writeUTF(String.format("%1$-32s",NowaKsiazka.GetWyporzyczajacy()));
 
-        baza.writeInt(NowaKsiazka.GetDniWyporzyczenia());
-        baza.writeInt(NowaKsiazka.GetMiesiaceWyporzyczenia());
-        baza.writeInt(NowaKsiazka.GetRokWyporzyczenia());
+
+       //baza.writeInt(NowaKsiazka.GetDniWyporzyczenia());
+        //baza.writeInt(NowaKsiazka.GetMiesiaceWyporzyczenia());
+        //baza.writeInt(NowaKsiazka.GetRokWyporzyczenia());
+        baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataWyporzyczenia()));
         baza.writeBoolean(NowaKsiazka.GetCzyWyporzyczona()); //1
 
-        baza.writeInt(NowaKsiazka.GetDniTermin());
-        baza.writeInt(NowaKsiazka.GetMiesiaceTermin());
-        baza.writeInt(NowaKsiazka.GetRokTermin());
+        //baza.writeInt(NowaKsiazka.GetDniTermin());
+        //baza.writeInt(NowaKsiazka.GetMiesiaceTermin());
+        //baza.writeInt(NowaKsiazka.GetRokTermin());
+        baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataTermin()));
         baza.writeBoolean(NowaKsiazka.GetCzyPoTerminie()); //1
 
         System.out.println("ZApis udany");
@@ -40,7 +43,7 @@ public class OperacjePlikKsiazki{
 
         Ksiazka OdczytywanaKsiazka=null;
         try {
-            OdczytywanaKsiazka = new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean(), baza.readInt(), baza.readInt(), baza.readInt(), baza.readBoolean());
+            OdczytywanaKsiazka = new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readBoolean(),baza.readUTF(), baza.readBoolean());
             //baza.seek(364);
         } catch (EOFException ex)
         {
