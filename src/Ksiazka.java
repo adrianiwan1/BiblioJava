@@ -132,7 +132,7 @@ public class Ksiazka
 		return CzyPoTerminie;
 	}
 
-	//Setery dla innych Klas
+	//Setery dla innych Klas l
 
 
 	// Funkcja pokazujaca wszystkei dane
