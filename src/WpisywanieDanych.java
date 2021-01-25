@@ -69,4 +69,34 @@ public class WpisywanieDanych
 		} while(!OK);
 		return Pierwszy_Char; // Zwraca Char
 	}
+
+	public static boolean WpisanieBool() // Pozwala na wpisanie Bool z stringa
+	{
+		int Liczba_Wybor = 1; // Liczba potrzebna na obsluge petli
+		boolean Wybor = false; // Boolean potrzebny do wpisania w return
+		do
+		{
+			System.out.println("\nCzy Chcesz sprobowac ponownie? Tak/Nie");
+			Scanner WpisanyWybor = new Scanner(System.in); // Nowy Scaner
+			String WpisanyWyborString = WpisanyWybor.nextLine().toLowerCase(); // Zamiana na male slowo wyboru
+			switch (WpisanyWyborString)
+			{
+				case "tak": // tak zwraca true
+					Wybor = true;
+					Liczba_Wybor = 0; // zakonczenie petli
+					break;
+				case "nie": // nie zwraca false
+					Wybor = false;
+					Liczba_Wybor = 0; // zakonczenie petli
+					break;
+				default: // Niepoprawne slowo zostalo podane
+					Liczba_Wybor = 1; // Kontynuacja petli
+					System.out.println("Uzyto niepoprawnego slowa. Uzyj 'Tak' lub 'Nie' .");
+					break;
+
+			}
+		}
+		while(Liczba_Wybor == 1);
+		return Wybor;
+	}
 }
