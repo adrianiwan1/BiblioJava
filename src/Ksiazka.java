@@ -15,16 +15,18 @@ public class Ksiazka
 	private String Wyporzyczajacy;
 
 	//Pozostale
-	private int DniWyporzyczenia;
-	private int MiesiaceWyporzyczenia;
-	private int RokWyporzyczenia;
+	//private int DniWyporzyczenia;
+	//private int MiesiaceWyporzyczenia;
+	//private int RokWyporzyczenia;
+	private String DataWyporzyczenia;
 	private boolean CzyWyporzyczona;
-	private int DniTermin;
-	private int MiesiaceTermin;
-	private int RokTermin;
+	//private int DniTermin;
+	//private int MiesiaceTermin;
+	//private int RokTermin;
+	private String DataTermin;
 	private boolean CzyPoTerminie;
 	//Konstruktor
-	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,int DniWyporzyczenia,int MiesiaceWyporzyczenia,int RokWyporzyczenia,boolean CzyWyporzyczona,int DniTermin,int MiesiaceTermin,int RokTermin,boolean CzyPoTerminie)
+	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,String DataWyporzyczenia,boolean CzyWyporzyczona,String DataTermin,boolean CzyPoTerminie)
 	{
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
@@ -32,13 +34,15 @@ public class Ksiazka
 		this.Gatunek=Gatunek;
 		this.DataWydania=DataWydania;
 		this.Wyporzyczajacy=Wyporzyczajacy;
-		this.DniWyporzyczenia=DniWyporzyczenia;
-		this.MiesiaceWyporzyczenia=MiesiaceWyporzyczenia;
-		this.RokWyporzyczenia=RokWyporzyczenia;
+		//this.DniWyporzyczenia=DniWyporzyczenia;
+		//this.MiesiaceWyporzyczenia=MiesiaceWyporzyczenia;
+		//this.RokWyporzyczenia=RokWyporzyczenia;
+		this.DataWyporzyczenia=DataWyporzyczenia;
 		this.CzyWyporzyczona=CzyWyporzyczona;
-		this.DniTermin=DniTermin;
-		this.MiesiaceTermin=MiesiaceTermin;
-		this.RokTermin=RokTermin;
+		//this.DniTermin=DniTermin;
+		//this.MiesiaceTermin=MiesiaceTermin;
+		//this.RokTermin=RokTermin;
+		this.DataTermin=DataTermin;
 		this.CzyPoTerminie=CzyPoTerminie;
 
 	}
@@ -121,6 +125,7 @@ public class Ksiazka
 	{
 		return Wyporzyczajacy;
 	}
+	/*
 	public int GetDniWyporzyczenia()
 	{
 		return DniWyporzyczenia;
@@ -135,11 +140,17 @@ public class Ksiazka
 	{
 		return RokWyporzyczenia;
 	}
+	 */
+	public String GetDataWyporzyczenia()
+	{
+		return DataWyporzyczenia;
+	}
 
 	public boolean GetCzyWyporzyczona()
 	{
 		return CzyWyporzyczona;
 	}
+	/*
 	public int GetDniTermin()
 	{
 		return DniTermin;
@@ -151,6 +162,12 @@ public class Ksiazka
 	public int GetRokTermin()
 	{
 		return RokTermin;
+	}
+
+	 */
+	public String GetDataTermin()
+	{
+		return DataTermin;
 	}
 	public  boolean GetCzyPoTerminie()
 	{
