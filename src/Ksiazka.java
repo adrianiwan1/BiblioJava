@@ -49,7 +49,7 @@ public class Ksiazka
 		String Autor;
 		String Gatunek;
 		String DataWydania;
-		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce
+		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce.
 		boolean CzyWyporzyczona = false;
 		int DniWyporzyczenia=0;
 		int MiesiaceWyporzyczenia=0;
