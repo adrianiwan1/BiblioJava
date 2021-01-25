@@ -6,23 +6,23 @@ public class Ksiazka
 {
 	//Inicjacja wszystkich potrzebnych zmiennych
 
-	//DDla obiektu Ksiazka
-	private int IdKsiazki=12;
-	private String NazwaKsiazki="asaaaa";
-	private String Autor="bbbbbb";
-	private String Gatunek="zbcd";
-	private String DataWydania="12.23.2131";
-	private String Wyporzyczajacy="ghufgbf";
+	//Dla obiektu Ksiazka
+	private int IdKsiazki;
+	private String NazwaKsiazki;
+	private String Autor;
+	private String Gatunek;
+	private String DataWydania;
+	private String Wyporzyczajacy;
 
 	//Pozostale
-	private int DniWyporzyczenia=0;
-	private int MiesiaceWyporzyczenia=0;
-	private int RokWyporzyczenia=0;
-	private boolean CzyWyporzyczona = false;
-	private int DniTermin=0;
-	private int MiesiaceTermin=0;
-	private int RokTermin=0;
-	private boolean CzyPoTerminie = false;
+	private int DniWyporzyczenia;
+	private int MiesiaceWyporzyczenia;
+	private int RokWyporzyczenia;
+	private boolean CzyWyporzyczona;
+	private int DniTermin;
+	private int MiesiaceTermin;
+	private int RokTermin;
+	private boolean CzyPoTerminie;
 	//Konstruktor
 	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,int DniWyporzyczenia,int MiesiaceWyporzyczenia,int RokWyporzyczenia,boolean CzyWyporzyczona,int DniTermin,int MiesiaceTermin,int RokTermin,boolean CzyPoTerminie)
 	{
