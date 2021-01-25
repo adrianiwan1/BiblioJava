@@ -19,7 +19,7 @@ public class Ksiazka
 	private int MiesiaceWyporzyczenia;
 	private int RokWyporzyczenia;
 	private boolean CzyWyporzyczona;
-	private int DniTermin;
+	private int Dni Termin;
 	private int MiesiaceTermin;
 	private int RokTermin;
 	private boolean CzyPoTerminie;
