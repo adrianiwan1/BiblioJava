@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+
 public class Sortowanie {
 
     public static ArrayList<Integer> PoId()  {
