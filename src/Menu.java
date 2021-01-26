@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -38,7 +37,7 @@ public class Menu
 				Uzytkownik OdczytaneDane = OperacjePlikUzytkownicy.OdczytywanieUzytkownikow(PlikOdczytany);
 				if(OdczytaneDane != null)
 				{
-					System.out.println(OdczytaneDane.ShowDane());
+					System.out.println(OdczytaneDane.ShowUzytkownicy());
 				} else
 				{
 					i = 201;

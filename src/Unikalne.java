@@ -6,7 +6,7 @@ public class Unikalne {
     {
         Random generator = new Random();
 
-        return generator.nextInt(2147483645)+1;
+        return generator.nextInt(2147483644)+1;
 
     }
 }

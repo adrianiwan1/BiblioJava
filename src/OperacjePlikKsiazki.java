@@ -31,6 +31,9 @@ public class OperacjePlikKsiazki{
         //baza.writeInt(NowaKsiazka.GetRokTermin());
         baza.writeUTF(String.format("%1$-11s",NowaKsiazka.GetDataTermin()));
         baza.writeUTF(String.format("%1$-4s",NowaKsiazka.GetCzyPoTerminie()));
+        baza.writeInt(NowaKsiazka.GetIdUzytkownika());
+
+
 
         System.out.println("Zapis udany");
 
@@ -43,7 +46,7 @@ public class OperacjePlikKsiazki{
 
         Ksiazka OdczytywanaKsiazka=null;
         try {
-            OdczytywanaKsiazka = new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF());
+            OdczytywanaKsiazka = new Ksiazka(baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readInt());
             //baza.seek(364);
         } catch (EOFException ex)
         {

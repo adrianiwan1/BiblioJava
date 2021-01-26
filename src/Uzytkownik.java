@@ -6,11 +6,14 @@ public class Uzytkownik
 
 
 	//Konstruktor
+
+
 	public Uzytkownik(int IdUzytkownika,String Wyporzyczajacy)
 	{
 		this.IdUzytkownika=IdUzytkownika;
 		this.Wyporzyczajacy=Wyporzyczajacy;
 	}
+
 
 
 
@@ -69,12 +72,7 @@ public class Uzytkownik
 		this.Wyporzyczajacy= Wyporzyczajacy;
 	}
 
-	public static void ShowUzytkownicy()
-	{
-
-	}
-
-	public  String ShowDane()
+	public  String ShowUzytkownicy()
 	{
 		String TekstWyswietl;
 

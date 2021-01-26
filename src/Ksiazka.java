@@ -1,4 +1,4 @@
-public class Ksiazka
+public class Ksiazka extends Uzytkownik
 {
 	//Inicjacja wszystkich potrzebnych zmiennych
 
@@ -23,8 +23,9 @@ public class Ksiazka
 	private String CzyPoTerminie;
 	//Konstruktor
 	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania,
-						 String Wyporzyczajacy,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie)
+						 String Wyporzyczajacy,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie,int IdUzytkownik)
 	{
+		super(IdUzytkownik,Wyporzyczajacy);
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
 		this.Autor=Autor;
@@ -50,7 +51,9 @@ public class Ksiazka
 		String Autor;
 		String Gatunek;
 		String DataWydania;
-		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce.
+		//String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce.
+		int IdUzytkownika = 2147483646;
+		String NazwaCzytelnik=null;
 		String CzyWyporzyczona = null;
 		String CzyRandomId = null;
 
@@ -59,6 +62,7 @@ public class Ksiazka
 		String CzyPoTerminie = null;
 		boolean CzyWpisacRecznie = true;
 		boolean OK = true;
+
 
 		System.out.println("Czy chcesz wpisać własne ID? Tak/Nie");
 		CzyRandomId = WpisywanieDanych.WpisanieTakLubNie();
@@ -74,7 +78,7 @@ public class Ksiazka
 					IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 					OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
 					if (OK != false) {
-						System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
+						System.out.println("Brak czytelnika z podany ID");
 					}
 				} while (OK != false);
 	       }
@@ -95,6 +99,21 @@ public class Ksiazka
 		CzyWyporzyczona = WpisywanieDanych.WpisanieTakLubNie();
 		if (CzyWyporzyczona.equals("tak"))
 		{
+			System.out.println("Podaj ID Czytelnika:");
+			do {
+				IdUzytkownika = WpisywanieDanych.WpisanieLiczby();
+				OK = SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdUzytkownika);
+				NazwaCzytelnik= SprawdzanieUzytkownik.IdNazwaCztelnik(IdUzytkownika);
+				if(NazwaCzytelnik.equals("0000000000000000000000000000000"))
+				{
+					OK=false;
+				}
+				if (OK == false) {
+					System.out.println("Brak czytelnika o podanym Id. Spróbuj ponownie");
+				}
+			} while (OK == false);
+
+
 			System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
 			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 			if(CzyWpisacRecznie == false)
@@ -118,7 +137,7 @@ public class Ksiazka
 
 		}
 
-		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, Wyporzyczajacy,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie); // Tworzenie Ksiazki za pomoca Konstruktora
+		Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, NazwaCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdUzytkownika); // Tworzenie Ksiazki za pomoca Konstruktora
 
 		return ObiektKsiazka; //Zwraca obiekt ksiazka.
 	}
