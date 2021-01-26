@@ -9,7 +9,6 @@ public class Ksiazka extends Uzytkownik
 	private String Gatunek;
 	private String DataWydania;
 	private String Czytelnik;
-
 	//Pozostale
 	//private int DniWyporzyczenia;
 	//private int MiesiaceWyporzyczenia;
@@ -21,11 +20,12 @@ public class Ksiazka extends Uzytkownik
 	//private int RokTermin;
 	private String DataTermin;
 	private String CzyPoTerminie;
+
 	//Konstruktor
 	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania,
 						 String NowyCzytelnik,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie,int IdUzytkownik)
 	{
-		super(IdUzytkownik,NowyCzytelnik);
+		super(IdUzytkownik,NowyCzytelnik,NazwaKsiazki);
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
 		this.Autor=Autor;
