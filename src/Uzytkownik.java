@@ -2,16 +2,16 @@ public class Uzytkownik
 {
 
 	private int IdUzytkownika;
-	private String Wyporzyczajacy;
+	private String Czytelnik;
 
 
 	//Konstruktor
 
 
-	public Uzytkownik(int IdUzytkownika,String Wyporzyczajacy)
+	public Uzytkownik(int NowyIdUzytkownika,String NowyCzytelnik)
 	{
-		this.IdUzytkownika=IdUzytkownika;
-		this.Wyporzyczajacy=Wyporzyczajacy;
+		this.IdUzytkownika=NowyIdUzytkownika;
+		this.Czytelnik=NowyCzytelnik;
 	}
 
 
@@ -58,18 +58,18 @@ public class Uzytkownik
 
 	public String GetUzytkownik()
 	{
-		return Wyporzyczajacy;
+		return Czytelnik;
 	}
 
 	//Settery
 
-	public void SetIdUzytkownika(int IdUzytkownika)
+	public void SetIdUzytkownika(int NowyIdUzytkownika)
 	{
-		this.IdUzytkownika= IdUzytkownika;
+		this.IdUzytkownika= NowyIdUzytkownika;
 	}
-	public void SetUzytkownik(String Wyporzyczajacy)
+	public void SetUzytkownik(String NowyCzytelnik)
 	{
-		this.Wyporzyczajacy= Wyporzyczajacy;
+		this.Czytelnik= NowyCzytelnik;
 	}
 
 	public  String ShowUzytkownicy()

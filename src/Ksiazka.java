@@ -8,7 +8,7 @@ public class Ksiazka extends Uzytkownik
 	private String Autor;
 	private String Gatunek;
 	private String DataWydania;
-	private String Wyporzyczajacy;
+	private String Czytelnik;
 
 	//Pozostale
 	//private int DniWyporzyczenia;
@@ -23,15 +23,15 @@ public class Ksiazka extends Uzytkownik
 	private String CzyPoTerminie;
 	//Konstruktor
 	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania,
-						 String Wyporzyczajacy,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie,int IdUzytkownik)
+						 String NowyCzytelnik,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie,int IdUzytkownik)
 	{
-		super(IdUzytkownik,Wyporzyczajacy);
+		super(IdUzytkownik,NowyCzytelnik);
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
 		this.Autor=Autor;
 		this.Gatunek=Gatunek;
 		this.DataWydania=DataWydania;
-		this.Wyporzyczajacy=Wyporzyczajacy;
+		this.Czytelnik=NowyCzytelnik;
 		//this.DniWyporzyczenia=DniWyporzyczenia;
 		//this.MiesiaceWyporzyczenia=MiesiaceWyporzyczenia;
 		//this.RokWyporzyczenia=RokWyporzyczenia;
@@ -56,10 +56,9 @@ public class Ksiazka extends Uzytkownik
 		String NazwaCzytelnik=null;
 		String CzyWyporzyczona = null;
 		String CzyRandomId = null;
-
 		String DataWyporzyczenia = null;
 		String DataTermin = null;
-		String CzyPoTerminie = null;
+		String CzyPoTerminie = "nie";
 		boolean CzyWpisacRecznie = true;
 		boolean OK = true;
 
@@ -78,7 +77,7 @@ public class Ksiazka extends Uzytkownik
 					IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 					OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
 					if (OK != false) {
-						System.out.println("Brak czytelnika z podany ID");
+						System.out.println("Istnieje ksiazka z podanym ID.Sprobuj ponownie.");
 					}
 				} while (OK != false);
 	       }
@@ -112,8 +111,6 @@ public class Ksiazka extends Uzytkownik
 					System.out.println("Brak czytelnika o podanym Id. Spróbuj ponownie");
 				}
 			} while (OK == false);
-
-
 			System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
 			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 			if(CzyWpisacRecznie == false)
@@ -166,7 +163,7 @@ public class Ksiazka extends Uzytkownik
 	}
 	public String GetWyporzyczajacy()
 	{
-		return Wyporzyczajacy;
+		return Czytelnik;
 	}
 
 	public String GetDataWyporzyczenia()
@@ -192,7 +189,7 @@ public class Ksiazka extends Uzytkownik
 
 	public void SetNazwaKsiazki(String NowyNazwaKsiazki)
 	{
-		this.NazwaKsiazki=NazwaKsiazki;
+		this.NazwaKsiazki=NowyNazwaKsiazki;
 	}
 
 	public void SetAutor(String NowyAutor)
@@ -206,11 +203,11 @@ public class Ksiazka extends Uzytkownik
 	}
 	public void SetDataWydania(String NowyDataWydania)
 	{
-		this.DataWydania=DataWydania;
+		this.DataWydania=NowyDataWydania;
 	}
 	public void SetWyporzyczajacy(String NowyWyporzyczajacy)
 	{
-		this.Wyporzyczajacy=NowyWyporzyczajacy;
+		this.Czytelnik=NowyWyporzyczajacy;
 	}
 	public void SetCzyWyporzyczona (String NowyCzyWyporzyczona)
 	{
@@ -236,23 +233,28 @@ public class Ksiazka extends Uzytkownik
 	// Funkcja pokazujaca wszystkei dane
 	public  String ShowDane()
 	{
+
 		String TekstWyswietl;
+
 		if(GetCzyWyporzyczona().equals("tak"))
 		{
+			System.out.println("Czy Wyporzyczona");
 			if(GetCzyPoTerminie().equals("tak"))
 			{
-				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t" + GetCzyWyporzyczona() +
+				TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t\t" + GetCzyWyporzyczona() +
 						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
 			}
-			else{
-				return TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t" + GetCzyWyporzyczona() +
-				"\t\t\t"+ GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
+			else
+			{
+				TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t\t" + GetCzyWyporzyczona() +
+						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
 			}
 		}
 		else
 		{
-			return TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
+			TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
 		}
+		return TekstWyswietl;
 	}
 //
 	public static void DostepneGatunki()
