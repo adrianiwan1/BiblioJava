@@ -241,8 +241,8 @@ public class Ksiazka extends Uzytkownik
 			System.out.println("Czy Wyporzyczona");
 			if(GetCzyPoTerminie().equals("tak"))
 			{
-				TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t\t" + GetCzyWyporzyczona() +
-						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
+				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t" + GetCzyWyporzyczona() +
+						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
 			}
 			else
 			{

@@ -8,7 +8,7 @@ import java.time.Month;
 import java.time.LocalDate;
 import java.text.ParseException;
 
-public class ProjektJavaBiblioteka
+public class MainProjektBiblioteka
 {
 
 
