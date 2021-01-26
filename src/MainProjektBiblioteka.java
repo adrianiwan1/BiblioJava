@@ -16,10 +16,10 @@ public class MainProjektBiblioteka
 
 
 		Menu.WypisywanieUzytkownikow();
-		Menu.TworznieUzytkownika();
-		Menu.TworzenieKsiazki();
-		Menu.WypisywanieUzytkownikow();
+		String NazwaKsiazaki = ("nazwaksiazki");
+		SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie(NazwaKsiazaki),NazwaKsiazaki);
 		Menu.WypisywanieKsiazek();
+
 
 
 

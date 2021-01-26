@@ -74,87 +74,47 @@ public class SortowanieKsiazka
         } while((Dlugosc) != j);
     }
 
-    public static String[] PoNazwaKsiazki()
+    public static String[] Sortowanie(String Zmienna) // Zmienna to wartosc co sortujemy potrzebne do switcha.
     {
         TreeSet<String> TreeLista = new TreeSet<String>();
         int i = 0;
-        String K;
+
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
             do
             {
+
                 Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
                 if(OdczytaneDane != null)
                 {
-                    TreeLista.add(OdczytaneDane.GetNazwaKsiazki());
-                } else
-                {
-                    i = 201;
-                }
-                i++;
-            } while(i < 200);
-            PlikOdczytany.close();
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        String[] ListaKoncowa = TreeLista.toArray(new String[TreeLista.size()]);
-        return ListaKoncowa;
-
-    }
-
-    public static void WyswietlaniePosortowaneNazwaKsiazki(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int j = 0;
-        int Dlugosc = ListaKoncowa.length;
-        String Porownywana = null;
-        do
-        {
-            i = 0;
-            try
-            {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-                do
-                {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+                    switch(Zmienna)
                     {
-                        String Odczyt = OdczytaneDane.GetNazwaKsiazki(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
-                        if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
-                        {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-                        }
-                    } else
-                    {
-                        i = 9002; // Zakonczenie petli jesli null
+                        case "nazwaksiazki":
+                            TreeLista.add(OdczytaneDane.GetNazwaKsiazki());
+                            break;
+                        case "autor":
+                            TreeLista.add(OdczytaneDane.GetAutor());
+                            break;
+                        case "uzytkownik":
+                            TreeLista.add(OdczytaneDane.GetWyporzyczajacy());
+                            break;
+                        case "datatermin":
+                            TreeLista.add(OdczytaneDane.GetDataTermin());
+                            break;
+                        case "datawydania":
+                            TreeLista.add(OdczytaneDane.GetDataWydania());
+                            break;
+                        case "datawyporzyczenia":
+                            TreeLista.add(OdczytaneDane.GetDataWyporzyczenia());
+                            break;
+                        case "czypoterminie":
+                            TreeLista.add(OdczytaneDane.GetCzyPoTerminie());
+                            break;
+                        case "czywyporzyczona":
+                            TreeLista.add(OdczytaneDane.GetCzyWyporzyczona());
+                            break;
                     }
-                    i++;
-                } while(i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-            } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-            {
-                e.printStackTrace();
-            }
-            j++;
-        } while((Dlugosc) != j);
-    }
-    public static String[] PoAutor()
-    {
-        TreeSet<String> TreeLista = new TreeSet<String>();
-        int i = 0;
-        String K;
-        try
-        {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            do
-            {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                if(OdczytaneDane != null)
-                {
-                    TreeLista.add(OdczytaneDane.GetAutor());
                 } else
                 {
                     i = 201;
@@ -171,12 +131,13 @@ public class SortowanieKsiazka
 
     }
 
-    public static void WyswietlaniePosortowaneAutor(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
+    public static void WyswietlaniePosortowaneNazwaKsiazki(String[] ListaKoncowa,String Zmienna) // Wyszukiwanie inta - > ID
     {
         int i = 0;
         int j = 0;
         int Dlugosc = ListaKoncowa.length;
         String Porownywana = null;
+        String Odczyt = ("PustyPustoPustusienkoNiemaNic");
         do
         {
             i = 0;
@@ -188,142 +149,40 @@ public class SortowanieKsiazka
                     Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
                     if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
                     {
-                        String Odczyt = OdczytaneDane.GetAutor(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
-                        if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
+                        switch(Zmienna)
                         {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
+                            case"nazwaksiazki":
+                            Odczyt = OdczytaneDane.GetNazwaKsiazki(); //Wpisanie danej do int
+                                break;
+                            case"autor":
+                                Odczyt = OdczytaneDane.GetAutor(); //Wpisanie danej do int
+                                break;
+                            case"uzytkownik":
+                                Odczyt = OdczytaneDane.GetUzytkownik(); //Wpisanie danej do int
+                                break;
+                            case"datatermin":
+                                Odczyt = OdczytaneDane.GetDataTermin(); //Wpisanie danej do int
+                                break;
+                            case"datawydania":
+                                Odczyt = OdczytaneDane.GetDataWydania(); //Wpisanie danej do int
+                                break;
+                            case"datawyporzyczenia":
+                                Odczyt = OdczytaneDane.GetDataWyporzyczenia(); //Wpisanie danej do int
+                                break;
+                            case"czypoterminie":
+                                Odczyt = OdczytaneDane.GetCzyPoTerminie(); //Wpisanie danej do int
+                                break;
+                            case"czywyporzyczona":
+                                Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do int
+                                break;
                         }
-                    } else
-                    {
-                        i = 9002; // Zakonczenie petli jesli null
-                    }
-                    i++;
-                } while(i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-            } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-            {
-                e.printStackTrace();
-            }
-            j++;
-        } while((Dlugosc) != j);
-    }
-    public static String[] PoGatunek()
-    {
-        TreeSet<String> TreeLista = new TreeSet<String>();
-        int i = 0;
-        String K;
-        try
-        {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            do
-            {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                if(OdczytaneDane != null)
-                {
-                    TreeLista.add(OdczytaneDane.GetGatunek());
-                } else
-                {
-                    i = 201;
-                }
-                i++;
-            } while(i < 200);
-            PlikOdczytany.close();
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        String[] ListaKoncowa = TreeLista.toArray(new String[TreeLista.size()]);
-        return ListaKoncowa;
-
-    }
-
-    public static void WyswietlaniePosortowaneGatunek(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int j = 0;
-        int Dlugosc = ListaKoncowa.length;
-        String Porownywana = null;
-        do
-        {
-            i = 0;
-            try
-            {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-                do
-                {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                    {
-                        String Odczyt = OdczytaneDane.GetGatunek(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
-                        if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
+                        if(Odczyt.equals("PustyPustoPustusienkoNiemaNic"))
                         {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
+
+                        }else
+                        {
+                            Porownywana = ListaKoncowa[j];
                         }
-                    } else
-                    {
-                        i = 9002; // Zakonczenie petli jesli null
-                    }
-                    i++;
-                } while(i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-            } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-            {
-                e.printStackTrace();
-            }
-            j++;
-        } while((Dlugosc) != j);
-    }
-    public static String[] PoDataWydania()
-    {
-        TreeSet<String> TreeLista = new TreeSet<String>();
-        int i = 0;
-        String K;
-        try
-        {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            do
-            {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                if(OdczytaneDane != null)
-                {
-                    TreeLista.add(OdczytaneDane.GetDataWydania());
-                } else
-                {
-                    i = 201;
-                }
-                i++;
-            } while(i < 200);
-            PlikOdczytany.close();
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        String[] ListaKoncowa = TreeLista.toArray(new String[TreeLista.size()]);
-        return ListaKoncowa;
-
-    }
-
-    public static void WyswietlaniePosortowaneDataWydania(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int j = 0;
-        int Dlugosc = ListaKoncowa.length;
-        String Porownywana = null;
-        do
-        {
-            i = 0;
-            try
-            {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-                do
-                {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                    {
-                        String Odczyt = OdczytaneDane.GetDataWydania(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
                         if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
                         {
                             System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
@@ -343,205 +202,5 @@ public class SortowanieKsiazka
         } while((Dlugosc) != j);
     }
 
-    public static String[] PoWyporzyczajacy()
-    {
-        TreeSet<String> TreeLista = new TreeSet<String>();
-        int i = 0;
-        String K;
-        try
-        {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            do
-            {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                if(OdczytaneDane != null)
-                {
-                    TreeLista.add(OdczytaneDane.GetWyporzyczajacy());
-                } else
-                {
-                    i = 201;
-                }
-                i++;
-            } while(i < 200);
-            PlikOdczytany.close();
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        String[] ListaKoncowa = TreeLista.toArray(new String[TreeLista.size()]);
-        return ListaKoncowa;
 
-    }
-
-    public static void WyswietlaniePosortowaneWyporzyczajacy(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int j = 0;
-        int Dlugosc = ListaKoncowa.length;
-        String Porownywana = null;
-        do
-        {
-            i = 0;
-            try
-            {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-                do
-                {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                    {
-                        String Odczyt = OdczytaneDane.GetWyporzyczajacy(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
-                        if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
-                        {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-                        }
-                    } else
-                    {
-                        i = 9002; // Zakonczenie petli jesli null
-                    }
-                    i++;
-                } while(i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-            } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-            {
-                e.printStackTrace();
-            }
-            j++;
-        } while((Dlugosc) != j);
-    }
-    public static String[] PoDataWyporzyczenia()
-    {
-        TreeSet<String> TreeLista = new TreeSet<String>();
-        int i = 0;
-        String K;
-        try
-        {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            do
-            {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                if(OdczytaneDane != null)
-                {
-                    TreeLista.add(OdczytaneDane.GetDataWyporzyczenia());
-                } else
-                {
-                    i = 201;
-                }
-                i++;
-            } while(i < 200);
-            PlikOdczytany.close();
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        String[] ListaKoncowa = TreeLista.toArray(new String[TreeLista.size()]);
-        return ListaKoncowa;
-
-    }
-
-    public static void WyswietlaniePosortowaneDataWyporzyczenia(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int j = 0;
-        int Dlugosc = ListaKoncowa.length;
-        String Porownywana = null;
-        do
-        {
-            i = 0;
-            try
-            {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-                do
-                {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                    {
-                        String Odczyt = OdczytaneDane.GetDataWyporzyczenia(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
-                        if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
-                        {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-                        }
-                    } else
-                    {
-                        i = 9002; // Zakonczenie petli jesli null
-                    }
-                    i++;
-                } while(i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-            } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-            {
-                e.printStackTrace();
-            }
-            j++;
-        } while((Dlugosc) != j);
-    }
-
-    public static String[] PoDataTermin()
-    {
-        TreeSet<String> TreeLista = new TreeSet<String>();
-        int i = 0;
-        try
-        {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            do
-            {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
-                if(OdczytaneDane != null)
-                {
-                    TreeLista.add(OdczytaneDane.GetDataTermin());
-                } else
-                {
-                    i = 201;
-                }
-                i++;
-            } while(i < 200);
-            PlikOdczytany.close();
-        } catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        String[] ListaKoncowa = TreeLista.toArray(new String[TreeLista.size()]);
-        return ListaKoncowa;
-
-    }
-
-    public static void WyswietlaniePosortowaneDataTermin(String[] ListaKoncowa) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int j = 0;
-        int Dlugosc = ListaKoncowa.length;
-        String Porownywana = null;
-        do
-        {
-            i = 0;
-            try
-            {
-                RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-                do
-                {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                    {
-                        String Odczyt = OdczytaneDane.GetDataTermin(); //Wpisanie danej do int
-                        Porownywana = ListaKoncowa[j];
-                        if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
-                        {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-                        }
-                    } else
-                    {
-                        i = 9002; // Zakonczenie petli jesli null
-                    }
-                    i++;
-                } while(i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-            } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-            {
-                e.printStackTrace();
-            }
-            j++;
-        } while((Dlugosc) != j);
-    }
 }

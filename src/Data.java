@@ -43,7 +43,6 @@ public class Data
 					OK = true;
 				}
 		}while(OK != true);
-		System.out.println(Day+"-"+(Month+1)+"-"+Year);
 		String Data = (Day+"-"+(Month+1)+"-"+Year);
 
 		return Data;
@@ -67,7 +66,7 @@ public class Data
 	public static String TerminOddania(String DataWyporzyczenia)
 	{
 		int Dzien = GetDzien(DataWyporzyczenia);
-		int Miesiac = (GetMiesiac(DataWyporzyczenia)+1);
+		int Miesiac = (GetMiesiac(DataWyporzyczenia));
 		int Rok = GetRok(DataWyporzyczenia);
 		int Month;
 		int Year;
