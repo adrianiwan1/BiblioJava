@@ -66,16 +66,20 @@ public class OperacjePlikKsiazki{
         return baza;
     }
 
-    public static void UsuwanieKsiazki()
+    public  static void KasowanieKsiazki(int ID)
     {
         int i = 0;
         int Szukana = 0;
+        Szukana = ID;
+        boolean udane = true;
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
+            /*
             System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
 
+             */
             if(SprawdzanieKsiazka.CzyPodaneIdIstnieje(Szukana)==true) {
                 do {
                     Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
@@ -114,6 +118,7 @@ public class OperacjePlikKsiazki{
             e.printStackTrace();
         }
         }
+
     }
 
 

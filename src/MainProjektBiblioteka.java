@@ -15,10 +15,34 @@ public class MainProjektBiblioteka
 	public static void main(String[] args) throws IOException {
 
 
-		Menu.WypisywanieUzytkownikow();
-		String NazwaKsiazaki = ("nazwaksiazki");
-		SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie(NazwaKsiazaki),NazwaKsiazaki);
+		//OperacjePlikKsiazki.KasowanieKsiazki(889739693);
+		 //Menu.WypisywanieUzytkownikow();
+		//Menu.TworznieUzytkownika();
+		//Menu.TworzenieKsiazki();
+		//Menu.WypisywanieUzytkownikow();
+		//Menu.WypisywanieKsiazek();
+		Menu.WyswietlanieHistori();
+
+/*
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
 		Menu.WypisywanieKsiazek();
+
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+		Menu.WypozyczanieKsiazki();
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

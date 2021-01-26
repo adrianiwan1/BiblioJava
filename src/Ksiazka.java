@@ -44,6 +44,8 @@ public class Ksiazka extends Uzytkownik
 		this.CzyPoTerminie=CzyPoTerminie;
 
 	}
+
+
 	public static Ksiazka TworzenieKsiazka() // Metoda pozwalajaca stworzyc Obiekt Ksiazke z wpisanie wszystkich danych
 	{
 		int IdKsiazki;
