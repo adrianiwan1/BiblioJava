@@ -3,15 +3,16 @@ public class Uzytkownik
 
 	private int IdUzytkownika;
 	private String Czytelnik;
-
+	private String CzyZbanownay;
 
 	//Konstruktor
 
 
-	public Uzytkownik(int NowyIdUzytkownika,String NowyCzytelnik)
+	public Uzytkownik(int NowyIdUzytkownika,String NowyCzytelnik , String NowyCzyZbanowany)
 	{
 		this.IdUzytkownika=NowyIdUzytkownika;
 		this.Czytelnik=NowyCzytelnik;
+		this.CzyZbanownay=NowyCzyZbanowany;
 	}
 
 
@@ -23,6 +24,7 @@ public class Uzytkownik
 		String Uzytkownik;
 		boolean OK = true;
 		String CzyRandomId;
+		String CzyZbanowany = ("nie");
 
 		System.out.println("Czy chcesz wpisać własne ID? Tak/Nie");
 		CzyRandomId = WpisywanieDanych.WpisanieTakLubNie();
@@ -42,10 +44,19 @@ public class Uzytkownik
 					System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
 				}
 			} while (OK != false);
+			System.out.println("Czy chcesz od razu zbanować użytkownika?");
+			OK = WpisywanieDanych.WpisanieBool();
+			if(OK==true)
+			{
+				CzyZbanowany = "tak";
+			}else
+				{
+				CzyZbanowany = "nie";
+				}
 		}
 		System.out.println("Podaj nazwę Uzytkownika:");
 		Uzytkownik=WpisywanieDanych.WpisanieSlowa();
-		Uzytkownik ObiektUzytkownik= new Uzytkownik(IdUzytkownika,Uzytkownik);
+		Uzytkownik ObiektUzytkownik= new Uzytkownik(IdUzytkownika,Uzytkownik,CzyZbanowany);
 
 		return ObiektUzytkownik;
 	}
@@ -60,6 +71,10 @@ public class Uzytkownik
 	{
 		return Czytelnik;
 	}
+	public String GetCzyZbanowany()
+	{
+		return CzyZbanownay;
+	}
 
 	//Settery
 
@@ -71,12 +86,16 @@ public class Uzytkownik
 	{
 		this.Czytelnik= NowyCzytelnik;
 	}
+	public void SetCzyZbanowany(String NowyCzyZbanowany)
+	{
+		this.CzyZbanownay = NowyCzyZbanowany;
+	}
 
 	public  String ShowUzytkownicy()
 	{
 		String TekstWyswietl;
 
-		return TekstWyswietl = (GetIdUzytkownika()+ "\t\t\t" + GetUzytkownik());
+		return TekstWyswietl = (GetIdUzytkownika()+ "\t\t\t" + GetUzytkownik() + GetCzyZbanowany());
 	}
 
 }

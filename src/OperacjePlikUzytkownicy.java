@@ -13,6 +13,7 @@ public class OperacjePlikUzytkownicy {
 
         baza.writeInt(NowyUzytkownik.GetIdUzytkownika());
         baza.writeUTF(String.format("%1$-32s",NowyUzytkownik.GetUzytkownik()));
+        baza.writeUTF(String.format("%1$-3s",NowyUzytkownik.GetCzyZbanowany()));
 
         baza.close();
         System.out.println("Urzytkownik zapisany");
@@ -29,7 +30,7 @@ public class OperacjePlikUzytkownicy {
     {
         Uzytkownik OdczytywanyUzytkownik=null;
         try {
-            OdczytywanyUzytkownik = new Uzytkownik(baza.readInt(),baza.readUTF());
+            OdczytywanyUzytkownik = new Uzytkownik(baza.readInt(),baza.readUTF(),baza.readUTF());
         }
         catch (EOFException ex)
         {
@@ -48,10 +49,6 @@ public class OperacjePlikUzytkownicy {
             System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
             if(SprawdzanieUzytkownik.CzyPodaneIdIstnieje(Szukana)==true)
                 {
-                    if(SprawdzanieBlackList.CzyPodaneIdIstnieje(Szukana)==true)
-                        {
-                         OperacjePlikBlackList.UsuwanieBan(Szukana);
-                        }
                     do {
                         Uzytkownik OdczytaneDane = OperacjePlikUzytkownicy.OdczytywanieUzytkownikow(PlikOdczytany); // Odczytranie linjki tekstu
                         if (OdczytaneDane != null) // Jesli nie jest puste wykonaj

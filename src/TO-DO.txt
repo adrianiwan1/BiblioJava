@@ -25,4 +25,4 @@ ToDo Stworzenie wszystkich seterów. Dla Klasy Uzytkownik.
 todo Funkcje Unikalnego Generowania ID dla Ksiazki. Gotowe dla ksiązki i dla użytkownika
 ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie.
 
-//Do usuniecia funkcja BlackList. Zastapic ja wartoscia zbanowany w Klasie Uzytkownik.
+//Zastapic ja wartoscia zbanowany w Klasie Uzytkownik.

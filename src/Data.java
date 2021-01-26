@@ -14,7 +14,14 @@ public class Data
 		int Day;
 		boolean OK = true;
 		System.out.println("Proszę podac rok.");
-		Rok = WpisywanieDanych.WpisanieLiczby();
+		do
+		{
+			Rok = WpisywanieDanych.WpisanieLiczby();
+			if(Rok > 99999)
+			{
+				System.out.println("Rok nie może przekraczać 99999.");
+			}
+		}while(Rok > 99999);
 		do
 		{
 			System.out.println("Proszę podac miesiąc. 1-12");
@@ -86,7 +93,7 @@ public class Data
 		DzienLiczba = Integer.parseInt(Dzien); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.Prosze wpisac liczbe");
+			System.out.println("To nie jest liczba.");
 			OK = false;
 		}
 		return DzienLiczba;
@@ -104,7 +111,7 @@ public class Data
 			DzienMiesiac = Integer.parseInt(Miesiac); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.Prosze wpisac liczbe");
+			System.out.println("To nie jest liczba.");
 			OK = false;
 		}
 		return DzienMiesiac;

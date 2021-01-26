@@ -17,7 +17,6 @@ public class MainProjektBiblioteka
 
 		//Menu.TworznieUzytkownika();
 		Menu.WypisywanieUzytkownikow();
-		Menu.TworzenieKsiazki();
 		Menu.WypisywanieKsiazek();
 
 
