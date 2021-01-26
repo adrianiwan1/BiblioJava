@@ -238,7 +238,7 @@ public class Ksiazka extends Uzytkownik
 
 		if(GetCzyWyporzyczona().equals("tak"))
 		{
-			System.out.println("Czy Wyporzyczona");
+
 			if(GetCzyPoTerminie().equals("tak"))
 			{
 				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t" + GetCzyWyporzyczona() +
