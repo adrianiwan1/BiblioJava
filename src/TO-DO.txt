@@ -22,7 +22,7 @@ Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe fu
 
 TODO Stworzenie wszystkich seterów. Dla Klasy Ksiazka.
 ToDo Stworzenie wszystkich seterów. Dla Klasy Uzytkownik.
-todo Funkcje Unikalnego Generowania ID dla Ksiazki.
+todo Funkcje Unikalnego Generowania ID dla Ksiazki. Gotowe dla ksiązki i dla użytkownika
 ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie.
 
 //Do usuniecia funkcja BlackList. Zastapic ja wartoscia zbanowany w Klasie Uzytkownik.

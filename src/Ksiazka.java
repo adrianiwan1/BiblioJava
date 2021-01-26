@@ -1,7 +1,3 @@
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
-
 public class Ksiazka
 {
 	//Inicjacja wszystkich potrzebnych zmiennych
@@ -56,21 +52,32 @@ public class Ksiazka
 		String DataWydania;
 		String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce.
 		String CzyWyporzyczona = null;
+		String CzyRandomId = null;
+
 		String DataWyporzyczenia = null;
 		String DataTermin = null;
-		String CzyPoTerminie=null;
-		boolean CzyWpisacRecznie=true;
+		String CzyPoTerminie = null;
+		boolean CzyWpisacRecznie = true;
 		boolean OK = true;
-		System.out.println("Podaj prosze ID.");
-		do
-		{
-			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
-			OK=SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
-			if(OK != false )
-			{
-			System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
-			}
-		}while(OK != false);
+
+		System.out.println("Czy chcesz wpisać własne ID? Tak/Nie");
+		CzyRandomId = WpisywanieDanych.WpisanieTakLubNie();
+		System.out.println(CzyRandomId);
+		if (CzyRandomId.equals("nie")) {
+			do {
+				IdKsiazki = Unikalne.Id();
+				OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
+			}while(OK!= false);
+		} else {
+			System.out.println("Podaj prosze ID.");
+				do {
+					IdKsiazki = WpisywanieDanych.WpisanieLiczby();
+					OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
+					if (OK != false) {
+						System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
+					}
+				} while (OK != false);
+	       }
 		System.out.println("Podaj prosze nazwie ksiazki.");
 		NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
 		System.out.println("Podaj prosze autora.");
@@ -142,22 +149,7 @@ public class Ksiazka
 	{
 		return Wyporzyczajacy;
 	}
-	/*
-	public int GetDniWyporzyczenia()
-	{
-		return DniWyporzyczenia;
-	}
 
-	public int GetMiesiaceWyporzyczenia()
-	{
-		return MiesiaceWyporzyczenia;
-	}
-
-	public int GetRokWyporzyczenia()
-	{
-		return RokWyporzyczenia;
-	}
-	 */
 	public String GetDataWyporzyczenia()
 	{
 		return DataWyporzyczenia;
@@ -167,21 +159,7 @@ public class Ksiazka
 	{
 		return CzyWyporzyczona;
 	}
-	/*
-	public int GetDniTermin()
-	{
-		return DniTermin;
-	}
-	public int GetMiesiaceTermin()
-	{
-		return MiesiaceTermin;
-	}
-	public int GetRokTermin()
-	{
-		return RokTermin;
-	}
 
-	 */
 	public String GetDataTermin()
 	{
 		return DataTermin;
@@ -193,10 +171,47 @@ public class Ksiazka
 
 	//Setery dla innych Klas
 
-	//public static boolean CzyPoTerminie()
-	//{
+	public void SetNazwaKsiazki(String NowyNazwaKsiazki)
+	{
+		this.NazwaKsiazki=NazwaKsiazki;
+	}
 
-	// }
+	public void SetAutor(String NowyAutor)
+	{
+		this.Autor=NowyAutor;
+	}
+
+	public void SetGatunek(String NowyGatunek)
+	{
+		this.Gatunek=NowyGatunek;
+	}
+	public void SetDataWydania(String NowyDataWydania)
+	{
+		this.DataWydania=DataWydania;
+	}
+	public void SetWyporzyczajacy(String NowyWyporzyczajacy)
+	{
+		this.Wyporzyczajacy=NowyWyporzyczajacy;
+	}
+	public void SetCzyWyporzyczona (String NowyCzyWyporzyczona)
+	{
+		this.CzyWyporzyczona=NowyCzyWyporzyczona;
+	}
+	public void SetDataWyporzyczenia(String NowyDataWyporzyczenia)
+	{
+		this.DataWydania=NowyDataWyporzyczenia;
+	}
+	public void SetDataTermin(String NowyDataTermin)
+	{
+		this.DataTermin=NowyDataTermin;
+	}
+	public void SetCzyPoTerminie(String NowyCzyPoTerminie)
+	{
+		this.CzyPoTerminie=NowyCzyPoTerminie;
+	}
+
+
+
 
 
 	// Funkcja pokazujaca wszystkei dane

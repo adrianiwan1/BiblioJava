@@ -12,15 +12,13 @@ public class ProjektJavaBiblioteka
 {
 
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) throws IOException {
 
 
-		Menu.WypisywanieUzytkownikow();
-
-
-
-
+		Ksiazka Jan = Ksiazka.TworzenieKsiazka();
+		OperacjePlikKsiazki.ZapisywanieKsiazek(Jan,"Books.bin");
+		//Menu.WypisywanieUzytkownikow();
+		Menu.WypisywanieKsiazek();
 
 
 	}
