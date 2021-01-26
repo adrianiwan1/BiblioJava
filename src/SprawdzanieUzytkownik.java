@@ -47,7 +47,7 @@ public class SprawdzanieUzytkownik
 		int i = 0;
 		int Znalezione = 0;
 		boolean Istnieje;
-		String NazwaCzytelnika = "0000000000000000000000000000000";
+		String NazwaCzytelnika = "PustyPustoPustusienkoNiemaNic";
 
 		try
 		{

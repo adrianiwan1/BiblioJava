@@ -44,8 +44,8 @@ public class WyszukiwanieKsiazka
 	{
 		int i = 0;
 		int Znalezione = 0;
-		String OdczytBezSpacji = ("Pusty");
-		String Odczyt =("Pusty");
+		String OdczytBezSpacji = ("PustyPustoPustusienkoNiemaNic");
+		String Odczyt =("PustyPustoPustusienkoNiemaNic");
 
 		Szukana = BezSpacji(Szukana); // Usuniecie spacji
 		try
@@ -95,14 +95,21 @@ public class WyszukiwanieKsiazka
 							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
 							break;
 					}
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					} else
+					if (Odczyt.equals("PustyPustoPustusienkoNiemaNic")) //Jesl nic nie wpisano do odczytu.
 					{
 						i = 9002; // Zakonczenie petli jesli null
 					}
+					else
+					{
+						if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
+						{
+							System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
+							Znalezione++;
+						} else
+						{
+							i = 9002; // Zakonczenie petli jesli null
+						}
+				}
 					i++;
 				}
 			} while(i < 9000);
