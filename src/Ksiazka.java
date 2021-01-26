@@ -11,6 +11,7 @@ public class Ksiazka
 	private String Wyporzyczajacy;
 
 	//Pozostale
+
 	//private int DniWyporzyczenia;
 	//private int MiesiaceWyporzyczenia;
 	//private int RokWyporzyczenia;
