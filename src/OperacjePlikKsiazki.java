@@ -68,17 +68,13 @@ public class OperacjePlikKsiazki{
     {
         int i = 0;
         int Szukana = 0;
-        int Znalezione = 0;
-
-
-
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
             System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
 
-            if(Sprawdzanie.CzyPodaneIdIstnieje(Szukana)==true) {
+            if(SprawdzanieKsiazka.CzyPodaneIdIstnieje(Szukana)==true) {
                 do {
                     Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
                     if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
@@ -86,14 +82,7 @@ public class OperacjePlikKsiazki{
                         int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
                         if (Szukana != Odczyt) // Porownanie odczytu.
                         {
-
                             ZapisywanieKsiazek(OdczytaneDane,"TempBooks.bin");
-
-
-
-
-
-
                         }
                     } else {
                         i = 9002; // Zakonczenie petli jesli null
@@ -121,10 +110,6 @@ public class OperacjePlikKsiazki{
         } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
         {
             e.printStackTrace();
-        }
-        if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-        {
-            System.out.println("Nie znaleziono.");
         }
         }
     }

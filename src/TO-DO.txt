@@ -1,21 +1,28 @@
 
 Program winien umożliwiać:
 
-Dopisanie książki do bazy - Bez unikalnego ID. Bez sprawdzania czy istnieje Wyporzyczajacego
-Edycję książki w bazie - Sa funkcje ale nie zaimplementowane
-Usunięcie książki z bazy - Nie
-Szukanie książki w bazie - po wskazanym parametrze - Prawie
-Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe
+Dopisanie książki do bazy - Gotowe , Uniklane Id nie jest automatyczne.
+Edycję książki w bazie - Nie Gotowe
+Usunięcie książki z bazy - Gotowe
+Szukanie książki w bazie - Gotowe - Wyswietlnie wyporzyczonych.
+Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe.
 Dodanie czytelnika - Gotowe
-Edycję czytelnika
-Zablokowanie czytelnika
-Listing czytelników (również po wskazanym kryterium)
-Wypożyczenie książki
-Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika)
-Terminy wypożyczeń w historii książek, także w historii czytelników.
-Listing książek z przeterminowanymi zwrotami.
+Edycję czytelnika - Sa funkcje ale nie zaimplementowane
+Zablokowanie czytelnika - Gotowe - Do poprawienia.
+Listing czytelników (również po wskazanym kryterium) - Do Zrobienia funkcje sa
+Wypożyczenie książki - Nie Gotowe
+Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika) Gotowe.
+Terminy wypożyczeń w historii książek, także w historii czytelników. Nie Gotowe.
+Listing książek z przeterminowanymi zwrotami. Nie Gotowe.
+
 Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i użytkownikami.
 
 Ocenie podlega niezawodność działania programu i sposób dekompozycji obiektowej.
 Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.
 
+TODO Stworzenie wszystkich seterów. Dla Klasy Ksiazka.
+ToDo Stworzenie wszystkich seterów. Dla Klasy Uzytkownik.
+todo Funkcje Unikalnego Generowania ID dla Ksiazki.
+ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie.
+
+//Do usuniecia funkcja BlackList. Zastapic ja wartoscia zbanowany w Klasie Uzytkownik.

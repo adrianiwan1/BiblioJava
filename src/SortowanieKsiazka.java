@@ -545,7 +545,4 @@ public class SortowanieKsiazka
             j++;
         } while((Dlugosc) != j);
     }
-
-
-
 }

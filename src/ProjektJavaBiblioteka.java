@@ -12,25 +12,16 @@ public class ProjektJavaBiblioteka
 {
 
 
-	public static void main(String[] args) throws FileNotFoundException
+	public static void main(String[] args)
 	{
 
 
-		Menu.WypisywanieKsiazek();
-		OperacjePlikKsiazki.UsuwanieKsiazki();
-		Menu.WypisywanieKsiazek();
-		/*for(int i=0; i<4; i++)
-		{
-			Ksiazka Nowa = Ksiazka.TworzenieKsiazka();
-			try
-			{
-				OperacjePlikKsiazki.ZapisywanieKsiazek(Nowa,"Books.bin");
-			} catch(IOException e)
-			{
+		Menu.WypisywanieUzytkownikow();
 
-			}
-		}
-		 */
+
+
+
+
 
 	}
 }

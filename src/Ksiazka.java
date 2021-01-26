@@ -26,7 +26,8 @@ public class Ksiazka
 	private String DataTermin;
 	private String CzyPoTerminie;
 	//Konstruktor
-	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania, String Wyporzyczajacy,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie)
+	public Ksiazka( int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania,
+						 String Wyporzyczajacy,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie)
 	{
 		this.IdKsiazki=IdKsiazki;
 		this.NazwaKsiazki=NazwaKsiazki;
@@ -64,7 +65,7 @@ public class Ksiazka
 		do
 		{
 			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
-			OK=Sprawdzanie.CzyPodaneIdIstnieje(IdKsiazki);
+			OK=SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
 			if(OK != false )
 			{
 			System.out.println("Istnieje juz id z podana wartoscia.Prosze podac inne.");
@@ -79,7 +80,7 @@ public class Ksiazka
 		do
 		{
 			Gatunek = WpisywanieDanych.WpisanieSlowa();
-			OK = Sprawdzanie.SprawdzanieGatunku(Gatunek);
+			OK = SprawdzanieKsiazka.SprawdzanieGatunku(Gatunek);
 		}while(OK != true );
 		System.out.println("Podaj prosze date wydania.");
 		DataWydania = Data.WpisanieDaty();

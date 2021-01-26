@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Locale;
 
-public class Sprawdzanie
+public class SprawdzanieKsiazka
 {
 	public static boolean SprawdzanieGatunku(String WpisanyGatunek)
 	{
