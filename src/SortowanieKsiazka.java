@@ -477,11 +477,11 @@ public class SortowanieKsiazka
             j++;
         } while((Dlugosc) != j);
     }
+
     public static String[] PoDataTermin()
     {
         TreeSet<String> TreeLista = new TreeSet<String>();
         int i = 0;
-        String K;
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();

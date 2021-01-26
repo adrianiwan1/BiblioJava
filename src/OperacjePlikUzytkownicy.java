@@ -87,6 +87,52 @@ public class OperacjePlikUzytkownicy {
             e.printStackTrace();
         }
     }
+    public static void ZmianaDanych(String Zmieniane) // Wyszukiwanie inta - > ID
+    {
+        int i = 0;
+        int Szukana = 0;
+        int Znalezione = 0;
+
+        try
+        {
+            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
+            System.out.println("Wpisz liczbe id ksiazki ktora chcesz znalezc");  // Prosba o wpisanie
+            Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
+            do
+            {
+                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+                if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+                {
+                    int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                    if(Szukana==Odczyt) // Porownanie odczytu.
+                    {
+                        switch(Zmieniane)
+                        {
+                            case "nazwa":
+                                break;
+                            case "id":
+                                break;
+                            case "ban":
+                                break;
+
+                        }
+                        Znalezione++;
+                    }
+                } else
+                {
+                    i = 9002; // Zakonczenie petli jesli null
+                }
+                i++;
+            } while(i < 9000); // Maksymalna wartosc petli
+            PlikOdczytany.close(); // Zamkniecie odczytu
+        } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
+        {
+        }
+        if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
+        {
+            System.out.println("Nie znaleziono.");
+        }
+    }
 
 
 }

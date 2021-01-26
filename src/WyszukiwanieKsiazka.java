@@ -1,318 +1,132 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class WyszukiwanieKsiazka
 {
 	//
+
 	//
-	public static void WyszukiwanieNazaKsiazki()
+	public static void Wyszukiwanie(String Zmienna)
 	{
-		int i = 0;
+
 		String Szukana= null; // Poszukiwany String
 		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
+		int Szukany = 0;
 
+		RandomAccessFile PlikOdczytany = null; //Otwarcie pliku
 		try
 		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz nazwe ksiazki  ktora chcesz znalezc");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
+			PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+			if (Zmienna.equals("id"))
 			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+			System.out.println("Wpisz nazwe poszukiwanej treści.");  // Prosba o wpisanie
+			Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+			WyszukiwanieID(Szukany,PlikOdczytany);
+			}else
 				{
-					String Odczyt = OdczytaneDane.GetNazwaKsiazki(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
+					System.out.println("Wpisz nazwe poszukiwanej treści.");  // Prosba o wpisanie
+					Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
+					UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
 				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
-		}
-	}
-	public static void WyszukiwanieAutor()
-	{
-		int i = 0;
-		String Szukana= null; // Poszukiwany String
-		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
-
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz autora ktorego ksiazki chcesz znalezc.");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
+			if(Znalezione == 0)
 			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					String Odczyt = OdczytaneDane.GetAutor(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
+			System.out.println("Nie znaleziono wyszukiwanej treści.");
+			}
 			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
+		} catch(IOException e)
 		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
 		}
 	}
 	//
 	//
-	public static void WyszukiwanieDataWyporzyczenia()
+	public static int UltraSkroconeWyszukiwanie(String Szukana,RandomAccessFile PlikOdczytany,String Zmienna)
 	{
 		int i = 0;
-		String Szukana= null; // Poszukiwany String
-		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
-
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz date wyporzyczenia ksiazek ktore chcesz znalezc.");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					String Odczyt = OdczytaneDane.GetDataWyporzyczenia(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
-		}
-	}
-	//
-	//
-	public static void WyszukiwanieDataWydania()
-	{
-		int i = 0;
-		String Szukana= null; // Poszukiwany String
-		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
-
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz date wydania ksiazek ktore chcesz znalezc.");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					String Odczyt = OdczytaneDane.GetDataWydania(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
-		}
-	}
-	//
-	//
-	public static void WyszukiwanieDataTermin()
-	{
-		int i = 0;
-		String Szukana= null; // Poszukiwany String
-		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
-
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz termin oddania ksiazek ktora chcesz znalezc.");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					String Odczyt = OdczytaneDane.GetDataTermin(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
-		}
-	}
-	//
-	//
-	public static void WyszukiwanieGatunek()
-	{
-		int i = 0;
-		String Szukana= null; // Poszukiwany String
-		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
-
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz gatunek ksiazek ktore chcesz znalezc.");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					String Odczyt = OdczytaneDane.GetGatunek(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
-		}
-	}
-	public static void WyszukiwanieWyporzyczajacy()
-	{
-		int i = 0;
-		String Szukana= null; // Poszukiwany String
-		int Znalezione = 0; // int sprawdzajacy czy cos znaleźliśmy
-
-		try
-		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz nazwe wyporzyczajacego ktorego chcesz znalezc.");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-			Szukana = BezSpacji(Szukana); // Usuniecie spacji
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					String Odczyt = OdczytaneDane.GetWyporzyczajacy(); //Wpisanie danej do Stringa
-					String OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
-					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
-					{
-						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-						Znalezione++;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
-		{
-			e.printStackTrace();
-		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci.
-		{
-			System.out.println("Nie znaleziono.");
-		}
-	}
-	//
-	//
-	public static void WyszukiwanieID() // Wyszukiwanie inta - > ID
-	{
-		int i = 0;
-		int Szukana = 0;
 		int Znalezione = 0;
+		String OdczytBezSpacji = ("Pusty");
+		String Odczyt =("Pusty");
 
+		Szukana = BezSpacji(Szukana); // Usuniecie spacji
 		try
 		{
-			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-			System.out.println("Wpisz liczbe id ksiazki ktora chcesz znalezc");  // Prosba o wpisanie
-			Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
+			do
+			{
+
+				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+				{
+					switch(Zmienna)
+					{
+						case"datatermin":
+							Odczyt = OdczytaneDane.GetDataTermin(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"gatunek":
+							Odczyt = OdczytaneDane.GetGatunek(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"autor":
+							Odczyt = OdczytaneDane.GetAutor(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"nazwa":
+							Odczyt = OdczytaneDane.GetNazwaKsiazki(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"datawydania":
+							Odczyt = OdczytaneDane.GetDataWydania(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"datawyporzyczenia":
+							Odczyt = OdczytaneDane.GetDataWyporzyczenia(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"wyporzyczajacy":
+							Odczyt = OdczytaneDane.GetWyporzyczajacy(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"czywyporzyczona":
+							Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+						case"czypoterminie":
+							Odczyt = OdczytaneDane.GetCzyPoTerminie(); //Wpisanie danej do Stringa
+							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
+							break;
+					}
+					if(Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
+					{
+						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
+						Znalezione++;
+					} else
+					{
+						i = 9002; // Zakonczenie petli jesli null
+					}
+					i++;
+				}
+			} while(i < 9000);
+		}catch(IOException e)// Maksymalna wartosc petli
+		{
+
+		}
+		return Znalezione;
+	}
+	//
+	//
+	public static int WyszukiwanieID(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID
+	{
+		int i = 0;
+		int Znalezione = 0;
+		try
+		{
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
 				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
 				{
 					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
-					if(Szukana==Odczyt) // Porownanie odczytu.
+					if(Szukany == Odczyt) // Porownanie odczytu.
 					{
 						System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
 						Znalezione++;
@@ -323,16 +137,13 @@ public class WyszukiwanieKsiazka
 				}
 				i++;
 			} while(i < 9000); // Maksymalna wartosc petli
-			PlikOdczytany.close(); // Zamkniecie odczytu
-		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
+		}catch(IOException e)
 		{
-			e.printStackTrace();
+
 		}
-		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
-		{
-			System.out.println("Nie znaleziono.");
-		}
+		return Znalezione;
 	}
+
 	//
 	//
 	public  static String BezSpacji(String Slowo)
