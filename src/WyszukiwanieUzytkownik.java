@@ -22,7 +22,7 @@ public class WyszukiwanieUzytkownik {
                 WyszukiwanieID(Szukany,PlikOdczytany);
             }else
             {
-                if(Zmienna.equals("Nazwa"))
+                if(Zmienna.equals("nazwa"))
                 {
                     System.out.println("Wpisz nazwę Użytkownika.");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa

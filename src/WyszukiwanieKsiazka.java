@@ -186,7 +186,6 @@ public class WyszukiwanieKsiazka
 		int i = 0;
 		int Znalezione = 0;
 		String CzyWypozyczone="PustyPustoPustusienkoNiemaNic";
-		System.out.println("**************"+Szukany);
 		try
 		{
 			do

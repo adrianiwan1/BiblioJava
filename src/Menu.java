@@ -11,6 +11,8 @@ public class Menu
 		try
 		{
 			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+
+			System.out.println("ID"+"\t\t\t\t"+"NazwaKsiazki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t\t"+"Wypozyczający"+"\t\t\t\t\t"+"Czy wyporzyczona");
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);

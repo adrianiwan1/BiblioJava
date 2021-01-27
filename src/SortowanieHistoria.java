@@ -112,9 +112,6 @@ public static ArrayList<Integer> PoId()
                         case "uzytkownik":
                             TreeLista.add(OdczytaneDane.GetWyporzyczajacy());
                             break;
-                        case "datawyporzyczenia":
-                            TreeLista.add(OdczytaneDane.GetDataWyporzyczenia());
-                            break;
                         case "czypoterminie":
                             TreeLista.add(OdczytaneDane.GetCzyPoTerminie());
                             break;
@@ -155,15 +152,6 @@ public static ArrayList<Integer> PoId()
                                 break;
                             case"uzytkownik":
                                 Odczyt = OdczytaneDane.GetNazwaUzytkownik(); //Wpisanie danej do int
-                                break;
-                            case"datatermin":
-                                Odczyt = OdczytaneDane.GetDataTermin(); //Wpisanie danej do int
-                                break;
-                            case"datawydania":
-                                Odczyt = OdczytaneDane.GetDataWydania(); //Wpisanie danej do int
-                                break;
-                            case"datawyporzyczenia":
-                                Odczyt = OdczytaneDane.GetDataWyporzyczenia(); //Wpisanie danej do int
                                 break;
                             case"czypoterminie":
                                 Odczyt = OdczytaneDane.GetCzyPoTerminie(); //Wpisanie danej do int

@@ -38,6 +38,12 @@ public class MainProjektBiblioteka
 		//Menu.TworznieUzytkownika();
 		//WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
 		//WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
+		//Menu.WypisywanieKsiazek();
+
+		//Menu.TworzenieKsiazki();
+
+		SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie("datawydania"),"datawydania");
+		//SortowanieKsiazka.Sortowanie("nazwaksiazki");
 
 
 	}
