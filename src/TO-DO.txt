@@ -1,7 +1,7 @@
 
 Program winien umożliwiać:
 
-Dopisanie książki do bazy - Gotowe - do sprawdzenia
+Dopisanie książki do bazy - Gotowe. - Jebie sie cos z Data.
 Edycję książki w bazie - Nie Gotowe
 Usunięcie książki z bazy - Gotowe - Do sprawdzenia
 Szukanie książki w bazie - Gotowe - Do sprawdzenia
@@ -20,4 +20,5 @@ Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i u�
 Ocenie podlega niezawodność działania programu i sposób dekompozycji obiektowej.
 Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.
 
-ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie.
+ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie. i czy zbanowy.
+ToDO Funkcje sorotowania i wyszukiwania w pliku HISTORIA.

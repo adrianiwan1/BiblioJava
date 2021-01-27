@@ -37,9 +37,9 @@ public class WpisywanieDanych
 				OK = true;
 				Scanner Wprowadzenie_Slowa = new Scanner(System.in); // Nowy Scaner
 				Slowo = Wprowadzenie_Slowa.nextLine().toLowerCase();; // Wpisanie slowa
-				if(Slowo == null)
+				if(Slowo == null || Slowo.equals("") || Slowo.equals(" "))
 				{
-				System.out.println("Podane slowo nie moze byc puste");
+				System.out.println("Podane slowo nie moze byc puste.Sprobuj Ponownie.");
 				OK = false;
 				}
 		} while(!OK);

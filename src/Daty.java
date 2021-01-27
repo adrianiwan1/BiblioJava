@@ -134,7 +134,7 @@ public class Daty
 		return DzienRok;
 
 	}
-	public static long	 CzyPoTerminie(String DataObecna , String DataTermin,String Zmienna)
+	public static long	 SprawdzanieCzyPoPodanejDacie(String DataObecna , String DataTermin,String Zmienna)
 	{
 		int DzienWyporzyczenia = GetDzien(DataObecna);
 		int MiesiacWyporzyczenia = GetMiesiac((DataObecna));
@@ -171,7 +171,7 @@ public class Daty
 
 	}
 
-	public static String CzyPoTerminie(long IleDniPoTerminie)
+	public static String CzyPoDacieString(long IleDniPoTerminie)
 	{
 		String CzyPoTerminie = "nie";
 		if (IleDniPoTerminie > 0)
