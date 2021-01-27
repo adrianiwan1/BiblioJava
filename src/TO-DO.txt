@@ -21,4 +21,4 @@ Ocenie podlega niezawodność działania programu i sposób dekompozycji obiekto
 Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.
 
 ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie. i czy zbanowy.
-ToDO Funkcje sorotowania i wyszukiwania w pliku HISTORIA.
+ToDO Funkcje sorotowania i wyszukiwania w pliku HISTORIA.- Zrobione Do psrawdzenia.

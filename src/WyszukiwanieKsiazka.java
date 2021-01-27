@@ -150,6 +150,8 @@ public class WyszukiwanieKsiazka
 		}
 		return Znalezione;
 	}
+
+
 	public static int IdCzyIstnieje(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID, Zwraca Int 1 jeśli znalezione
 	{
 		int i = 0;
@@ -196,7 +198,7 @@ public class WyszukiwanieKsiazka
 				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
 				{
 					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
-					System.out.println("%%%%%%%%%%%%%%%"+Odczyt);
+
 					if(Szukany == Odczyt) // Porownanie odczytu.
 					{
 

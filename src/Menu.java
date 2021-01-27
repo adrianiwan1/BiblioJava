@@ -30,8 +30,9 @@ public class Menu
 	}
 	//
 	//
-	public static void WypisywanieUzytkownikow()
+	public static String WypisywanieUzytkownikow()
 	{
+		String Mamamija = null;
 		int i=0;
 		try{
 			RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy();
@@ -39,7 +40,7 @@ public class Menu
 				Uzytkownik OdczytaneDane = OperacjePlikUzytkownicy.OdczytywanieUzytkownikow(PlikOdczytany);
 				if(OdczytaneDane != null)
 				{
-					System.out.println(OdczytaneDane.ShowUzytkownicy());
+					Mamamija=OdczytaneDane.ShowUzytkownicy();
 				} else
 				{
 					i = 201;
@@ -50,6 +51,7 @@ public class Menu
 		}catch(IOException e)
 		{
 		}
+		return Mamamija;
 	}
 	//
 
@@ -159,6 +161,8 @@ public class Menu
 	public static void WyswietlanieHistori()
 	{
 			int i = 0;
+
+			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wyporzyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego");
 			try
 			{
 				RandomAccessFile PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();

@@ -19,7 +19,8 @@ public class Historia extends Ksiazka{
         return IdHistoria;
     }
 
-    public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik) throws IOException {
+    public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik) throws IOException
+    {
 
         int IdHistoria;
         int IdKsiazki= IdPorzyczanejKsiazki;
@@ -64,10 +65,6 @@ public class Historia extends Ksiazka{
 
         }
 
-
-
-
-
         Historia Wpis = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);
         Historia WpisBooks = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);
 
@@ -76,11 +73,6 @@ public class Historia extends Ksiazka{
         OperacjePlikHistoria.ZapisywanieHistorii(Wpis,"History.bin");
         OperacjePlikKsiazki.ZapisywanieKsiazek(WpisBooks,"Books.bin");
         Historia.Czekaj();
-
-
-
-
-
 
     }
 
@@ -101,8 +93,7 @@ public class Historia extends Ksiazka{
 
         String TekstWyswietl;
 
-        TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + "Wyporzycający:"+GetWyporzyczajacy() + GetDataWydania()+ "\t\t" + GetCzyWyporzyczona() +
-                "\t\t" + GetDataWyporzyczenia() +"\t\t" +"Po terminie:" +GetCzyPoTerminie() + "\t\t" + GetDataTermin() +"\t\t"+GetIdUzytkownika());
+        TekstWyswietl =(GetIdHistorii()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminie()+"\t\t\t" +GetIdUzytkownika());
         return TekstWyswietl;
     }
 }
