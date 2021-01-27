@@ -60,9 +60,6 @@ public class WyszukiwanieHistoria {
                         System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
                         Znalezione++;
                     }
-                } else
-                {
-                    i = 9002; // Zakonczenie petli jesli null
                 }
                 i++;
             } while(i < 9000); // Maksymalna wartosc petli
@@ -165,8 +162,6 @@ public class WyszukiwanieHistoria {
                         {
                             System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
                             Znalezione++;
-                        } else {
-                            i = 9002; // Zakonczenie petli jesli null
                         }
                     }
                     i++;

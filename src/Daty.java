@@ -160,7 +160,6 @@ public class Daty
 //Commi
 				case "czypoterminie":
 					Porownanie = KalendarzObecna.compareTo(KalendarzTermin);
-					System.out.println(Porownanie);
 					return Porownanie;
 				case "ilepoterminie":
 					Porownanie  = (DataWMiliSekundach / (1000*60*60*24));
