@@ -28,14 +28,15 @@ public class MainProjektBiblioteka
 
 		 */
 
-		Menu.WyswietlanieHistori();
+		//Menu.WyswietlanieHistori();
 
 		//Menu.WypisywanieUzytkownikow();
-		//WyszukiwanieUzytkownik.
+		Menu.WypisywanieKsiazek();
+		WyszukiwanieKsiazka.Wyszukiwanie("nazwa");
 
 		//RandomAccessFile wynik =OperacjePlikHistoria.OtwarciePlikHistoria();
 		//Menu.TworznieUzytkownika();
-		WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
+		//WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
 		//WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
 
 
