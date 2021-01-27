@@ -181,8 +181,6 @@ public class WyszukiwanieKsiazka
 		}
 		return Znalezione;
 	}
-
-
 	//
 	//
 	public  static String BezSpacji(String Slowo)

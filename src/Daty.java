@@ -2,7 +2,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.InputMismatchException;
 
-public class Data
+public class Daty
 {
 	public static String WpisanieDaty()
 	{
@@ -57,7 +57,6 @@ public class Data
 		Day = Kalendarz.get(Calendar.DAY_OF_MONTH);
 		Month = Kalendarz.get(Calendar.MONTH);
 		Year = Kalendarz.get(Calendar.YEAR);
-		System.out.println(Day+"-"+(Month+1)+"-"+Year);
 		String Data = (Day+"-"+(Month+1)+"-"+Year);
 
 		return Data;
@@ -135,5 +134,29 @@ public class Data
 		return DzienRok;
 
 	}
+	public static int CzyPoTerminie(String DataWyporzyczenia , String DataTermin)
+	{
+		int DzienWyporzyczenia = GetDzien(DataWyporzyczenia);
+		int MiesiacWyporzyczenia = GetMiesiac(DataWyporzyczenia);
+		int RokWyporzyczenia = GetRok(DataWyporzyczenia);
+		int DzienTermin = GetDzien(DataTermin);
+		int MiesiacTermin = GetMiesiac(DataTermin);
+		int RokTermin  = GetRok(DataTermin);
+		Calendar KalendarzWyporzyczenia = new GregorianCalendar(RokWyporzyczenia,MiesiacWyporzyczenia,DzienWyporzyczenia);
+		Calendar KalendarzTermin = new GregorianCalendar(RokTermin,MiesiacTermin,DzienTermin);
+		int Porownanie = KalendarzWyporzyczenia.compareTo(KalendarzTermin);
+
+		return Porownanie;
+	}
+	public static String CzyPoTerminie(int IleDniPoTerminie)
+	{
+		String CzyPoTerminie = "nie";
+		if (IleDniPoTerminie > 0)
+		{
+		CzyPoTerminie = "tak";
+		}
+		return CzyPoTerminie;
+	}
+
 
 }
