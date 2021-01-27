@@ -1,28 +1,23 @@
 
 Program winien umożliwiać:
 
-Dopisanie książki do bazy - Gotowe , Uniklane Id nie jest automatyczne.
+Dopisanie książki do bazy - Gotowe
 Edycję książki w bazie - Nie Gotowe
-Usunięcie książki z bazy - Gotowe
-Szukanie książki w bazie - Gotowe - Wyswietlnie wyporzyczonych.
-Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe.
-Dodanie czytelnika - Gotowe
+Usunięcie książki z bazy - Gotowe - Do sprawdzenia
+Szukanie książki w bazie - Gotowe - Do sprawdzenia
+Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe. - Do sprawdzenia
+Dodanie czytelnika - Gotowe.
 Edycję czytelnika - Sa funkcje ale nie zaimplementowane
-Zablokowanie czytelnika - Gotowe - Do poprawienia.
-Listing czytelników (również po wskazanym kryterium) - Do Zrobienia funkcje sa
-Wypożyczenie książki - Nie Gotowe
-Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika) Gotowe.
+Zablokowanie czytelnika - Do Stworzenia
+Listing czytelników (również po wskazanym kryterium) - Do Stworzenia
+Wypożyczenie książki - W Połowie (?) - Do sprawdzenia
+Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika) Gotowe. - Do sprawdzenia
 Terminy wypożyczeń w historii książek, także w historii czytelników. Nie Gotowe.
-Listing książek z przeterminowanymi zwrotami. Nie Gotowe.
+Listing książek z przeterminowanymi zwrotami. Do Stworzenia - Do Sprawdzenia - Do Napisania FunkcjaPrzeterminowania - Do Napisania Funkcja IleDniPo.
 
 Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i użytkownikami.
 
 Ocenie podlega niezawodność działania programu i sposób dekompozycji obiektowej.
 Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.
 
-TODO Stworzenie wszystkich seterów. Dla Klasy Ksiazka.
-ToDo Stworzenie wszystkich seterów. Dla Klasy Uzytkownik.
-todo Funkcje Unikalnego Generowania ID dla Ksiazki. Gotowe dla ksiązki i dla użytkownika
 ToDo Funkcje WyszukiwaniaUzytkownika. Po ID i Nazwie.
-
-//Zastapic ja wartoscia zbanowany w Klasie Uzytkownik.
