@@ -105,9 +105,6 @@ public class WyszukiwanieKsiazka
 						{
 							System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
 							Znalezione++;
-						} else
-						{
-							i = 9002; // Zakonczenie petli jesli null
 						}
 				}
 					i++;

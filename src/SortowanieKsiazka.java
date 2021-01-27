@@ -5,7 +5,7 @@ import java.util.*;
 public class SortowanieKsiazka
 {
 
-    public static ArrayList<Integer> PoId()
+    public static ArrayList<Integer> SortowaniePoID()
     {
         ArrayList<Integer> ListaId = new ArrayList<Integer>();
 
@@ -105,6 +105,12 @@ public class SortowanieKsiazka
                         case "czywyporzyczona":
                             TreeLista.add(OdczytaneDane.GetCzyWyporzyczona());
                             break;
+                        case "gatunek":
+                            TreeLista.add(OdczytaneDane.GetGatunek());
+                            break;
+                        default:
+                            System.out.println("Cos poszlo bardzo nie tak.");
+                            break;
                     }
                 } else
                 {
@@ -122,7 +128,7 @@ public class SortowanieKsiazka
 
     }
 
-    public static void WyswietlaniePosortowaneNazwaKsiazki(String[] ListaKoncowa,String Zmienna) // Wyszukiwanie inta - > ID
+    public static void WyswietlaniePosortowane(String[] ListaKoncowa,String Zmienna) // Wyszukiwanie inta - > ID
     {
         int i = 0;
         int j = 0;
@@ -156,6 +162,12 @@ public class SortowanieKsiazka
                                 break;
                             case"czywyporzyczona":
                                 Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do int
+                                break;
+                            case"gatunek":
+                                Odczyt = OdczytaneDane.GetGatunek(); //Wpisanie danej do int
+                                break;
+                            default:
+                                System.out.println("Cos poszlo bardzo nie tak.");
                                 break;
                         }
                         if(Odczyt.equals("PustyPustoPustusienkoNiemaNic"))

@@ -142,11 +142,6 @@ public class WyszukiwanieUzytkownik {
                             System.out.println("Nie działa");
                             System.out.println(OdczytaneDane.ShowUzytkownicy()); //Wyswietlenie odczytu
                             Znalezione++;
-                        } else {
-                            System.out.println("@@@@@@@"+Szukana);
-                            System.out.println("%%%%%%%"+OdczytBezSpacji);
-                            System.out.println("Nie działa!!!!!");
-                            i = 9002; // Zakonczenie petli jesli null
                         }
                     }
                     i++;
