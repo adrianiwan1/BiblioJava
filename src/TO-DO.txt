@@ -3,10 +3,10 @@ Program winien umożliwiać:
 
 Dopisanie książki do bazy - Gotowe. - Jebie sie cos z Data.->Jako rok można wpisać -1
 Edycję książki w bazie - Nie Gotowe
-Usunięcie książki z bazy - Gotowe - Do sprawdzenia
+Usunięcie książki z bazy - Gotowe - Działa
 Szukanie książki w bazie - Gotowe - Do sprawdzenia
 Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe. - Do sprawdzenia
-Dodanie czytelnika - Gotowe- do sprawdzenia.
+Dodanie czytelnika - Gotowe- DZiała
 Edycję czytelnika - Sa funkcje ale nie zaimplementowane
 Zablokowanie czytelnika - Do Stworzenia
 Listing czytelników (również po wskazanym kryterium) - Do Stworzenia
