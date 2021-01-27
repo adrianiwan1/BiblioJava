@@ -173,5 +173,13 @@ public class Menu
 			}
 	}
 
+	public static void UsuwanieKsiazki()
+	{
+		int Szukana;
+		System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
+		Szukana = WpisywanieDanych.WpisanieLiczby();
+		OperacjePlikKsiazki.KasowanieKsiazki(Szukana);
+	}
+
 
 }
