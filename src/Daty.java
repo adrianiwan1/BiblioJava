@@ -154,7 +154,7 @@ public class Daty
 		switch(Zmienna)
 		{
 
-//Commit
+//Commi
 				case "czypoterminie":
 					Porownanie = KalendarzObecna.compareTo(KalendarzTermin);
 					return Porownanie;
