@@ -27,11 +27,16 @@ public class MainProjektBiblioteka
 		System.out.println("Ile po terminie " + Porownanie);
 
 		 */
+
 		Menu.WyswietlanieHistori();
 
-		//RandomAccessFile wynik =OperacjePlikHistoria.OtwarciePlikHistoria();
+		//Menu.WypisywanieUzytkownikow();
+		//WyszukiwanieUzytkownik.
 
-		WyszukiwanieHistoria.Wyszukiwanie("id");
+		//RandomAccessFile wynik =OperacjePlikHistoria.OtwarciePlikHistoria();
+		//Menu.TworznieUzytkownika();
+		WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
+		//WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
 
 
 	}

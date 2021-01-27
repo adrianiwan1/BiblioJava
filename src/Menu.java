@@ -30,17 +30,19 @@ public class Menu
 	}
 	//
 	//
-	public static String WypisywanieUzytkownikow()
+	public static void WypisywanieUzytkownikow()
 	{
-		String Mamamija = null;
+
 		int i=0;
+
+
 		try{
 			RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy();
 			do {
 				Uzytkownik OdczytaneDane = OperacjePlikUzytkownicy.OdczytywanieUzytkownikow(PlikOdczytany);
 				if(OdczytaneDane != null)
 				{
-					Mamamija=OdczytaneDane.ShowUzytkownicy();
+					System.out.println(OdczytaneDane.ShowUzytkownicy());
 				} else
 				{
 					i = 201;
@@ -51,7 +53,7 @@ public class Menu
 		}catch(IOException e)
 		{
 		}
-		return Mamamija;
+
 	}
 	//
 

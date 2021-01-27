@@ -158,7 +158,7 @@ public class SortowanieKsiazka
                                 Odczyt = OdczytaneDane.GetAutor(); //Wpisanie danej do int
                                 break;
                             case"uzytkownik":
-                                Odczyt = OdczytaneDane.GetUzytkownik(); //Wpisanie danej do int
+                                Odczyt = OdczytaneDane.GetNazwaUzytkownik(); //Wpisanie danej do int
                                 break;
                             case"datatermin":
                                 Odczyt = OdczytaneDane.GetDataTermin(); //Wpisanie danej do int

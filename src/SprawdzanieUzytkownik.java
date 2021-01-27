@@ -60,7 +60,7 @@ public class SprawdzanieUzytkownik
 					int Odczyt = OdczytaneDane.GetIdUzytkownika(); //Wpisanie danej do int.
 					if(PodaneID == Odczyt) // Porownanie odczytu.
 					{
-						NazwaCzytelnika = OdczytaneDane.GetUzytkownik();
+						NazwaCzytelnika = OdczytaneDane.GetNazwaUzytkownik();
 						Znalezione++;
 					}
 				} else

@@ -116,7 +116,7 @@ public class WyszukiwanieHistoria {
         try {
             do {
 
-                Ksiazka OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany); // Odczytranie linjki tekstu
+                Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany); // Odczytranie linjki tekstu
                 if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
                 {
                     switch (Zmienna) {

@@ -67,7 +67,7 @@ public class Uzytkownik
 		return IdUzytkownika;
 	}
 
-	public String GetUzytkownik()
+	public String GetNazwaUzytkownik()
 	{
 		return Czytelnik;
 	}
@@ -95,7 +95,7 @@ public class Uzytkownik
 	{
 		String TekstWyswietl;
 
-		return TekstWyswietl = (GetIdUzytkownika()+ "\t\t\t" + GetUzytkownik() + GetCzyZbanowany());
+		return TekstWyswietl = (GetIdUzytkownika()+ "\t\t\t" + GetNazwaUzytkownik() + GetCzyZbanowany());
 	}
 
 }

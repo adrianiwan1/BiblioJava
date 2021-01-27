@@ -12,7 +12,7 @@ public class OperacjePlikUzytkownicy {
         baza.seek(baza.length());
 
         baza.writeInt(NowyUzytkownik.GetIdUzytkownika());
-        baza.writeUTF(String.format("%1$-32s",NowyUzytkownik.GetUzytkownik()));
+        baza.writeUTF(String.format("%1$-32s",NowyUzytkownik.GetNazwaUzytkownik()));
         baza.writeUTF(String.format("%1$-3s",NowyUzytkownik.GetCzyZbanowany()));
 
         baza.close();
