@@ -28,15 +28,21 @@ public class MainProjektBiblioteka
 
 		 */
 
-		Menu.WyswietlanieHistori();
+		//Menu.WyswietlanieHistori();
 
 		//Menu.WypisywanieUzytkownikow();
 		//WyszukiwanieUzytkownik.
 
 		//RandomAccessFile wynik =OperacjePlikHistoria.OtwarciePlikHistoria();
 		//Menu.TworznieUzytkownika();
-		WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
+		//WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
 		//WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
+		//Menu.WypisywanieKsiazek();
+
+		//Menu.TworzenieKsiazki();
+
+		SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie("datawydania"),"datawydania");
+		//SortowanieKsiazka.Sortowanie("nazwaksiazki");
 
 
 	}

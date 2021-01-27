@@ -296,18 +296,18 @@ public class Ksiazka extends Uzytkownik
 
 			if(GetCzyPoTerminie().equals("tak"))
 			{
-				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t" + GetCzyWyporzyczona() +
+				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
 						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
 			}
 			else
 			{
-				TekstWyswietl =(GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetWyporzyczajacy() + GetDataWydania()+ "\t\t\t" + GetCzyWyporzyczona() +
-						  "\t\t\t" + GetDataWyporzyczenia() +"\t\t\t" + GetCzyPoTerminie() + "\t\t\t" + GetDataTermin());
+				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
+						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
 			}
 		}
 		else
 		{
-			TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
+			TekstWyswietl = (GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
 		}
 
 
