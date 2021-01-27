@@ -291,6 +291,9 @@ public class Ksiazka extends Uzytkownik
 		{
 			TekstWyswietl = (GetIdKsiazki()+ "\t\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
 		}
+
+
+
 		return TekstWyswietl;
 	}
 //

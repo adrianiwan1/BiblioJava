@@ -181,6 +181,49 @@ public class WyszukiwanieKsiazka
 		}
 		return Znalezione;
 	}
+
+	public static String CzyWypozyczona(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID, Zwraca Int 1 jeśli znalezione
+	{
+		int i = 0;
+		int Znalezione = 0;
+		String CzyWypozyczone="PustyPustoPustusienkoNiemaNic";
+		System.out.println("**************"+Szukany);
+		try
+		{
+			do
+			{
+				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+				{
+					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+					System.out.println("%%%%%%%%%%%%%%%"+Odczyt);
+					if(Szukany == Odczyt) // Porownanie odczytu.
+					{
+
+						CzyWypozyczone= OdczytaneDane.GetCzyWyporzyczona();
+
+					}
+
+
+				}
+				else {
+					i = 9002; // Zakonczenie petli jesli null
+
+
+					System.out.println(CzyWypozyczone);
+				}
+				i++;
+
+			} while(i < 9000); // Maksymalna wartosc petli
+			PlikOdczytany.close();
+		}catch(IOException e)
+		{
+
+		}
+		return CzyWypozyczone;
+	}
+
+
 	//
 	//
 	public  static String BezSpacji(String Slowo)
