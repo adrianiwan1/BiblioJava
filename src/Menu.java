@@ -113,17 +113,17 @@ public class Menu
 						CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 							if (CzyWpisacRecznie == false) {
 								System.out.println("Podaj prosze date wyporzyczenia.");
-								DataWyporzyczenia = Data.WpisanieDaty();
+								DataWyporzyczenia = Daty.WpisanieDaty();
 							} else {
-								DataWyporzyczenia = Data.ObecnaData();
+								DataWyporzyczenia = Daty.ObecnaData();
 							}
 							System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
 							CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 							if (CzyWpisacRecznie == true) {
 								System.out.println("Podaj prosze termin wyporzyczenia.");
-								DataTermin = Data.WpisanieDaty();
+								DataTermin = Daty.WpisanieDaty();
 							} else {
-								DataTermin = Data.TerminOddania(DataWyporzyczenia);
+								DataTermin = Daty.TerminOddania(DataWyporzyczenia);
 							}/*
 						try {
 							NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();

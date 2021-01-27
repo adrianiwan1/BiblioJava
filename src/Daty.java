@@ -134,20 +134,23 @@ public class Daty
 		return DzienRok;
 
 	}
-	public static int CzyPoTerminie(String DataObecna , String DataTermin,String Zmienna)
+	public static long	 CzyPoTerminie(String DataObecna , String DataTermin,String Zmienna)
 	{
 		int DzienWyporzyczenia = GetDzien(DataObecna);
-		int MiesiacWyporzyczenia = GetMiesiac((DataObecna)+1);
+		int MiesiacWyporzyczenia = GetMiesiac((DataObecna));
+		MiesiacWyporzyczenia = MiesiacWyporzyczenia -1;
 		int RokWyporzyczenia = GetRok(DataObecna);
 		int DzienTermin = GetDzien(DataTermin);
-		int MiesiacTermin = GetMiesiac((DataTermin)+1);
+		int MiesiacTermin = GetMiesiac((DataTermin));
+		MiesiacTermin = MiesiacTermin -1;
 		int RokTermin  = GetRok(DataTermin);
-		int Porownanie = 0;
+		long Porownanie = 0;
 
 
-		GregorianCalendar KalendarzObecna = new GregorianCalendar(RokWyporzyczenia,MiesiacWyporzyczenia,DzienWyporzyczenia);
-		GregorianCalendar KalendarzTermin = new GregorianCalendar(RokTermin,MiesiacTermin,DzienTermin);
+		Calendar KalendarzObecna = new GregorianCalendar(RokWyporzyczenia,MiesiacWyporzyczenia,DzienWyporzyczenia);
+		Calendar KalendarzTermin = new GregorianCalendar(RokTermin,MiesiacTermin,DzienTermin);
 
+		long DataWMiliSekundach = KalendarzObecna.getTimeInMillis() - KalendarzTermin.getTimeInMillis();
 
 
 
@@ -159,15 +162,7 @@ public class Daty
 					Porownanie = KalendarzObecna.compareTo(KalendarzTermin);
 					return Porownanie;
 				case "ilepoterminie":
-					int OdjetyDni = DzienWyporzyczenia - DzienTermin;
-					int OdjetyMiesiac = MiesiacWyporzyczenia - MiesiacTermin;
-					int OdjetyRok = RokWyporzyczenia - RokTermin;
-					System.out.println("Dni " + OdjetyDni);
-					System.out.println("Miesiace " + OdjetyMiesiac);
-					System.out.println("Lata " + OdjetyRok);
-					GregorianCalendar KalendarzPozostalo = new GregorianCalendar(OdjetyRok,OdjetyMiesiac,OdjetyDni);
-					Porownanie = ((KalendarzPozostalo.get(Calendar.DAY_OF_YEAR)) * OdjetyRok) + KalendarzPozostalo.get(Calendar.DAY_OF_MONTH);
-
+					Porownanie  = (DataWMiliSekundach / (1000*60*60*24));
 					return Porownanie;
 				default:
 					System.out.println("Cos poszlo nie tak. Nie podanno poprawnej zmiennej. Zwracanie zera");
@@ -175,7 +170,8 @@ public class Daty
 		}
 
 	}
-	public static String CzyPoTerminie(int IleDniPoTerminie)
+
+	public static String CzyPoTerminie(long IleDniPoTerminie)
 	{
 		String CzyPoTerminie = "nie";
 		if (IleDniPoTerminie > 0)
@@ -184,6 +180,7 @@ public class Daty
 		}
 		return CzyPoTerminie;
 	}
+
 
 
 }

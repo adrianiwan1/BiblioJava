@@ -14,32 +14,24 @@ public class MainProjektBiblioteka
 
 	public static void main(String[] args) throws IOException
 	{
+		/*
 		String DataObecna = Daty.ObecnaData();
 		System.out.println("Wyporzyczenia Data " + DataObecna);
 		String DataTermin = Daty.TerminOddania(DataObecna);
 		System.out.println("Obecna Termin " + DataTermin);
 		String DataWpisania = Daty.WpisanieDaty();
 		System.out.println("Obecna Data " + DataWpisania);
-		int Porownanie = Daty.CzyPoTerminie(DataWpisania,DataTermin,"czypoterminie");
+		long Porownanie = Daty.CzyPoTerminie(DataWpisania,DataTermin,"czypoterminie");
 		System.out.println("Czy po terminie " + Porownanie);
 		Porownanie = Daty.CzyPoTerminie(DataWpisania,DataTermin,"ilepoterminie");
 		System.out.println("Ile po terminie " + Porownanie);
 
+		 */
 
-		//OperacjePlikKsiazki.KasowanieKsiazki(889739693);
-		 //Menu.WypisywanieUzytkownikow();
-		//Menu.TworznieUzytkownika();
-		//Menu.TworzenieKsiazki();
-		//Menu.WypisywanieUzytkownikow();
-		//Menu.WypisywanieKsiazek();
+		Menu.WypisywanieUzytkownikow();
 
-		/*
-		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-		Menu.WypisywanieKsiazek();
-
-		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-		Menu.WypozyczanieKsiazki();
- 		*/
+		Menu.TworzenieKsiazki();
+		Menu.TworzenieKsiazki();
 
 
 	}
