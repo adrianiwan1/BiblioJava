@@ -40,8 +40,9 @@ public class MainProjektBiblioteka
 		//Menu.WypisywanieKsiazek();
 
 		//Menu.TworzenieKsiazki();
+		Menu.UsuwanieKsiazki();
 
-		SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie("datawydania"),"datawydania");
+		//SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie("datawydania"),"datawydania");
 		//SortowanieKsiazka.Sortowanie("nazwaksiazki");
 
 

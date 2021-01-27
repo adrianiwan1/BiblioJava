@@ -190,6 +190,7 @@ public class Menu
 
 	public static void UsuwanieKsiazki()
 	{
+		Menu.WypisywanieKsiazek();
 		int Szukana;
 		System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
 		Szukana = WpisywanieDanych.WpisanieLiczby();

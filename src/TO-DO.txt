@@ -1,7 +1,7 @@
 
 Program winien umożliwiać:
 
-Dopisanie książki do bazy - Gotowe. - Jebie sie cos z Data.
+Dopisanie książki do bazy - Gotowe. - Jebie sie cos z Data.->Jako rok można wpisać -1
 Edycję książki w bazie - Nie Gotowe
 Usunięcie książki z bazy - Gotowe - Do sprawdzenia
 Szukanie książki w bazie - Gotowe - Do sprawdzenia
