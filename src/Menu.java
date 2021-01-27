@@ -81,62 +81,69 @@ public class Menu
 	public static void WypozyczanieKsiazki() throws IOException {
 		int IdKsiazki;
 		int IdCzytelnik = 0;
+		String NazwaCzytelnik;
 		String TerminWyporyczena;
 		String Wyporzyczajacy;
 		boolean OK = true;
+		String CzyWypozyczona ="tak";
 		boolean CzyWpisacRecznie;
 		String DataWyporzyczenia;
 		String DataTermin;
 
 
-		RandomAccessFile NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-
 		Menu.WypisywanieKsiazek();
-		System.out.println("Podaj Id ksiazki, ktora chcesz wyporzyczyc:");
-		IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 
 		do {
-			if (WyszukiwanieKsiazka.IdCzyIstnieje(IdKsiazki, NowaHistoria) == 1) {
-				Menu.WypisywanieUzytkownikow();
-				System.out.println("Podaj Id Czytelnika, który chce wyporzyczyć ksiażkę:");
-				IdCzytelnik = WpisywanieDanych.WpisanieLiczby();
+			RandomAccessFile NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+			System.out.println("Podaj Id ksiazki, ktora chcesz wyporzyczyc:");
+			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
+			if (WyszukiwanieKsiazka.IdCzyIstnieje(IdKsiazki,NowaHistoria) == 1) {
+				//System.out.println("--------->>"+WyszukiwanieKsiazka.CzyWypozyczona(IdKsiazki,NowaHistoria));
 
-				if (SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdCzytelnik) == true) {
+				NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+				if(WyszukiwanieKsiazka.CzyWypozyczona(IdKsiazki,NowaHistoria).equals("nie")){
+					Menu.WypisywanieUzytkownikow();
+					System.out.println("Podaj Id Czytelnika, który chce wyporzyczyć ksiażkę:");
+					IdCzytelnik = WpisywanieDanych.WpisanieLiczby();
 
-					System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
-					CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-					if(CzyWpisacRecznie == false)
-					{
-						System.out.println("Podaj prosze date wyporzyczenia.");
-						DataWyporzyczenia = Daty.WpisanieDaty();
-					}else
-					{
-						DataWyporzyczenia = Daty.ObecnaData();
+					if (SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdCzytelnik) == true) {
+
+						NazwaCzytelnik = SprawdzanieUzytkownik.IdNazwaCztelnik(IdCzytelnik);
+						System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
+						CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+							if (CzyWpisacRecznie == false) {
+								System.out.println("Podaj prosze date wyporzyczenia.");
+								DataWyporzyczenia = Data.WpisanieDaty();
+							} else {
+								DataWyporzyczenia = Data.ObecnaData();
+							}
+							System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
+							CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+							if (CzyWpisacRecznie == true) {
+								System.out.println("Podaj prosze termin wyporzyczenia.");
+								DataTermin = Data.WpisanieDaty();
+							} else {
+								DataTermin = Data.TerminOddania(DataWyporzyczenia);
+							}/*
+						try {
+							NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+
+						} catch (FileNotFoundException e) {
+
+						}
+						 NowaHistoria.close();
+
+						 */
+
+						Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik, DataWyporzyczenia, DataTermin, NazwaCzytelnik); // przekazanie parametrów do funkcji tworzenia wpisu.
+						//System.out.println(IdKsiazki);
+					}else{
+						System.out.println("Użytkownik nie istnieje.");
+						OK=false;
 					}
-					System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
-					CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-					if(CzyWpisacRecznie == true)
-					{
-						System.out.println("Podaj prosze termin wyporzyczenia.");
-						DataTermin = Daty.WpisanieDaty();
-					}else
-					{
-						DataTermin= Daty.TerminOddania(DataWyporzyczenia);
-					}
-
-					try {
-						NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-
-					} catch (FileNotFoundException e) {
-
-					}
-					NowaHistoria.close();
-
-					Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik,DataWyporzyczenia,DataTermin); // przekazanie parametrów do funkcji tworzenia wpisu.
-					System.out.println(IdKsiazki);
 
 				} else {
-					System.out.println("Czytelnik o podanym ID nie istnieje");
+					System.out.println("Ksiażka jest już wypożyczona.");
 					OK=false;
 				}
 

@@ -1,21 +1,21 @@
 
 Program winien umożliwiać:
 
-Dopisanie książki do bazy - Gotowe
+Dopisanie książki do bazy - Gotowe - do sprawdzenia
 Edycję książki w bazie - Nie Gotowe
 Usunięcie książki z bazy - Gotowe - Do sprawdzenia
 Szukanie książki w bazie - Gotowe - Do sprawdzenia
 Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe. - Do sprawdzenia
-Dodanie czytelnika - Gotowe.
+Dodanie czytelnika - Gotowe- do sprawdzenia.
 Edycję czytelnika - Sa funkcje ale nie zaimplementowane
 Zablokowanie czytelnika - Do Stworzenia
 Listing czytelników (również po wskazanym kryterium) - Do Stworzenia
-Wypożyczenie książki - W Połowie (?) - Do sprawdzenia
-Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika) Gotowe. - Do sprawdzenia
-Terminy wypożyczeń w historii książek, także w historii czytelników. Nie Gotowe.
-Listing książek z przeterminowanymi zwrotami. Do Stworzenia - Do Sprawdzenia - Do Napisania FunkcjaPrzeterminowania - Do Napisania Funkcja IleDniPo.
+Wypożyczenie książki - Gotowe - Do sprawdzenia
+Listing książek wypożyczonych (+ listing książek w rozbiciu na czytelników, lub listing książek wypożyczonych przez wskazanego czytelnika) Gotowe. - Do sprawdzenia/omówienia
+Terminy wypożyczeń w historii książek, także w historii czytelników. Gotowe- Do sprawdzenia.
+Listing książek z przeterminowanymi zwrotami. Gotowe - Do sprawdzenia - Wyświetlenie ile dni po Terminie.
 
-Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i użytkownikami.
+Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i użytkownikami.Nie Gotowe
 
 Ocenie podlega niezawodność działania programu i sposób dekompozycji obiektowej.
 Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.

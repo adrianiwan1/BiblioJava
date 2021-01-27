@@ -19,7 +19,7 @@ public class Historia extends Ksiazka{
         return IdHistoria;
     }
 
-    public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin) throws IOException {
+    public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik) throws IOException {
 
         int IdHistoria;
         int IdKsiazki= IdPorzyczanejKsiazki;
@@ -28,9 +28,9 @@ public class Historia extends Ksiazka{
         String Autor=null;
         String Gatunek=null;
         String DataWydania=null;
-        String NowyCzytelnik=null;
+        String NowyCzytelnik=NowyNazwaCzytelnik;
         String DataWyporzyczenia=NowyDataWypozyczenia;
-        String CzyWyporzyczona="Tak";
+        final String CzyWyporzyczona="tak";
         String DataTermin=NowyDataTermin;
         String CzyPoTerminie=null;
 
@@ -51,7 +51,7 @@ public class Historia extends Ksiazka{
             NazwaKsiazki= DoWyporzyczenia.GetNazwaKsiazki();
             Gatunek= DoWyporzyczenia.GetGatunek();
             DataWydania= DoWyporzyczenia.GetDataWydania();
-            NowyCzytelnik=DoWyporzyczenia.GetWyporzyczajacy();
+            //NowyCzytelnik=DoWyporzyczenia.GetWyporzyczajacy();
             //DataWyporzyczenia= DoWyporzyczenia.GetDataWyporzyczenia();
             //CzyWyporzyczona= DoWyporzyczenia.GetCzyWyporzyczona();
            //DoWyporzyczenia.SetCzyWyporzyczona("Tak");
@@ -69,12 +69,12 @@ public class Historia extends Ksiazka{
 
 
         Historia Wpis = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);
-
+        Historia WpisBooks = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);
 
         OperacjePlikKsiazki.KasowanieKsiazki(IdKsiazki);
 
         OperacjePlikHistoria.ZapisywanieHistorii(Wpis,"History.bin");
-        OperacjePlikKsiazki.ZapisywanieKsiazek(Wpis,"Books.bin");
+        OperacjePlikKsiazki.ZapisywanieKsiazek(WpisBooks,"Books.bin");
         Historia.Czekaj();
 
 
