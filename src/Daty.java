@@ -134,19 +134,46 @@ public class Daty
 		return DzienRok;
 
 	}
-	public static int CzyPoTerminie(String DataWyporzyczenia , String DataTermin)
+	public static int CzyPoTerminie(String DataObecna , String DataTermin,String Zmienna)
 	{
-		int DzienWyporzyczenia = GetDzien(DataWyporzyczenia);
-		int MiesiacWyporzyczenia = GetMiesiac(DataWyporzyczenia);
-		int RokWyporzyczenia = GetRok(DataWyporzyczenia);
+		int DzienWyporzyczenia = GetDzien(DataObecna);
+		int MiesiacWyporzyczenia = GetMiesiac((DataObecna)+1);
+		int RokWyporzyczenia = GetRok(DataObecna);
 		int DzienTermin = GetDzien(DataTermin);
-		int MiesiacTermin = GetMiesiac(DataTermin);
+		int MiesiacTermin = GetMiesiac((DataTermin)+1);
 		int RokTermin  = GetRok(DataTermin);
-		Calendar KalendarzWyporzyczenia = new GregorianCalendar(RokWyporzyczenia,MiesiacWyporzyczenia,DzienWyporzyczenia);
-		Calendar KalendarzTermin = new GregorianCalendar(RokTermin,MiesiacTermin,DzienTermin);
-		int Porownanie = KalendarzWyporzyczenia.compareTo(KalendarzTermin);
+		int Porownanie = 0;
 
-		return Porownanie;
+
+		GregorianCalendar KalendarzObecna = new GregorianCalendar(RokWyporzyczenia,MiesiacWyporzyczenia,DzienWyporzyczenia);
+		GregorianCalendar KalendarzTermin = new GregorianCalendar(RokTermin,MiesiacTermin,DzienTermin);
+
+
+
+
+		switch(Zmienna)
+		{
+
+
+				case "czypoterminie":
+					Porownanie = KalendarzObecna.compareTo(KalendarzTermin);
+					return Porownanie;
+				case "ilepoterminie":
+					int OdjetyDni = DzienWyporzyczenia - DzienTermin;
+					int OdjetyMiesiac = MiesiacWyporzyczenia - MiesiacTermin;
+					int OdjetyRok = RokWyporzyczenia - RokTermin;
+					System.out.println("Dni " + OdjetyDni);
+					System.out.println("Miesiace " + OdjetyMiesiac);
+					System.out.println("Lata " + OdjetyRok);
+					GregorianCalendar KalendarzPozostalo = new GregorianCalendar(OdjetyRok,OdjetyMiesiac,OdjetyDni);
+					Porownanie = ((KalendarzPozostalo.get(Calendar.DAY_OF_YEAR)) * OdjetyRok) + KalendarzPozostalo.get(Calendar.DAY_OF_MONTH);
+
+					return Porownanie;
+				default:
+					System.out.println("Cos poszlo nie tak. Nie podanno poprawnej zmiennej. Zwracanie zera");
+					return  Porownanie;
+		}
+
 	}
 	public static String CzyPoTerminie(int IleDniPoTerminie)
 	{

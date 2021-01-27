@@ -64,6 +64,8 @@ public class Ksiazka extends Uzytkownik
 		boolean CzyWpisacRecznie = true;
 		boolean OK = true;
 		String DataObecna = Daty.ObecnaData();
+		String SprawdzanieCzyPoTerminie = "czypoterminie";
+		String SprawdzanieIlePoTerminie = "ilepoterminie";
 
 
 		System.out.println("Czy chcesz wpisać własne ID? Tak/Nie");
@@ -117,7 +119,7 @@ public class Ksiazka extends Uzytkownik
 
 			do
 			{
-					if(Daty.CzyPoTerminie(DataWydania,DataWyporzyczenia) <= 0)
+					if(Daty.CzyPoTerminie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) <= 0)
 					{
 						System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
 
@@ -126,7 +128,7 @@ public class Ksiazka extends Uzytkownik
 				CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 
 
-					if (Daty.CzyPoTerminie(DataWydania,DataObecna) <= 0 )
+					if (Daty.CzyPoTerminie(DataWydania,DataObecna,SprawdzanieCzyPoTerminie) <= 0 )
 					{
 						if(CzyWpisacRecznie == false)
 						{
@@ -147,7 +149,7 @@ public class Ksiazka extends Uzytkownik
 							}
 
 						}
-			}while(Daty.CzyPoTerminie(DataWydania,DataWyporzyczenia) <= 0);
+			}while(Daty.CzyPoTerminie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) <= 0);
 			do
 			{
 				{
@@ -165,9 +167,9 @@ public class Ksiazka extends Uzytkownik
 					DataTermin = Daty.TerminOddania(DataWyporzyczenia);
 				}
 			}
-			while(Daty.CzyPoTerminie(DataTermin,DataWyporzyczenia) <= 0);
+			while(Daty.CzyPoTerminie(DataTermin,DataWyporzyczenia,SprawdzanieCzyPoTerminie) <= 0);
 
-			CzyPoTerminie = Daty.CzyPoTerminie(Daty.CzyPoTerminie(DataTermin,DataWyporzyczenia));
+			CzyPoTerminie = Daty.CzyPoTerminie(Daty.CzyPoTerminie(DataTermin,DataWyporzyczenia,SprawdzanieIlePoTerminie));
 		}
 
 
