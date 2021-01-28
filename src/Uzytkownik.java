@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
 public class Uzytkownik
 {
 
@@ -86,9 +90,11 @@ public class Uzytkownik
 	{
 		this.Czytelnik= NowyCzytelnik;
 	}
-	public void SetCzyZbanowany(String NowyCzyZbanowany)
+
+	public void  SetCzyZbanowany(String NowyCzyZbanowany)
 	{
 		this.CzyZbanownay = NowyCzyZbanowany;
+
 	}
 
 	public  String ShowUzytkownicy()
@@ -96,6 +102,13 @@ public class Uzytkownik
 		String TekstWyswietl;
 
 		return TekstWyswietl = (GetIdUzytkownika()+ "\t\t\t" + GetNazwaUzytkownik() + GetCzyZbanowany());
+	}
+
+
+
+	public static void UsuwanieUzytkownika()
+	{
+
 	}
 
 }
