@@ -81,31 +81,36 @@ public class OperacjePlikKsiazki{
 
              */
             if(SprawdzanieKsiazka.CzyPodaneIdIstnieje(Szukana)==true) {
-                do {
-                    Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-                    if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                    {
-                        int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
-                        if (Szukana != Odczyt) // Porownanie odczytu.
+                if(SprawdzanieKsiazka.CzyWyporzyczona(Szukana)==true){
+                    do {
+                        Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+                        if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
                         {
-                            ZapisywanieKsiazek(OdczytaneDane,"TempBooks.bin");
+                            int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                            if (Szukana != Odczyt) // Porownanie odczytu.
+                            {
+                                ZapisywanieKsiazek(OdczytaneDane, "TempBooks.bin");
+                            }
+                        } else {
+                            i = 9002; // Zakonczenie petli jesli null
                         }
-                    } else {
-                        i = 9002; // Zakonczenie petli jesli null
+                        i++;
+                    } while (i < 9000); // Maksymalna wartosc petli
+                    PlikOdczytany.close(); // Zamkniecie odczytu
+                    new File("Books.bin").delete();
+
+                    Path Zrodlo = Paths.get("TempBooks.bin");
+
+                    try {
+
+                        Files.move(Zrodlo, Zrodlo.resolveSibling("Books.bin"));
+
+                    } catch (IOException e) {
+
                     }
-                    i++;
-                } while (i < 9000); // Maksymalna wartosc petli
-                PlikOdczytany.close(); // Zamkniecie odczytu
-                new File("Books.bin").delete();
-
-                Path Zrodlo = Paths.get("TempBooks.bin");
-
-                try{
-
-                    Files.move(Zrodlo, Zrodlo.resolveSibling("Books.bin"));
-
-                } catch (IOException e) {
-
+                }
+                else{
+                    System.out.println("Ksiazka Jest Wyporzyczona");
                 }
 
             }

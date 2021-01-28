@@ -100,5 +100,44 @@ public class SprawdzanieKsiazka
 			}
 	}
 
+	public static boolean CzyWyporzyczona(int PodaneID) // Wyszukiwanie inta - > ID
+	{
+		int i = 0;
+		int Znalezione = 0;
+		boolean Istnieje;
+
+		try
+		{
+			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
+			do
+			{
+				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+				{
+					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int.
+					String Wyporzyczenie =OdczytaneDane.GetCzyWyporzyczona();//Wpisanie czy wyporzyczona
+					if(PodaneID == Odczyt && Wyporzyczenie.equals("tak")) // Porownanie odczytu.
+					{
+
+					}
+				} else
+				{
+					i = 9002; // Zakonczenie petli jesli null
+				}
+				i++;
+			} while(i < 9000); // Maksymalna wartosc petli
+			PlikOdczytany.close(); // Zamkniecie odczytu
+		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
+		{
+			e.printStackTrace();
+		}
+		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
+		{
+			return Istnieje = false;
+		}else
+		{
+			return Istnieje = true;
+		}
+	}
 
 }

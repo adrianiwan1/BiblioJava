@@ -46,7 +46,7 @@ public class OperacjePlikUzytkownicy {
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy(); //Otwarcie pliku
-            System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
+            System.out.println("Wpisz liczbe id Urzytkownika ktora chcesz usunac");  // Prosba o wpisanie
             if(SprawdzanieUzytkownik.CzyPodaneIdIstnieje(Szukana)==true)
                 {
                     do {
@@ -87,9 +87,6 @@ public class OperacjePlikUzytkownicy {
             e.printStackTrace();
         }
     }
-
-
-
     public static void ZmianaDanych(String Zmieniane) // Wyszukiwanie inta - > ID
     {
         int i = 0;
@@ -98,8 +95,8 @@ public class OperacjePlikUzytkownicy {
 
         try
         {
-            RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy(); //Otwarcie pliku
-            System.out.println("Wpisz liczbe id uzytkownika ktorego chcesz znalezc");  // Prosba o wpisanie
+            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
+            System.out.println("Wpisz id Użytkownika ktorego chcesz edytować");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
             do
             {
