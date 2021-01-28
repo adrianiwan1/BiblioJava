@@ -31,8 +31,10 @@ public class MainProjektBiblioteka
 		//Menu.WyswietlanieHistori();
 
 		//Menu.WypisywanieUzytkownikow();
+
 		Menu.WypisywanieKsiazek();
-		WyszukiwanieKsiazka.Wyszukiwanie("nazwa");
+
+
 
 		//RandomAccessFile wynik =OperacjePlikHistoria.OtwarciePlikHistoria();
 		//Menu.TworznieUzytkownika();
@@ -42,7 +44,7 @@ public class MainProjektBiblioteka
 
 		//Menu.TworzenieKsiazki();
 
-		SortowanieKsiazka.WyswietlaniePosortowaneNazwaKsiazki(SortowanieKsiazka.Sortowanie("datawydania"),"datawydania");
+
 		//SortowanieKsiazka.Sortowanie("nazwaksiazki");
 
 

@@ -18,6 +18,43 @@ public class Historia extends Ksiazka{
 
         return IdHistoria;
     }
+    public String GetIdHistoiraWypisiywanie()
+    {
+        String IdKsiazkiJakoString = (""+IdHistoria);
+        int dlugosc =IdKsiazkiJakoString.length();
+        switch(dlugosc)
+        {
+            case 1:
+                IdKsiazkiJakoString = (IdHistoria + "         ");
+                break;
+            case 2:
+                IdKsiazkiJakoString = (IdHistoria + "        ");
+                break;
+            case 3:
+                IdKsiazkiJakoString = (IdHistoria + "       ");
+                break;
+            case 4:
+                IdKsiazkiJakoString = (IdHistoria + "      ");
+                break;
+            case 5:
+                IdKsiazkiJakoString = (IdHistoria + "     ");
+                break;
+            case 6:
+                IdKsiazkiJakoString = (IdHistoria + "    ");
+                break;
+            case 7:
+                IdKsiazkiJakoString = (IdHistoria + "   ");
+                break;
+            case 8:
+                IdKsiazkiJakoString = (IdHistoria + "  ");
+                break;
+            case 9:
+                IdKsiazkiJakoString = (IdHistoria + " ");
+                break;
+
+        }
+        return  IdKsiazkiJakoString;
+    }
 
     public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik) throws IOException
     {
@@ -93,7 +130,7 @@ public class Historia extends Ksiazka{
 
         String TekstWyswietl;
 
-        TekstWyswietl =(GetIdHistorii()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminie()+"\t\t\t" +GetIdUzytkownika());
+        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminie()+"\t\t\t" +GetIdUzytkownika());
         return TekstWyswietl;
     }
 }

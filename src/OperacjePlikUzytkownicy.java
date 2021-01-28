@@ -87,6 +87,9 @@ public class OperacjePlikUzytkownicy {
             e.printStackTrace();
         }
     }
+
+
+
     public static void ZmianaDanych(String Zmieniane) // Wyszukiwanie inta - > ID
     {
         int i = 0;
@@ -95,15 +98,15 @@ public class OperacjePlikUzytkownicy {
 
         try
         {
-            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-            System.out.println("Wpisz liczbe id ksiazki ktora chcesz znalezc");  // Prosba o wpisanie
+            RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy(); //Otwarcie pliku
+            System.out.println("Wpisz liczbe id uzytkownika ktorego chcesz znalezc");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
             do
             {
-                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+                Uzytkownik OdczytaneDane = OperacjePlikUzytkownicy.OdczytywanieUzytkownikow(PlikOdczytany); // Odczytranie linjki tekstu
                 if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
                 {
-                    int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                    int Odczyt = OdczytaneDane.GetIdUzytkownika(); //Wpisanie danej do int
                     if(Szukana==Odczyt) // Porownanie odczytu.
                     {
                         switch(Zmieniane)

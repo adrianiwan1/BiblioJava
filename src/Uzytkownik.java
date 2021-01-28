@@ -76,6 +76,44 @@ public class Uzytkownik
 		return CzyZbanownay;
 	}
 
+	public String GetIdUzytkownikWypisiywanie()
+	{
+		String IdKsiazkiJakoString = (""+IdUzytkownika);
+		int dlugosc =IdKsiazkiJakoString.length();
+		switch(dlugosc)
+		{
+			case 1:
+				IdKsiazkiJakoString = (IdUzytkownika + "         ");
+				break;
+			case 2:
+				IdKsiazkiJakoString = (IdUzytkownika + "        ");
+				break;
+			case 3:
+				IdKsiazkiJakoString = (IdUzytkownika + "       ");
+				break;
+			case 4:
+				IdKsiazkiJakoString = (IdUzytkownika + "      ");
+				break;
+			case 5:
+				IdKsiazkiJakoString = (IdUzytkownika + "     ");
+				break;
+			case 6:
+				IdKsiazkiJakoString = (IdUzytkownika + "    ");
+				break;
+			case 7:
+				IdKsiazkiJakoString = (IdUzytkownika + "   ");
+				break;
+			case 8:
+				IdKsiazkiJakoString = (IdUzytkownika + "  ");
+				break;
+			case 9:
+				IdKsiazkiJakoString = (IdUzytkownika + " ");
+				break;
+
+		}
+		return  IdKsiazkiJakoString;
+	}
+
 	//Settery
 
 	public void SetIdUzytkownika(int NowyIdUzytkownika)
@@ -95,7 +133,7 @@ public class Uzytkownik
 	{
 		String TekstWyswietl;
 
-		return TekstWyswietl = (GetIdUzytkownika()+ "\t\t\t" + GetNazwaUzytkownik() + GetCzyZbanowany());
+		return TekstWyswietl = (GetIdUzytkownikWypisiywanie()+ "\t\t\t" + GetNazwaUzytkownik() + GetCzyZbanowany());
 	}
 
 }

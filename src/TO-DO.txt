@@ -1,13 +1,13 @@
 
 Program winien umożliwiać:
 
-Dopisanie książki do bazy - Gotowe. - Jebie sie cos z Data.
+Dopisanie książki do bazy - Gotowe.
 Edycję książki w bazie - Nie Gotowe
 Usunięcie książki z bazy - Gotowe - Do sprawdzenia
-Szukanie książki w bazie - Gotowe - Do sprawdzenia
-Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe. - Do sprawdzenia
+Szukanie książki w bazie - Gotowe
+Listing wszystkich książek (może być sortowany po... wskazanym parametrze) - Gotowe.
 Dodanie czytelnika - Gotowe- do sprawdzenia.
-Edycję czytelnika - Sa funkcje ale nie zaimplementowane
+Edycję czytelnika - Sa funkcje ale nie zaimplementowane - Do sprawdzenia uzytkownika.
 Zablokowanie czytelnika - Do Stworzenia
 Listing czytelników (również po wskazanym kryterium) - Do Stworzenia
 Wypożyczenie książki - Gotowe - Do sprawdzenia

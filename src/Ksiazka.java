@@ -80,10 +80,13 @@ public class Ksiazka extends Uzytkownik
 				do {
 					IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 					OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
+					if (IdKsiazki >2147483645 || IdKsiazki<1) {
+						System.out.println("Id nie moze byc wieksze niz 2147483645 i mniejsze niz 1.");
+					}
 					if (OK != false) {
 						System.out.println("Istnieje ksiazka z podanym ID.Sprobuj ponownie.");
 					}
-				} while (OK != false);
+				} while (OK != false || IdKsiazki > 2147483645 || IdKsiazki < 0 );
 	       }
 		System.out.println("Podaj prosze nazwie ksiazki.");
 		NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
@@ -195,6 +198,43 @@ public class Ksiazka extends Uzytkownik
 	}
 
 	//Getery dla innych klas
+	public String GetIdKsiazkaWypisiywanie()
+	{
+		String IdKsiazkiJakoString = (""+IdKsiazki);
+		int dlugosc =IdKsiazkiJakoString.length();
+		switch(dlugosc)
+		{
+			case 1:
+				IdKsiazkiJakoString = (IdKsiazki + "         ");
+				break;
+			case 2:
+				IdKsiazkiJakoString = (IdKsiazki + "        ");
+				break;
+			case 3:
+				IdKsiazkiJakoString = (IdKsiazki + "       ");
+				break;
+			case 4:
+				IdKsiazkiJakoString = (IdKsiazki + "      ");
+				break;
+			case 5:
+				IdKsiazkiJakoString = (IdKsiazki + "     ");
+				break;
+			case 6:
+				IdKsiazkiJakoString = (IdKsiazki + "    ");
+				break;
+			case 7:
+				IdKsiazkiJakoString = (IdKsiazki + "   ");
+				break;
+			case 8:
+				IdKsiazkiJakoString = (IdKsiazki + "  ");
+				break;
+			case 9:
+				IdKsiazkiJakoString = (IdKsiazki + " ");
+				break;
+
+		}
+		return  IdKsiazkiJakoString;
+	}
 
 	public int GetIdKsiazki()
 	{
@@ -296,18 +336,18 @@ public class Ksiazka extends Uzytkownik
 
 			if(GetCzyPoTerminie().equals("tak"))
 			{
-				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
+				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
 						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
 			}
 			else
 			{
-				TekstWyswietl =(GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
+				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
 						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
 			}
 		}
 		else
 		{
-			TekstWyswietl = (GetIdKsiazki()+ "\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
+			TekstWyswietl = (GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
 		}
 
 

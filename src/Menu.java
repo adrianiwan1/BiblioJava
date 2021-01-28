@@ -104,8 +104,6 @@ public class Menu
 			System.out.println("Podaj Id ksiazki, ktora chcesz wyporzyczyc:");
 			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
 			if (WyszukiwanieKsiazka.IdCzyIstnieje(IdKsiazki,NowaHistoria) == 1) {
-				//System.out.println("--------->>"+WyszukiwanieKsiazka.CzyWypozyczona(IdKsiazki,NowaHistoria));
-
 				NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
 				if(WyszukiwanieKsiazka.CzyWypozyczona(IdKsiazki,NowaHistoria).equals("nie")){
 					Menu.WypisywanieUzytkownikow();
