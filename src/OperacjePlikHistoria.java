@@ -54,14 +54,16 @@ public class OperacjePlikHistoria{
         int IdKsiazki;
         int IdCzytelnik = 0;
         String NazwaCzytelnik;
-        String TerminWyporyczena;
-        String Wyporzyczajacy;
         boolean OK = true;
         String CzyWypozyczona ="tak";
         boolean CzyWpisacRecznie;
         String DataWyporzyczenia;
         String DataTermin;
-
+        String SprawdzanieCzyPoTerminie = "czypoterminie";
+        String SprawdzanieIlePoTerminie = "ilepoterminie";
+        String CzyPoTerminie = "nie";
+        String DataObecna = Daty.ObecnaData();
+        String DataWydania;
 
         Menu.WypisywanieKsiazek();
 
@@ -85,22 +87,68 @@ public class OperacjePlikHistoria{
                         if(SprawdzanieUzytkownik.CzyZablokowany(IdCzytelnik)== false) {
 
                             NazwaCzytelnik = SprawdzanieUzytkownik.IdNazwaCztelnik(IdCzytelnik);
-                            System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
-                            CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-                            if (CzyWpisacRecznie == false) {
-                                System.out.println("Podaj prosze date wyporzyczenia.");
-                                DataWyporzyczenia = Daty.WpisanieDaty();
-                            } else {
-                                DataWyporzyczenia = Daty.ObecnaData();
+                            do
+                            {
+                                RandomAccessFile PlikKsiazki = OperacjePlikKsiazki.OtwarciePlikKsiazki();
+                                Ksiazka OdebranaKsiazka = WyszukiwanieKsiazka.WyszukiwanieIDUzytkownika(IdKsiazki,PlikKsiazki);
+                                DataWydania = OdebranaKsiazka.GetDataWydania();
+                                System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
+                                CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+
+                                if (Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataObecna,SprawdzanieCzyPoTerminie) <= 0 )
+                                {
+                                    if(CzyWpisacRecznie == false)
+                                    {
+                                        System.out.println("Podaj prosze date wyporzyczenia.");
+                                        DataWyporzyczenia = Daty.WpisanieDaty();
+                                    } else
+                                    {
+                                        DataWyporzyczenia = Daty.ObecnaData();
+                                    }
+                                    if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) >= 0)
+                                    {
+                                        System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
+
+                                    }
+                                }else
+                                {
+                                    if(CzyWpisacRecznie == true)
+                                    {
+                                        System.out.println("Nie mozna uzyc daty aktualnej.Prosze podac date recznie");
+                                        System.out.println("Podaj prosze date wyporzyczenia.");
+                                        DataWyporzyczenia = Daty.WpisanieDaty();
+                                    }else
+                                    {
+                                        DataWyporzyczenia = Daty.ObecnaData();
+                                    }
+                                    if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) >= 0)
+                                    {
+                                        System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
+
+                                    }
+                                }
+
+                            }while(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) >= 0);
+                            do
+                            {
+                                System.out.println("Czy chcesz automatycznie wygenerowac termin oddania.  Tak/Nie");
+                                CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+                                if(CzyWpisacRecznie == false)
+                                {
+                                    System.out.println("Podaj prosze termin oddania.");
+                                    DataTermin = Daty.WpisanieDaty();
+                                } else
+                                {
+                                    DataTermin = Daty.TerminOddania(DataWyporzyczenia);
+                                }
+                                if(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieCzyPoTerminie) >= 0)
+                                {
+                                    System.out.println("Termin oddania nie moze byc mniejszy niz data wyporzyczenia!. Prosze sprobowac ponownie.");
+
+                                }
                             }
-                            System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
-                            CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-                            if (CzyWpisacRecznie == true) {
-                                System.out.println("Podaj prosze termin wyporzyczenia.");
-                                DataTermin = Daty.WpisanieDaty();
-                            } else {
-                                DataTermin = Daty.TerminOddania(DataWyporzyczenia);
-                            }
+                            while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieCzyPoTerminie) >= 0);
+
 
                             Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik, DataWyporzyczenia, DataTermin, NazwaCzytelnik); // przekazanie parametrów do funkcji tworzenia wpisu.
 

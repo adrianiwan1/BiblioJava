@@ -111,6 +111,11 @@ public class Historia extends Ksiazka{
         Historia.Czekaj();
 
     }
+    public String GetCzyPoTerminieWyswietlanie()
+    {
+        String Termin;
+        return Termin = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataWyporzyczenia(),GetDataTermin(),"ilepoterminie"));
+    }
 
     public static void Czekaj()
     {
@@ -129,7 +134,7 @@ public class Historia extends Ksiazka{
 
         String TekstWyswietl;
 
-        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminie()+"\t\t\t" +GetIdUzytkownika());
+        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminieWyswietlanie()+"\t\t\t" +GetIdUzytkownika());
         return TekstWyswietl;
     }
 }

@@ -101,7 +101,7 @@ public class OperacjePlikUzytkownicy {
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy(); //Otwarcie pliku
-            System.out.println("Wpisz id czytelnika ktorego chcesz edytować.Wpisz 0 by anulowac");  // Prosba o wpisanie
+            System.out.println("Wpisz id czytelnika którego chcesz edytować.Wpisz 0 by anulowac");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
             if(Szukana == 0)
             {

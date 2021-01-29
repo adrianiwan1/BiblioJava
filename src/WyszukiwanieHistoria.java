@@ -108,6 +108,7 @@ public class WyszukiwanieHistoria {
         return Znalezione;
     }
 
+
     public static int UltraSkroconeWyszukiwanie(String Szukana, RandomAccessFile PlikOdczytany, String Zmienna) {
         int i = 0;
         int Znalezione = 0;

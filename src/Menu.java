@@ -37,7 +37,7 @@ public class Menu
 
 		int i=0;
 
-
+		System.out.println("ID Czytelnika"+"\t\t"+"Imie i Nazwisko"+"\t\t\t\t\t"+"Czy Zbanowany?");
 		try{
 			RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy();
 			do {
@@ -390,7 +390,7 @@ public class Menu
 		System.out.println("1.Wyswietlanie Czytelników");
 		System.out.println("2.Wyszukiwanie Czytelników");
 		System.out.println("3.Edycja Czytelników");
-		System.out.println("4.Dodanie Nowej Czytelników");
+		System.out.println("4.Dodanie Nowego Czytelnika");
 		System.out.println("5.Banowanie Czytelników");
 		System.out.println("6.Od Banowanie Czytelników");
 		System.out.println("9.Pomoc.");
@@ -420,9 +420,11 @@ public class Menu
 					TworznieUzytkownika();
 					break;
 				case 5:
+					Menu.WypisywanieUzytkownikow();
 					OperacjePlikUzytkownicy.ZmianaDanych("ban");
 					break;
 				case 6:
+					Menu.WypisywanieUzytkownikow();
 					OperacjePlikUzytkownicy.ZmianaDanych("unban");
 					break;
 				case 9:
@@ -515,9 +517,11 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
+					Menu.WypisywanieUzytkownikow();
 					WyszukiwanieUzytkownik.Wyszukiwanie("idUzytkownika");
 					break;
 				case 2:
+					Menu.WypisywanieUzytkownikow();
 					WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
 					break;
 				case 3:
@@ -566,12 +570,15 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
+					Menu.WypisywanieUzytkownikow();
 					OperacjePlikKsiazki.ZmianaDanych("zmiananazwa");
 					break;
 				case 2:
+					Menu.WypisywanieUzytkownikow();
 					OperacjePlikKsiazki.ZmianaDanych("ban");
 					break;
 				case 3:
+					Menu.WypisywanieUzytkownikow();
 					OperacjePlikKsiazki.ZmianaDanych("unban");
 					break;
 				case 4:

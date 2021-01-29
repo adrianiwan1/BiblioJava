@@ -145,7 +145,6 @@ public class Ksiazka extends Uzytkownik
 						if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) >= 0)
 						{
 							System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
-							System.out.println("NieCiastko");
 
 						}
 					}else
@@ -162,7 +161,6 @@ public class Ksiazka extends Uzytkownik
 							if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) >= 0)
 							{
 								System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
-								System.out.println("Ciastko");
 
 							}
 						}
