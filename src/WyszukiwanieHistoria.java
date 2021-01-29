@@ -13,22 +13,20 @@ public class WyszukiwanieHistoria {
         RandomAccessFile PlikOdczytany = null; //Otwarcie pliku
         try
         {
-            PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
-            if (Zmienna.equals("idKsiazki"))
+            switch(Zmienna)
             {
-                System.out.println("Wpisz id wyszukiwanej ksiazki z histori.Wpisz 0 by anulowac.");  // Prosba o wpisanie
-                Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
-                if(Szukany == 0)
-                {
+                case"idksiazki":
+                    System.out.println("Wpisz id wyszukiwanej ksiazki z histori.Wpisz 0 by anulowac.");  // Prosba o wpisanie
+                    Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+                    if(Szukany == 0)
+                    {
 
-                    System.out.println("Powrót do poprzedniej opcji.");
-                    return;
-                }
-                WyszukiwanieIDKsiazki(Szukany,PlikOdczytany);
-            }else
-            {
-                if(Zmienna.equals("id"))
-                {
+                        System.out.println("Powrót do poprzedniej opcji.");
+                        return;
+                    }
+                    WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+                    break;
+                case"id":
                     System.out.println("Wpisz id wpisu z histori.Wpisz 0 by anulowac.");  // Prosba o wpisanie
                     Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
                     if(Szukany == 0)
@@ -36,19 +34,31 @@ public class WyszukiwanieHistoria {
                         System.out.println("Powrót do poprzedniej opcji.");
                         return;
                     }
-                    WyszukiwanieID(Szukany,PlikOdczytany);
-
-                }else {
-                    System.out.println("Wpisz nazwe poszukiwanej treści.");  // Prosba o wpisanie
-                    Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-                    if (Szukana.equals("0"))
+                    WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+                    break;
+                case"idczytelnika":
+                    System.out.println("Wpisz id wyszukiwanego czytelnika.Wpisz 0 by anulowac.");  // Prosba o wpisanie
+                    Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+                    if(Szukany == 0)
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
                         return;
                     }
-                    UltraSkroconeWyszukiwanie(Szukana, PlikOdczytany, Zmienna);
-                }
+                    WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+                    break;
+                default:
+                    System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
+                    Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
+                    if(Szukana.equals("0") )
+                    {
+                        System.out.println("Powrót do poprzedniej opcji.");
+                        return;
+                    }
+                    UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+                    break;
+
             }
+            PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
             if(Znalezione == 0)
             {
                 System.out.println("Nie znaleziono wyszukiwanej treści.");
@@ -59,10 +69,11 @@ public class WyszukiwanieHistoria {
         }
     }
 
-    public static int WyszukiwanieIDKsiazki(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID
+    public static int WyszukiwanieID(int Szukany,RandomAccessFile PlikOdczytany,String Zmienna) // Wyszukiwanie inta - > ID
     {
         int i = 0;
         int Znalezione = 0;
+        int Odczyt = 0;
         try
         {
             do
@@ -70,7 +81,18 @@ public class WyszukiwanieHistoria {
                 Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany); // Odczytranie linjki tekstu
                 if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
                 {
-                    int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                    switch(Zmienna)
+                    {
+                        case "idksiazki":
+                            Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                            break;
+                        case "idczytelnika":
+                             Odczyt = OdczytaneDane.GetIdUzytkownika(); //Wpisanie danej do int
+                            break;
+                        case "id":
+                            Odczyt = OdczytaneDane.GetIdHistorii(); //Wpisanie danej do int
+                            break;
+                    }
                     if(Szukany == Odczyt) // Porownanie odczytu.
                     {
                         System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
@@ -85,37 +107,6 @@ public class WyszukiwanieHistoria {
         }
         return Znalezione;
     }
-
-    public static int WyszukiwanieID(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID
-    {
-        int i = 0;
-        int Znalezione = 0;
-        try
-        {
-            do
-            {
-                Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany); // Odczytranie linjki tekstu
-                if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-                {
-                    int Odczyt = OdczytaneDane.GetIdHistorii(); //Wpisanie danej do int
-                    if(Szukany == Odczyt) // Porownanie odczytu.
-                    {
-                        System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
-                        Znalezione++;
-                    }
-                } else
-                {
-                    i = 9002; // Zakonczenie petli jesli null
-                }
-                i++;
-            } while(i < 9000); // Maksymalna wartosc petli
-        }catch(IOException e)
-        {
-
-        }
-        return Znalezione;
-    }
-
 
     public static int UltraSkroconeWyszukiwanie(String Szukana, RandomAccessFile PlikOdczytany, String Zmienna) {
         int i = 0;

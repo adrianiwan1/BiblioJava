@@ -14,7 +14,7 @@ public class SortowanieHistoria {
     }
 
  */
-public static ArrayList<Integer> PoId()
+public static ArrayList<Integer> PoId(String Zmienna)
 {
     ArrayList<Integer> ListaId = new ArrayList<Integer>();
 
@@ -27,7 +27,18 @@ public static ArrayList<Integer> PoId()
             Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany);
             if(OdczytaneDane != null)
             {
-                ListaId.add(OdczytaneDane.GetIdHistorii());
+                switch(Zmienna)
+                {
+                    case"id":
+                        ListaId.add(OdczytaneDane.GetIdHistorii());
+                        break;
+                    case"idksiazki":
+                        ListaId.add(OdczytaneDane.GetIdKsiazki());
+                        break;
+                    case"iduzytkownika":
+                        ListaId.add(OdczytaneDane.GetIdUzytkownika());
+                        break;
+                }
             } else
             {
                 i = 201;
@@ -44,12 +55,13 @@ public static ArrayList<Integer> PoId()
     return ListaId;
 }
 
-    public static void WyswietlaniePosortowaneID(ArrayList<Integer> ListaID) // Wyszukiwanie inta - > ID
+    public static void WyswietlaniePosortowaneID(ArrayList<Integer> ListaID,String  Zmienna) // Wyszukiwanie inta - > ID
     {
         int i = 0;
         int j = 0;
         int Dlugosc = ListaID.size();
         int Porownywana = 0;
+        int Odczyt = 0;
         do
         {
             i = 0;
@@ -61,8 +73,21 @@ public static ArrayList<Integer> PoId()
                     Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany); // Odczytranie linjki tekstu
                     if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
                     {
-                        int Odczyt = OdczytaneDane.GetIdHistorii(); //Wpisanie danej do int
-                        Porownywana = ListaID.get(j);
+                        switch(Zmienna)
+                        {
+                            case"id":
+                              Odczyt = OdczytaneDane.GetIdHistorii(); //Wpisanie danej do int
+                              Porownywana = ListaID.get(j);
+                              break;
+                            case"idksiazki":
+                                Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                                Porownywana = ListaID.get(j);
+                                break;
+                            case"iduzytkownika":
+                                Odczyt = OdczytaneDane.GetIdUzytkownika(); //Wpisanie danej do int
+                                Porownywana = ListaID.get(j);
+                                break;
+                        }
                         if(Porownywana == Odczyt) // Porownanie odczytu.
                         {
                             System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
@@ -118,6 +143,9 @@ public static ArrayList<Integer> PoId()
                         case"czywyporzyczona":
                             TreeLista.add(OdczytaneDane.GetCzyWyporzyczona()); //Wpisanie danej do int
                             break;
+                        case"gatunek":
+                            TreeLista.add(OdczytaneDane.GetGatunek()); //Wpisanie danej do int
+                            break;
 
                     }
                 } else
@@ -162,6 +190,9 @@ public static ArrayList<Integer> PoId()
                                 break;
                             case"czywyporzyczona":
                                 Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do int
+                                break;
+                            case"gatunek":
+                                Odczyt = OdczytaneDane.GetGatunek(); //Wpisanie danej do int
                                 break;
                         }
                         if(Odczyt.equals("PustyPustoPustusienkoNiemaNic"))

@@ -149,6 +149,7 @@ public class Menu
 					MenuCzytelnik();
 					break;
 				case 3:
+					MenuHistoria();
 					break;
 				case 4:
 					try
@@ -203,20 +204,182 @@ public class Menu
 
 		System.out.println("Aktualnie znajdujesz się w Menu Czytelnika");
 		System.out.println("Mozliwe sa:");
-		System.out.println("1.Wyswietlanie Czytelników");
-		System.out.println("2.Wyszukiwanie Czytelników");
-		System.out.println("3.Edycja Czytelników");
-		System.out.println("4.Dodanie Nowej Czytelników");
-		System.out.println("5.Banowanie Czytelników");
-		System.out.println("6.Od Banowanie Czytelników");
+		System.out.println("1.Wyswietlanie Histori");
+		System.out.println("2.Wyszukiwanie Histori");
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do menu głównego.");
 	}
+	public static void MenuHistoria()
+	{
+		int ZakoniecznieProgramu = 1;
+		do{
+			WyswietlenieOpcjiMenuHistoria();
 
+			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
+			int Wybor = WpisywanieDanych.WpisanieLiczby();
 
+			switch(Wybor)
+			{
+				case 1:
+					MenuKsiazka();
+					break;
+				case 2:
+					MenuCzytelnik();
+					break;
+				case 9:
+					WyswietlenieOpcjiMenuHistoria();
+					break;
+				case 0:
+					System.out.println("Zakonczenie Programu");
+					ZakoniecznieProgramu = 0;
+					break;
+				default:
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					Czekaj();
+					break;
 
+			}
 
+		}while(ZakoniecznieProgramu != 0);
+	}
+	public static void WyswietlanieOpcjiHistori()
+	{
+		System.out.println("Aktualnie znajdujesz się w Wyswietlanie Czytelnika");
+		System.out.println("Mozliwe sa:");
+		System.out.println("1.Wyswietlanie wszystkich Czytelników");
+		System.out.println("2.Sortowanie po: ID Histori");
+		System.out.println("3.Sortowanie po: ID Ksiazki");
+		System.out.println("4.Sortowanie po: ID Czytelnika");
+		System.out.println("5.Sortowanie po: Nazwa Ksiazki");
+		System.out.println("6.Sortowanie po: Nazwy Czytelnika");
+		System.out.println("7.Sortowanie po: Autora");
+		System.out.println("8.Sortowanie po: Gatunku");
+		System.out.println("9.Pomoc.");
+		System.out.println("0.Cofniecie do menu ksiazki.");
+	}
+	public static void MenuWyswietlanieHistori()
+	{
+		int ZakoniecznieProgramu = 1;
+		do{
+			WyswietlanieOpcjiHistori();
 
+			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
+			int Wybor = WpisywanieDanych.WpisanieLiczby();
+
+			switch(Wybor)
+			{
+				case 1:
+					WyswietlanieHistori();
+					break;
+				case 2:
+					SortowanieHistoria.WyswietlaniePosortowaneID(SortowanieHistoria.PoId("id"),"id");
+					break;
+				case 3:
+					SortowanieHistoria.WyswietlaniePosortowaneID(SortowanieHistoria.PoId("idksiazki"),"idksiazki");
+					break;
+				case 4:
+					SortowanieHistoria.WyswietlaniePosortowaneID(SortowanieHistoria.PoId("iduzytkownika"),"iduzytkownika");
+					break;
+				case 5:
+					SortowanieHistoria.WyswietlaniePosortowaneHistoria("nazwaksiazki");
+					break;
+				case 6:
+					SortowanieHistoria.WyswietlaniePosortowaneHistoria("uzytkownik");
+					break;
+				case 7:
+					SortowanieHistoria.WyswietlaniePosortowaneHistoria("autor");
+					break;
+				case 8:
+					SortowanieHistoria.WyswietlaniePosortowaneHistoria("gatunek");
+					break;
+				case 9:
+					WyswietlanieOpcjiHistori();
+					break;
+				case 0:
+					System.out.println("Zakonczenie Programu");
+					ZakoniecznieProgramu = 0;
+					break;
+				default:
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					Czekaj();
+					break;
+
+			}
+
+		}while(ZakoniecznieProgramu != 0);
+	}
+	public static void OpcjeWyszukiwanieHistori()
+	{
+		System.out.println("Aktualnie znajdujesz się w Wyszukiwnaie Czytelnika");
+		System.out.println("Mozliwe sa:");
+		System.out.println("1.Wyszukiwanie po: ID Histori");
+		System.out.println("2.Wyszukiwanie po: ID Ksiazki");
+		System.out.println("3.Wyszukiwanie po: ID Czytelnika");
+		System.out.println("4.Wyszukiwanie po: Nazwa Ksiazki");
+		System.out.println("5.Wyszukiwanie po: Nazwa Czytelnika");
+		System.out.println("6.Wyszukiwanie po: Czy wyporzyczona");
+		System.out.println("7.Wyszukiwanie po: Czy po terminie");
+		System.out.println("8.Wyszukiwanie po: Gatunek");
+		System.out.println("9.Pomoc.");
+		System.out.println("0.Cofniecie do menu ksiazki.");
+	}
+	public static void SzukanieHistori()
+	{
+		int ZakoniecznieProgramu = 1;
+		do{
+			WyswietlenieOpcjiWyszukiwanieCzytelnikow();
+
+			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
+			int Wybor = WpisywanieDanych.WpisanieLiczby();
+
+			switch(Wybor)
+			{
+				case 1:
+					WyszukiwanieHistoria.Wyszukiwanie("id");
+					break;
+				case 2:
+					WyszukiwanieHistoria.Wyszukiwanie("idksiazki");
+
+					break;
+				case 3:
+					WyszukiwanieHistoria.Wyszukiwanie("idczytelnika");
+
+					break;
+				case 4:
+					WyszukiwanieHistoria.Wyszukiwanie("nazwa");
+
+					break;
+				case 5:
+					WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
+
+					break;
+				case 6:
+					WyszukiwanieHistoria.Wyszukiwanie("czywyporzyczona");
+
+					break;
+				case 7:
+					WyszukiwanieHistoria.Wyszukiwanie("czypoterminie");
+
+					break;
+				case 8:
+					WyszukiwanieHistoria.Wyszukiwanie("gatunek");
+					break;
+				case 9:
+					WyswietlenieOpcjiWyszukiwanieCzytelnikow();
+					break;
+				case 0:
+					System.out.println("Zakonczenie Programu");
+					ZakoniecznieProgramu = 0;
+					break;
+				default:
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					Czekaj();
+					break;
+
+			}
+
+		}while(ZakoniecznieProgramu != 0);
+	}
 
 	public static void WyswietlenieOpcjiMenuCzytelnik()
 	{
@@ -244,7 +407,7 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					WyswietlanieCzytelnikow();
+					MenuWyswietlanieCzytelnikow();
 					break;
 				case 2:
 					SzukanieCzytelnikow();
@@ -288,7 +451,7 @@ public class Menu
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do menu ksiazki.");
 	}
-	public static void WyswietlanieCzytelnikow()
+	public static void MenuWyswietlanieCzytelnikow()
 	{
 		int ZakoniecznieProgramu = 1;
 		do{
