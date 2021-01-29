@@ -25,43 +25,8 @@ public class MainProjektBiblioteka
 		System.out.println("Czy po terminie " + Porownanie);
 		Porownanie = Daty.CzyPoTerminie(DataWpisania,DataTermin,"ilepoterminie");
 		System.out.println("Ile po terminie " + Porownanie);
-
 		 */
-
-		//Menu.WyswietlanieHistori();
-
-
-
-		//Menu.UsuwanieUzytkownika();
-		Menu.WypisywanieUzytkownikow();
-		Menu.TworzenieKsiazki();
-
-		//OperacjePlikUzytkownicy.ZmianaDanych("unban");
-		//OperacjePlikUzytkownicy.ZmianaDanych("zmainanazwa");
-		//Menu.WypisywanieUzytkownikow();
-
-		/*
-		Menu.WypisywanieUzytkownikow();
-		OperacjePlikUzytkownicy.ZmianaDanych("ban");
-		Menu.WypisywanieUzytkownikow();
-		OperacjePlikUzytkownicy.ZmianaDanych("unban");
-		Menu.WypisywanieUzytkownikow();
-		OperacjePlikUzytkownicy.ZmianaDanych("zmiananazwa");
-
-		 */
-
-
-
-		//RandomAccessFile wynik =OperacjePlikHistoria.OtwarciePlikHistoria();
-		//Menu.TworznieUzytkownika();
-		//WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
-		//WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
-		//Menu.WypisywanieKsiazek();
-
-		//Menu.TworzenieKsiazki();
-
-
-		//SortowanieKsiazka.Sortowanie("nazwaksiazki");
+		Menu.MenuGlowne();
 
 
 	}

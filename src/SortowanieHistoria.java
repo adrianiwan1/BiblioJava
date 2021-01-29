@@ -115,6 +115,10 @@ public static ArrayList<Integer> PoId()
                         case "czypoterminie":
                             TreeLista.add(OdczytaneDane.GetCzyPoTerminie());
                             break;
+                        case"czywyporzyczona":
+                            TreeLista.add(OdczytaneDane.GetCzyWyporzyczona()); //Wpisanie danej do int
+                            break;
+
                     }
                 } else
                 {

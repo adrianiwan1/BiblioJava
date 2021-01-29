@@ -235,6 +235,10 @@ public class Ksiazka extends Uzytkownik
 		}
 		return  IdKsiazkiJakoString;
 	}
+	public String GetCzyPoTerminieWyswietlanie()
+	{
+		 return CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataWyporzyczenia(),GetDataTermin(),"ilepoterminie"));
+	}
 
 	public int GetIdKsiazki()
 	{
@@ -334,15 +338,15 @@ public class Ksiazka extends Uzytkownik
 		if(GetCzyWyporzyczona().equals("tak"))
 		{
 
-			if(GetCzyPoTerminie().equals("tak"))
+			if(GetCzyPoTerminieWyswietlanie().equals("tak"))
 			{
 				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
-						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin() + Daty.SprawdzanieCzyPoPodanejDacie(Daty.ObecnaData() , GetDataTermin() , "ilepoterminie"));
+						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t" + GetDataTermin() + Daty.SprawdzanieCzyPoPodanejDacie(Daty.ObecnaData() , GetDataTermin() , "ilepoterminie"));
 			}
 			else
 			{
 				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
-						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
+						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t" + GetDataTermin());
 			}
 		}
 		else

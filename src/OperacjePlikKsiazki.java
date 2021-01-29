@@ -144,8 +144,13 @@ public class OperacjePlikKsiazki{
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-            System.out.println("Wpisz id Użytkownika ktorego chcesz edytować");  // Prosba o wpisanie
+            System.out.println("Wpisz id czytelnika ktorego chcesz edytować.Wpisz 0 by anulowac");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
+            if(Szukana == 0)
+            {
+                System.out.println("Powrót do poprzedniej opcji.");
+                return;
+            }
             do
             {
                 Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu

@@ -17,16 +17,24 @@ public class WyszukiwanieUzytkownik {
             PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy();
             if (Zmienna.equals("idUzytkownika"))
             {
-                System.out.println("Wpisz id wyszukiwanego użytkownika.");  // Prosba o wpisanie
+                System.out.println("Wpisz id wyszukiwanego użytkownika.Wpisz 0 by anulować");  // Prosba o wpisanie
                 Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+                if(Szukany == 0)
+                {
+                    return;
+                }
                 WyszukiwanieID(Szukany,PlikOdczytany);
             }else
             {
                 if(Zmienna.equals("nazwa"))
                 {
-                    System.out.println("Wpisz nazwę Użytkownika.");  // Prosba o wpisanie
+                    System.out.println("Wpisz nazwę Użytkownika.Wpisz 0 by anulować");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
                     UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+                    if(Szukana.equals("0"))
+                    {
+                     return;
+                    }
 
                 }else {
                     System.out.println("Wpisz czy zbanowany czy nie.");  // Prosba o wpisanie

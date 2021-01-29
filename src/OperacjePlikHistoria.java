@@ -67,8 +67,13 @@ public class OperacjePlikHistoria{
 
         do {
             RandomAccessFile NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-            System.out.println("Podaj Id ksiazki, ktora chcesz wyporzyczyc:");
+            System.out.println("Podaj Id ksiazki, ktora chcesz wyporzyczyc.Wpisz 0 by anulować.");
             IdKsiazki = WpisywanieDanych.WpisanieLiczby();
+            if(IdKsiazki == 0)
+            {
+                System.out.println("Powrót do poprzedniej opcji.");
+                return;
+            }
             if (WyszukiwanieKsiazka.IdCzyIstnieje(IdKsiazki,NowaHistoria) == 1) {
                 NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
                 if(WyszukiwanieKsiazka.CzyWypozyczona(IdKsiazki,NowaHistoria).equals("nie")){

@@ -16,20 +16,36 @@ public class WyszukiwanieHistoria {
             PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
             if (Zmienna.equals("idKsiazki"))
             {
-                System.out.println("Wpisz id wyszukiwanej ksiazki z histori.");  // Prosba o wpisanie
+                System.out.println("Wpisz id wyszukiwanej ksiazki z histori.Wpisz 0 by anulowac.");  // Prosba o wpisanie
                 Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+                if(Szukany == 0)
+                {
+
+                    System.out.println("Powrót do poprzedniej opcji.");
+                    return;
+                }
                 WyszukiwanieIDKsiazki(Szukany,PlikOdczytany);
             }else
             {
                 if(Zmienna.equals("id"))
                 {
-                    System.out.println("Wpisz id wpisu z histori.");  // Prosba o wpisanie
+                    System.out.println("Wpisz id wpisu z histori.Wpisz 0 by anulowac.");  // Prosba o wpisanie
                     Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+                    if(Szukany == 0)
+                    {
+                        System.out.println("Powrót do poprzedniej opcji.");
+                        return;
+                    }
                     WyszukiwanieID(Szukany,PlikOdczytany);
 
                 }else {
                     System.out.println("Wpisz nazwe poszukiwanej treści.");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
+                    if (Szukana.equals("0"))
+                    {
+                        System.out.println("Powrót do poprzedniej opcji.");
+                        return;
+                    }
                     UltraSkroconeWyszukiwanie(Szukana, PlikOdczytany, Zmienna);
                 }
             }

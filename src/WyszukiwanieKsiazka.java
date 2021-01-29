@@ -20,13 +20,23 @@ public class WyszukiwanieKsiazka
 			PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
 			if (Zmienna.equals("id"))
 			{
-			System.out.println("Wpisz nazwe poszukiwanej treści.");  // Prosba o wpisanie
+			System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
 			Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+				if(Szukany == 0)
+				{
+					System.out.println("Powrót do poprzedniej opcji.");
+					return;
+				}
 			WyszukiwanieID(Szukany,PlikOdczytany);
 			}else
 				{
-					System.out.println("Wpisz nazwe poszukiwanej treści.");  // Prosba o wpisanie
+					System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
 					Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
+					if(Szukana.equals("0") )
+					{
+						System.out.println("Powrót do poprzedniej opcji.");
+						return;
+					}
 					UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
 				}
 			if(Znalezione == 0)
@@ -223,38 +233,6 @@ public class WyszukiwanieKsiazka
 		return CzyWypozyczone;
 	}
 
-
-	public static Ksiazka WyszukiwanieIDUzytkownika(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID
-	{
-
-		int i = 0;
-		int ZnalezioneId = 0;
-		try
-		{
-			do
-			{
-				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
-				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
-				{
-					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
-					if(Szukany == Odczyt) // Porownanie odczytu.
-					{
-						Ksiazka NowaKsiazka = OdczytaneDane;
-						return NowaKsiazka;
-					}
-				} else
-				{
-					i = 9002; // Zakonczenie petli jesli null
-				}
-				i++;
-			} while(i < 9000); // Maksymalna wartosc petli
-		}catch(IOException e)
-		{
-
-		}
-		return null;
-
-	}
 
 	//
 	//
