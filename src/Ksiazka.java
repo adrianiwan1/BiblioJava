@@ -53,7 +53,6 @@ public class Ksiazka extends Uzytkownik
 		String Autor;
 		String Gatunek;
 		String DataWydania;
-		//String Wyporzyczajacy = null; // Wyporzyczajacy jest jako null na potrzeby stworznie tylko nowego wpisu w ksiazce.
 		int IdUzytkownika = 2147483646;
 		String NazwaCzytelnik=null;
 		String CzyWyporzyczona = null;

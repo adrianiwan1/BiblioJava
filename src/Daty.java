@@ -17,11 +17,11 @@ public class Daty
 		do
 		{
 			Rok = WpisywanieDanych.WpisanieLiczby();
-			if(Rok > 99999)
+			if(Rok > 99999 || Rok <= 0)
 			{
-				System.out.println("Rok nie może przekraczać 99999.");
+				System.out.println("Rok nie może przekraczać 99999. Rok nie moze byc mniejszy lub rowny zeru.");
 			}
-		}while(Rok > 99999);
+		}while(Rok > 99999 || Rok <= 0);
 		do
 		{
 			System.out.println("Proszę podac miesiąc. 1-12");
@@ -36,7 +36,7 @@ public class Daty
 			Year = Kalendarz.get(Calendar.YEAR);
 			if (Month != Miesiac)
 			{
-				System.out.println("Podano zbyt duza ilosc dni do podanego miesiaca.\n");
+				System.out.println("Podano niepoprawna ilosc dni do miesiaca. Dni nie moga przekroczyc. \n");
 				OK = false;
 			}else
 				{

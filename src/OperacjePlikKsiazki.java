@@ -71,17 +71,13 @@ public class OperacjePlikKsiazki{
         int i = 0;
         int Szukana = 0;
         Szukana = ID;
-        boolean udane = true;
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-            /*
-            System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
-            Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
-
-             */
-            if(SprawdzanieKsiazka.CzyPodaneIdIstnieje(Szukana)==true) {
-                if(SprawdzanieKsiazka.CzyWyporzyczona(Szukana)==true){
+            if(SprawdzanieKsiazka.CzyPodaneIdIstnieje(Szukana)==true)
+            {
+                if(SprawdzanieKsiazka.CzyWyporzyczona(Szukana)==false)
+                {
                     do {
                         Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
                         if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
@@ -98,9 +94,7 @@ public class OperacjePlikKsiazki{
                     } while (i < 9000); // Maksymalna wartosc petli
                     PlikOdczytany.close(); // Zamkniecie odczytu
                     new File("Books.bin").delete();
-
                     Path Zrodlo = Paths.get("TempBooks.bin");
-
                     try {
 
                         Files.move(Zrodlo, Zrodlo.resolveSibling("Books.bin"));
@@ -123,6 +117,95 @@ public class OperacjePlikKsiazki{
             e.printStackTrace();
         }
         }
+    public static void ZmianaDanych(String Zmienianna) // Wyszukiwanie inta - > ID
+    {
+        int i = 0;
+        int Szukana = 0;
+        int Znalezione = 0;
+        int ZwrotneID = 0;
+        String NazwaKsiazki = "PustyPustoPustusienkoNiemaNic";
+        String Autor;
+        String Gatunek;
+        String DataWydania;
+        int IdUzytkownika = 2147483646;
+        String NazwaCzytelnik="PustyPustoPustusienkoNiemaNic";
+        String CzyWyporzyczona = "PustyPustoPustusienkoNiemaNic";
+        String CzyRandomId = "PustyPustoPustusienkoNiemaNic";
+        String DataWyporzyczenia = "PustyPustoPustusienkoNiemaNic";
+        String DataTermin = "PustyPustoPustusienkoNiemaNic";
+        String CzyPoTerminie = "PustyPustoPustusienkoNiemaNic";
+        boolean CzyWpisacRecznie = true;
+        boolean OK = true;
+        String DataObecna = Daty.ObecnaData();
+
+        boolean CzyNaPewno = false;
+
+        try
+        {
+            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
+            System.out.println("Wpisz id Użytkownika ktorego chcesz edytować");  // Prosba o wpisanie
+            Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
+            do
+            {
+                Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+                if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+                {
+                    int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                    if(Szukana==Odczyt) // Porownanie odczytu.
+                    {
+                        switch(Zmienianna)
+                        {
+                            case "zmiananazwa":
+                                ZwrotneID = OdczytaneDane.GetIdKsiazki();
+                                Autor = OdczytaneDane.GetAutor();
+                                Gatunek = OdczytaneDane.GetGatunek();
+                                DataWydania = OdczytaneDane.GetDataWydania();
+                                DataTermin = OdczytaneDane.GetDataTermin();
+                                DataWyporzyczenia = OdczytaneDane.GetDataWyporzyczenia();
+                                IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
+                                NazwaCzytelnik = OdczytaneDane.GetNazwaUzytkownik();
+                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetNazwaUzytkownik() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Podaj prosze nowa nazwe ksiazki.");
+                                NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
+                                Znalezione++;
+                                if (NazwaKsiazki.equals("0"))
+                                {
+                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    return;
+                                }
+                                break;
+                            default:
+                                System.out.println("Cos poszlo bardzo nie tak probujesz odwolac do funkcji. Ale nie wybrales odpowiedniej opcji.\n Sprobuj 'zmiananazwa' , 'ban , 'unban'");
+                                return;
+                        }
+                    }
+                } else
+                {
+                    i = 9002; // Zakonczenie petli jesli null
+                }
+                i++;
+            } while(i < 9000); // Maksymalna wartosc petli
+            PlikOdczytany.close(); // Zamkniecie odczytu
+            if (Znalezione > 0)
+            {
+                System.out.println(ZwrotneID);
+                OperacjePlikKsiazki.KasowanieKsiazki(ZwrotneID);
+                Ksiazka NowaKsiazka = new Uzytkownik(ZwrotneID,NazwaKsiazki,Autor);
+                ZapisywanieKsiazek(NowaKsiazka,"Books.bin");
+            }
+        } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
+        {
+        }
+
+        if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
+        {
+            System.out.println("Nie znaleziono.");
+        }else
+        {
+
+
+        }
+    }
 
     }
 

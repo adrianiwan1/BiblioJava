@@ -19,10 +19,14 @@ public class WpisywanieDanych
 				Liczba = Integer.parseInt(Liczba_String); //Zamiana String do Int
 			} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 			{
-				System.out.println("To nie jest liczba.Prosze wpisac liczbe");
+				System.out.println("To nie jest liczba.Prosze wpisac liczbe.");
 				OK = false;
 			}
-		} while(!OK);
+			if (Liczba < 0)
+			{
+				System.out.println("Ta liczba nie moze byc ujemna.");
+			}
+		} while(!OK || Liczba < 0);
 		return Liczba; // Zwraca int
 	}
 	//
@@ -37,13 +41,14 @@ public class WpisywanieDanych
 				OK = true;
 				Scanner Wprowadzenie_Slowa = new Scanner(System.in); // Nowy Scaner
 				Slowo = Wprowadzenie_Slowa.nextLine().toLowerCase();; // Wpisanie slowa
+				WyszukiwanieKsiazka.BezSpacji(Slowo);
 				if(Slowo == null || Slowo.equals("") || Slowo.equals(" "))
 				{
 				System.out.println("Podane slowo nie moze byc puste.Sprobuj Ponownie.");
 				OK = false;
 				}
 		} while(!OK);
-		return Slowo; // Zwraca String
+		return WyszukiwanieKsiazka.BezSpacji(Slowo); // Zwraca String bez spacji.
 	}
 	//
 	//

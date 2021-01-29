@@ -30,9 +30,24 @@ public class MainProjektBiblioteka
 
 		//Menu.WyswietlanieHistori();
 
-		//Menu.WypisywanieUzytkownikow();
 
-		Menu.WypisywanieKsiazek();
+
+		//Menu.UsuwanieUzytkownika();
+		Menu.WypisywanieUzytkownikow();
+		OperacjePlikUzytkownicy.ZmianaDanych("ban");
+		//OperacjePlikUzytkownicy.ZmianaDanych("unban");
+		//OperacjePlikUzytkownicy.ZmianaDanych("zmainanazwa");
+
+
+		/*
+		Menu.WypisywanieUzytkownikow();
+		OperacjePlikUzytkownicy.ZmianaDanych("ban");
+		Menu.WypisywanieUzytkownikow();
+		OperacjePlikUzytkownicy.ZmianaDanych("unban");
+		Menu.WypisywanieUzytkownikow();
+		OperacjePlikUzytkownicy.ZmianaDanych("zmiananazwa");
+
+		 */
 
 
 

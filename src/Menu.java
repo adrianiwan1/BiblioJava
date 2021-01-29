@@ -195,5 +195,14 @@ public class Menu
 		OperacjePlikKsiazki.KasowanieKsiazki(Szukana);
 	}
 
+	public static void UsuwanieUzytkownika()
+	{
+		Menu.WypisywanieUzytkownikow();
+		int Szukana;
+		System.out.println("Wpisz liczbe id uzytkownika ktora chcesz usunac");  // Prosba o wpisanie
+		Szukana = WpisywanieDanych.WpisanieLiczby();
+		OperacjePlikUzytkownicy.UsuwanieUzytkownik(Szukana);
+	}
+
 
 }

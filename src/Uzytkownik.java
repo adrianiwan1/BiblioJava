@@ -24,15 +24,14 @@ public class Uzytkownik
 
 	public static Uzytkownik TworzenieUzytkownik()
 	{
-		int IdUzytkownika;
-		String Uzytkownik;
+		int IdUzytkownika = 0;
+		String Uzytkownik = null;
 		boolean OK = true;
-		String CzyRandomId;
+		String CzyRandomId =null;
 		String CzyZbanowany = ("nie");
 
 		System.out.println("Czy chcesz wpisać własne ID? Tak/Nie");
 		CzyRandomId = WpisywanieDanych.WpisanieTakLubNie();
-		System.out.println(CzyRandomId);
 		if (CzyRandomId.equals("nie")) {
 			do {
 				IdUzytkownika = Unikalne.Id();
