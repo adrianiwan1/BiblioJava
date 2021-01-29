@@ -170,9 +170,11 @@ public class WyszukiwanieKsiazka
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+				System.out.println(OdczytaneDane);
 				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
 				{
 					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+
 					if(Szukany == Odczyt) // Porownanie odczytu.
 					{
 
@@ -218,10 +220,7 @@ public class WyszukiwanieKsiazka
 				}
 				else {
 					i = 9002; // Zakonczenie petli jesli null
-
-
-					System.out.println(CzyWypozyczone);
-				}
+						}
 				i++;
 
 			} while(i < 9000); // Maksymalna wartosc petli

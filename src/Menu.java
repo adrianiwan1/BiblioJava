@@ -91,16 +91,16 @@ public class Menu
 	{
 			int i = 0;
 
-			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego"+"\t"+"Ile Dni Po Terminie");
+			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego"+"\t"+"CzyWyporzyczona");
 			try
 			{
 				RandomAccessFile PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
 				do
 				{
-					Ksiazka OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany);
+					Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany);
 					if(OdczytaneDane != null)
 					{
-						System.out.println(OdczytaneDane.ShowDane());
+						System.out.println(OdczytaneDane.ShowDaneHistoria());
 					} else
 					{
 						i = 201;
@@ -812,15 +812,19 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
+					Menu.WypisywanieKsiazek();
 					OperacjePlikKsiazki.ZmianaDanych("zmiananazwa");
 					break;
 				case 2:
+					Menu.WypisywanieKsiazek();
 					OperacjePlikKsiazki.ZmianaDanych("zmianaautor");
 					break;
 				case 3:
+					Menu.WypisywanieKsiazek();
 					OperacjePlikKsiazki.ZmianaDanych("zmianagatunek");
 					break;
 				case 4:
+					Menu.WypisywanieKsiazek();
 					OperacjePlikKsiazki.ZmianaDanych("zmianadatawydania");
 					break;
 				case 5:

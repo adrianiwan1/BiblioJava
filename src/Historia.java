@@ -129,12 +129,12 @@ public class Historia extends Ksiazka{
         }
     }
 
-    public  String ShowDane()
+    public  String ShowDaneHistoria()
     {
 
         String TekstWyswietl;
 
-        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminieWyswietlanie()+"\t\t\t" +GetIdUzytkownika());
+        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminieWyswietlanie()+"\t\t\t" +GetIdUzytkownika() +"\t\t\t" + GetCzyWyporzyczona());
         return TekstWyswietl;
     }
 }

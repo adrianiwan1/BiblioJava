@@ -14,8 +14,9 @@ public class OperacjePlikUzytkownicy {
         baza.writeInt(NowyUzytkownik.GetIdUzytkownika());
         baza.writeUTF(String.format("%1$-32s",NowyUzytkownik.GetNazwaUzytkownik()));
         baza.writeUTF(String.format("%1$-3s",NowyUzytkownik.GetCzyZbanowany()));
-        System.out.println("Urzytkownik zapisany");
         baza.close();
+        System.out.println("Urzytkownik zapisany");
+
 
 
     }

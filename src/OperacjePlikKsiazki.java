@@ -173,7 +173,7 @@ public class OperacjePlikKsiazki{
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
 
-                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetNazwaUzytkownik() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetNazwaKsiazki() + "Jesli nie chcesz jej zmieniac wcisnij 0");
                                 System.out.println("Podaj prosze nowa nazwe ksiazki.");
                                 NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
                                 Znalezione++;
@@ -195,7 +195,7 @@ public class OperacjePlikKsiazki{
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
 
-                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetAutor() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Stary autor to : " + OdczytaneDane.GetAutor() + "Jesli nie chcesz jej zmieniac wcisnij 0");
                                 System.out.println("Podaj prosze nowego autora.");
                                 Autor = WpisywanieDanych.WpisanieSlowa();
                                 Znalezione++;
@@ -217,7 +217,7 @@ public class OperacjePlikKsiazki{
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
 
-                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Stary gatunek to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniac wcisnij 0");
                                 Ksiazka.DostepneGatunki();
                                 System.out.println("Podaj prosze gatunek ksiazki.");
                                 do
@@ -243,9 +243,7 @@ public class OperacjePlikKsiazki{
                                 DataTermin = OdczytaneDane.GetDataTermin();
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
-                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniac wcisnij 0");
-                                Ksiazka.DostepneGatunki();
-                                System.out.println("Podaj prosze gatunek ksiazki.");
+                                System.out.println("Stara data to : " + OdczytaneDane.GetDataWydania() + "Jesli nie chcesz jej zmieniac wcisnij 0");
                                 do
                                 {
                                     System.out.println("Podaj prosze date wydania.");

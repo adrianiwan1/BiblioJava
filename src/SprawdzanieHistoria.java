@@ -3,7 +3,7 @@ import java.io.RandomAccessFile;
 
 public class SprawdzanieHistoria {
 
-    public static boolean CzyPodaneIdIstnieje(int PodaneID) // Wyszukiwanie inta - > ID
+    public static boolean CzyPodaneIdIstnieje(int PodaneID) throws  IOException // Wyszukiwanie inta - > ID
     {
         int i = 0;
         int Znalezione = 0;
@@ -17,10 +17,9 @@ public class SprawdzanieHistoria {
                 Historia OdczytaneDane = OperacjePlikHistoria.OdczytywanieHistorii(PlikOdczytany); // Odczytranie linjki tekstu
                 if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
                 {
-                    int Odczyt = OdczytaneDane.GetIdHistorii(); //Wpisanie danej do int.
+                    int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int.
                     if(PodaneID == Odczyt) // Porownanie odczytu.
                     {
-                        PlikOdczytany.close();
                         Znalezione++;
                     }
                 } else
@@ -36,9 +35,11 @@ public class SprawdzanieHistoria {
         }
         if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
         {
+            System.out.println("Nie istnieje");
             return Istnieje = false;
         }else
         {
+            System.out.println(" istnieje");
             return Istnieje = true;
         }
     }
