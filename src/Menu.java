@@ -450,7 +450,6 @@ public class Menu
 		System.out.println("1.Wyswietlanie wszystkich Czytelników");
 		System.out.println("2.Sortowanie po: ID");
 		System.out.println("3.Sortowanie po: Nazwa Czytelnika");
-		System.out.println("4.Sortowanie po: Czy Zbanowany");
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do Menu Czytelnik.");
 	}
@@ -474,10 +473,6 @@ public class Menu
 				case 3:
 					SortowanieUzytkownik.WyswietlaniePosortowane(SortowanieUzytkownik.Sortowanie("nazwa"),"nazwa");
 					break;
-				case 4:
-					SortowanieUzytkownik.WyswietlaniePosortowane(SortowanieUzytkownik.Sortowanie("czyzbanowany"),"czyzbanowany");
-					break;
-
 				case 9:
 					WyswietlanieOpcjiCzytelnikow();
 					break;
