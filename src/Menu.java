@@ -247,7 +247,7 @@ public class Menu
 	{
 		System.out.println("Aktualnie znajdujesz się w Wyswietlanie Historii");
 		System.out.println("Mozliwe sa:");
-		System.out.println("1.Wyswietlanie wszystkich Czytelników");
+		System.out.println("1.Wyswietlanie całej histori wyporzyczeń");
 		System.out.println("2.Sortowanie po: ID Histori");
 		System.out.println("3.Sortowanie po: ID Ksiazki");
 		System.out.println("4.Sortowanie po: ID Czytelnika");
