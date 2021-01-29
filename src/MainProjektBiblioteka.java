@@ -38,7 +38,7 @@ public class MainProjektBiblioteka
 
 		//OperacjePlikUzytkownicy.ZmianaDanych("unban");
 		//OperacjePlikUzytkownicy.ZmianaDanych("zmainanazwa");
-
+		//Menu.WypisywanieUzytkownikow();
 
 		/*
 		Menu.WypisywanieUzytkownikow();
