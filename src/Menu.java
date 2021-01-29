@@ -117,7 +117,7 @@ public class Menu
 	{
 		Menu.WypisywanieKsiazek();
 		int Szukana;
-		System.out.println("Wpisz liczbe id ksiazki ktora chcesz usunac");  // Prosba o wpisanie
+		System.out.println("Wpisz liczbę id ksiązki którą chcesz usunąć");  // Prosba o wpisanie
 		Szukana = WpisywanieDanych.WpisanieLiczby();
 		OperacjePlikKsiazki.KasowanieKsiazki(Szukana);
 	}
@@ -126,7 +126,7 @@ public class Menu
 	{
 		Menu.WypisywanieUzytkownikow();
 		int Szukana;
-		System.out.println("Wpisz liczbe id uzytkownika ktora chcesz usunac");  // Prosba o wpisanie
+		System.out.println("Wpisz liczbę id użytkownika którą chcesz usunąć");  // Prosba o wpisanie
 		Szukana = WpisywanieDanych.WpisanieLiczby();
 		OperacjePlikUzytkownicy.UsuwanieUzytkownik(Szukana);
 	}
@@ -173,11 +173,12 @@ public class Menu
 					WyswietlenieOpcjiMenuGlowne();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Zakonczenie Programu\n");
+					Czekaj();
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -202,12 +203,12 @@ public class Menu
 	public static void WyswietlenieOpcjiMenuHistoria()
 	{
 
-		System.out.println("Aktualnie znajdujesz się w Menu Czytelnika");
+		System.out.println("Aktualnie znajdujesz się w Menu Historia");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyswietlanie Histori");
 		System.out.println("2.Wyszukiwanie Histori");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu głównego.");
+		System.out.println("0.Cofniecie do Menu głównego.");
 	}
 	public static void MenuHistoria()
 	{
@@ -221,20 +222,20 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					MenuKsiazka();
+					MenuWyswietlanieHistori();
 					break;
 				case 2:
-					MenuCzytelnik();
+					OpcjeWyszukiwanieHistori();
 					break;
 				case 9:
-					WyswietlenieOpcjiMenuHistoria();
+					SzukanieHistori();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu głównego\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -244,7 +245,7 @@ public class Menu
 	}
 	public static void WyswietlanieOpcjiHistori()
 	{
-		System.out.println("Aktualnie znajdujesz się w Wyswietlanie Czytelnika");
+		System.out.println("Aktualnie znajdujesz się w Wyswietlanie Historii");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyswietlanie wszystkich Czytelników");
 		System.out.println("2.Sortowanie po: ID Histori");
@@ -255,7 +256,7 @@ public class Menu
 		System.out.println("7.Sortowanie po: Autora");
 		System.out.println("8.Sortowanie po: Gatunku");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu Historia.");
 	}
 	public static void MenuWyswietlanieHistori()
 	{
@@ -296,11 +297,11 @@ public class Menu
 					WyswietlanieOpcjiHistori();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu Historia.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -310,7 +311,7 @@ public class Menu
 	}
 	public static void OpcjeWyszukiwanieHistori()
 	{
-		System.out.println("Aktualnie znajdujesz się w Wyszukiwnaie Czytelnika");
+		System.out.println("Aktualnie znajdujesz się w Wyszukiwnaie Historia");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyszukiwanie po: ID Histori");
 		System.out.println("2.Wyszukiwanie po: ID Ksiazki");
@@ -321,13 +322,13 @@ public class Menu
 		System.out.println("7.Wyszukiwanie po: Czy po terminie");
 		System.out.println("8.Wyszukiwanie po: Gatunek");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu Historia.");
 	}
 	public static void SzukanieHistori()
 	{
 		int ZakoniecznieProgramu = 1;
 		do{
-			WyswietlenieOpcjiWyszukiwanieCzytelnikow();
+			OpcjeWyszukiwanieHistori();
 
 			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
 			int Wybor = WpisywanieDanych.WpisanieLiczby();
@@ -365,14 +366,14 @@ public class Menu
 					WyszukiwanieHistoria.Wyszukiwanie("gatunek");
 					break;
 				case 9:
-					WyswietlenieOpcjiWyszukiwanieCzytelnikow();
+					OpcjeWyszukiwanieHistori();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu Historia.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -393,7 +394,7 @@ public class Menu
 		System.out.println("5.Banowanie Czytelników");
 		System.out.println("6.Od Banowanie Czytelników");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu głównego.");
+		System.out.println("0.Cofniecie do Menu głównego.");
 	}
 	public static void MenuCzytelnik ()
 	{
@@ -428,7 +429,7 @@ public class Menu
 					WyswietlenieOpcjiMenuCzytelnik();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu głównego");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
@@ -449,7 +450,7 @@ public class Menu
 		System.out.println("3.Sortowanie po: Nazwa Czytelnika");
 		System.out.println("4.Sortowanie po: Czy Zbanowany");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu Czytelnik.");
 	}
 	public static void MenuWyswietlanieCzytelnikow()
 	{
@@ -479,11 +480,11 @@ public class Menu
 					WyswietlanieOpcjiCzytelnikow();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu Czytelnik.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -500,7 +501,7 @@ public class Menu
 		System.out.println("3.Wyszukiwanie po: Zbanowanych");
 		System.out.println("4.Wyszukiwanie po: Nie Zbanowanych");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu Czytelnik.");
 	}
 	public static void SzukanieCzytelnikow()
 	{
@@ -529,11 +530,11 @@ public class Menu
 					WyswietlenieOpcjiWyszukiwanieCzytelnikow();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu Czytelnik.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -551,7 +552,7 @@ public class Menu
 		System.out.println("3.Od Banowywanie Czytelnika");
 		System.out.println("4.Dodawanie Czytelnika");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu Czytelnik.");
 	}
 	public static void EdycjaCzytelnika ()
 	{
@@ -580,11 +581,11 @@ public class Menu
 					WyswietlanieOpcjeEdycjaCzytelnika();
 					break;
 				case 0:
-					System.out.println("Zakonczenie Programu");
+					System.out.println("Cofniecie do Menu Czytelnik");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 
@@ -595,7 +596,7 @@ public class Menu
 
 	public static void WyswietlenieOpcjiMenuKsiazki()
 	{
-		System.out.println("Aktualnie znajdujesz się w menu ksiązki");
+		System.out.println("Aktualnie znajdujesz się w Menu ksiązki");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyswietlanie Ksiązek");
 		System.out.println("2.Wyszukiwanie Książek");
@@ -605,7 +606,7 @@ public class Menu
 		System.out.println("6.Dodanie Nowej Ksiazki");
 		System.out.println("7.Usuniecie Ksiazki");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu głównego.");
+		System.out.println("0.Cofniecie do Menu głównego.");
 	}
 	public static void MenuKsiazka()
 	{
@@ -655,10 +656,11 @@ public class Menu
 					WyswietlenieOpcjiMenuKsiazki();
 					break;
 				case 0:
+					System.out.println("Cofniecie do Menu Główne\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 			}
@@ -676,7 +678,7 @@ public class Menu
 		System.out.println("5.Sortowanie po: Nazwa Uzytkownika");
 		System.out.println("6.Sortowanie po: Gatunek");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu ksiazki.");
 	}
 	public static void WyswietlanieKsiazka()
 	{
@@ -711,10 +713,11 @@ public class Menu
 					WyswietlenieOpcjiWyswietlaniaKsiazki();
 					break;
 				case 0:
+					System.out.println("Cofniecie do Menu Ksiazki.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 			}
@@ -733,7 +736,7 @@ public class Menu
 		System.out.println("6.Wyszukiwanie po: Czy jest wyporzyczona");
 		System.out.println("7.Wyszukiwanie po: Czy jest po terminie");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu ksiazki.");
 	}
 	public static void SzukanieKsiazek()
 	{
@@ -771,10 +774,11 @@ public class Menu
 					WyswietlenieOpcjiWyszukiwanieKsiazki();
 					break;
 				case 0:
+					System.out.println("Cofniecie do Menu Ksiazki.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 			}
@@ -792,7 +796,7 @@ public class Menu
 		System.out.println("5.Usuniecie Ksiazki");
 		System.out.println("6.Tworzenie Ksiazki");
 		System.out.println("9.Pomoc.");
-		System.out.println("0.Cofniecie do menu ksiazki.");
+		System.out.println("0.Cofniecie do Menu ksiazki.");
 	}
 	public static void EdycjaKsiazki()
 	{
@@ -827,10 +831,11 @@ public class Menu
 					WyswietlenieOpcjiEdycjaKsiazki();
 					break;
 				case 0:
+					System.out.println("Cofniecie do Menu Ksiazki.\n");
 					ZakoniecznieProgramu = 0;
 					break;
 				default:
-					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
 			}
@@ -841,7 +846,7 @@ public class Menu
 	{
 		try
 		{
-			Thread.sleep(500);
+			Thread.sleep(1200);
 		}
 		catch(InterruptedException e)
 		{
