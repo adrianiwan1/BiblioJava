@@ -35,7 +35,7 @@ public class SprawdzanieKsiazka
 				case "komedia":
 					OK = true;
 					break;
-				case "kryminal":
+				case "kryminał":
 					OK = true;
 					break;
 				case "thriller":

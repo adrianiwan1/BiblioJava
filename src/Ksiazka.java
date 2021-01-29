@@ -83,16 +83,16 @@ public class Ksiazka extends Uzytkownik
 						System.out.println("Id nie moze byc wieksze niz 2147483645 i mniejsze niz 1.");
 					}
 					if (OK != false) {
-						System.out.println("Istnieje ksiazka z podanym ID.Sprobuj ponownie.");
+						System.out.println("Istnieje książka z podanym ID.Spróbuj ponownie.");
 					}
 				} while (OK != false || IdKsiazki > 2147483645 || IdKsiazki < 0 );
 	       }
-		System.out.println("Podaj prosze nazwie ksiazki.");
+		System.out.println("Podaj proszę nazwę książk.");
 		NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
-		System.out.println("Podaj prosze autora.");
+		System.out.println("Podaj proszę autora.");
 		Autor = WpisywanieDanych.WpisanieSlowa();
 		DostepneGatunki();
-		System.out.println("Podaj prosze gatunek ksiazki.");
+		System.out.println("Podaj proszę gatunek ksiazki.");
 		do
 		{
 			Gatunek = WpisywanieDanych.WpisanieSlowa();
@@ -108,12 +108,15 @@ public class Ksiazka extends Uzytkownik
 			}
 		}
 		while (Daty.SprawdzanieCzyPoPodanejDacie(DataObecna,DataWydania,SprawdzanieCzyPoTerminie) <= 0 );
+
+
+		// /*
 		System.out.println("Czy ksiazka jest juz wyporzyczona? Tak/Nie");
 		CzyWyporzyczona = WpisywanieDanych.WpisanieTakLubNie();
 		if (CzyWyporzyczona.equals("tak"))
 		{
-			System.out.println("Podaj ID Czytelnika:");
 			Menu.WypisywanieUzytkownikow();
+			System.out.println("Podaj ID Czytelnika:");
 			do {
 				IdUzytkownika = WpisywanieDanych.WpisanieLiczby();
 				OK = SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdUzytkownika);
@@ -136,6 +139,7 @@ public class Ksiazka extends Uzytkownik
 					{
 						if(CzyWpisacRecznie == false)
 						{
+							System.out.println("Datak Wydania: "+ DataWydania);
 							System.out.println("Podaj prosze date wyporzyczenia.");
 							DataWyporzyczenia = Daty.WpisanieDaty();
 						} else
@@ -151,6 +155,7 @@ public class Ksiazka extends Uzytkownik
 						{
 							if(CzyWpisacRecznie == true)
 							{
+								System.out.println("Datak Wydania: "+ DataWydania);
 								System.out.println("Nie mozna uzyc daty aktualnej.Prosze podac date recznie");
 								System.out.println("Podaj prosze date wyporzyczenia.");
 								DataWyporzyczenia = Daty.WpisanieDaty();
@@ -172,6 +177,7 @@ public class Ksiazka extends Uzytkownik
 				CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 				if(CzyWpisacRecznie == false)
 				{
+					System.out.println("Datak Wypożyczenia: "+ DataWyporzyczenia);
 					System.out.println("Podaj prosze termin oddania.");
 					DataTermin = Daty.WpisanieDaty();
 				} else
@@ -184,6 +190,7 @@ public class Ksiazka extends Uzytkownik
 
 				}
 			}
+			// */
 			while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieCzyPoTerminie) >= 0);
 
 			CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieIlePoTerminie));
@@ -235,7 +242,9 @@ public class Ksiazka extends Uzytkownik
 	}
 	public String GetCzyPoTerminieWyswietlanie()
 	{
-		 return CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataWyporzyczenia(),GetDataTermin(),"ilepoterminie"));
+		  CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataTermin(),GetDataWyporzyczenia(),"ilepoterminie"));
+		  System.out.println(CzyPoTerminie);
+ 		return CzyPoTerminie;
 	}
 
 	public int GetIdKsiazki()
@@ -338,18 +347,18 @@ public class Ksiazka extends Uzytkownik
 
 			if(GetCzyPoTerminieWyswietlanie().equals("tak"))
 			{
-				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
-						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t" + GetDataTermin() + Daty.SprawdzanieCzyPoPodanejDacie(Daty.ObecnaData() , GetDataTermin() , "ilepoterminie"));
+				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t\t" + GetDataTermin());
 			}
 			else
 			{
-				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania() + "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
-						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t" + GetDataTermin());
+				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania() + "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t\t" + GetDataTermin());
 			}
 		}
 		else
 		{
-			TekstWyswietl = (GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() +  GetAutor() + GetGatunek() + GetDataWydania());
+			TekstWyswietl = (GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania());
 		}
 
 
@@ -359,7 +368,7 @@ public class Ksiazka extends Uzytkownik
 //
 	public static void DostepneGatunki()
 	{
-		System.out.println("Dostepne gatunki: \nsci-fi , drama , literatura faktu , horror , biografia , romans , komedia , kryminal , thriller , naukowe , poradniki , przygodowe.");
+		System.out.println("Dostepne gatunki: \nsci-fi , drama , literatura faktu , horror , biografia , romans , komedia , kryminal , thriller , naukowe , poradniki , przygodowe ,fantasy.");
 	}
 
 }

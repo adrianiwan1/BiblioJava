@@ -12,7 +12,7 @@ public class Menu
 		{
 			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
 
-			System.out.println("ID"+"\t\t\t\t"+"NazwaKsiazki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t\t"+"Wypozyczający"+"\t\t\t\t\t"+"Czy wyporzyczona");
+			System.out.println("ID"+"\t\t\t\t"+"NazwaKsiazki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t\t"+"Wypozyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t" +"Termin" 	);
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
@@ -91,7 +91,7 @@ public class Menu
 	{
 			int i = 0;
 
-			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wyporzyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego"+"\t"+"Ile Dni Po Terminie");
+			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego"+"\t"+"Ile Dni Po Terminie");
 			try
 			{
 				RandomAccessFile PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
@@ -192,10 +192,10 @@ public class Menu
 	System.out.println("By zobaczyc opcje zawsze mozesz wybrac 9 opcje.");
 	System.out.println("Aktualnie znajdujesz się w menu głównym");
 	System.out.println("Mozliwe sa:");
-	System.out.println("1.Menu Ksiazka");
+	System.out.println("1.Menu Książka");
 	System.out.println("2.Menu Czytelnika");
 	System.out.println("3.Menu Historia");
-	System.out.println("4.Wyporzyczenie Ksiazki");
+	System.out.println("4.Wypożyczenie Ksiazki");
 	System.out.println("5.Zwrot Ksiazki");
 	System.out.println("9.Pomoc.");
 	System.out.println("0.Zakonczenie Programu.");
@@ -318,7 +318,7 @@ public class Menu
 		System.out.println("3.Wyszukiwanie po: ID Czytelnika");
 		System.out.println("4.Wyszukiwanie po: Nazwa Ksiazki");
 		System.out.println("5.Wyszukiwanie po: Nazwa Czytelnika");
-		System.out.println("6.Wyszukiwanie po: Czy wyporzyczona");
+		System.out.println("6.Wyszukiwanie po: Czy Wypożyczona");
 		System.out.println("7.Wyszukiwanie po: Czy po terminie");
 		System.out.println("8.Wyszukiwanie po: Gatunek");
 		System.out.println("9.Pomoc.");
@@ -608,7 +608,7 @@ public class Menu
 		System.out.println("1.Wyswietlanie Ksiązek");
 		System.out.println("2.Wyszukiwanie Książek");
 		System.out.println("3.Edycja Ksiązek");
-		System.out.println("4.Wyporzyczenie Ksiazki");
+		System.out.println("4.Wypożyczenie Ksiazki");
 		System.out.println("5.Zwrot Ksiazki");
 		System.out.println("6.Dodanie Nowej Ksiazki");
 		System.out.println("7.Usuniecie Ksiazki");
@@ -627,7 +627,7 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					WyswietlanieKsiazka();
+					WypisywanieKsiazek();
 					break;
 				case 2:
 					SzukanieKsiazek();
@@ -740,7 +740,7 @@ public class Menu
 		System.out.println("3.Wyszukiwanie po: Autor");
 		System.out.println("4.Wyszukiwanie po: Nazwa Uzytkownika");
 		System.out.println("5.Wyszukiwanie po: Gatunek");
-		System.out.println("6.Wyszukiwanie po: Czy jest wyporzyczona");
+		System.out.println("6.Wyszukiwanie po: Czy jest Wypożyczona");
 		System.out.println("7.Wyszukiwanie po: Czy jest po terminie");
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do Menu ksiazki.");

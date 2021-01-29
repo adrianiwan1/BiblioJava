@@ -91,7 +91,7 @@ public class Daty
 		DzienLiczba = Integer.parseInt(Dzien); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.Bład IM-001");
+			//System.out.println("To nie jest liczba.Bład IM-001");
 			OK = false;
 		}
 		return DzienLiczba;
@@ -109,7 +109,7 @@ public class Daty
 			DzienMiesiac = Integer.parseInt(Miesiac); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.Bład IM-001");
+			//System.out.println("To nie jest liczba.Bład IM-001");
 			OK = false;
 		}
 		return DzienMiesiac;
@@ -128,7 +128,7 @@ public class Daty
 			DzienRok = Integer.parseInt(Rok); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.Bład IM-001");
+			//System.out.println("To nie jest liczba.Bład IM-001");
 			OK = false;
 		}
 		return DzienRok;
@@ -160,7 +160,7 @@ public class Daty
 					Porownanie = KalendarzObecna.compareTo(KalendarzTermin);
 					return Porownanie;
 				case "ilepoterminie":
-					Porownanie  = (DataWMiliSekundach / (1000*60*60*24));
+					Porownanie  = (DataWMiliSekundach / (86400000));
 					return Porownanie;
 				default:
 					System.out.println("Cos poszlo nie tak. Nie podanno poprawnej zmiennej. Zwracanie zera");

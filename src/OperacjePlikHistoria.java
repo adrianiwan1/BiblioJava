@@ -92,8 +92,11 @@ public class OperacjePlikHistoria{
                                 RandomAccessFile PlikKsiazki = OperacjePlikKsiazki.OtwarciePlikKsiazki();
                                 Ksiazka OdebranaKsiazka = WyszukiwanieKsiazka.WyszukiwanieIDUzytkownika(IdKsiazki,PlikKsiazki);
                                 DataWydania = OdebranaKsiazka.GetDataWydania();
+                                PlikKsiazki.close();
                                 System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
                                 CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+                                System.out.println(DataWydania);
+                                System.out.println(DataObecna);
 
                                 if (Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataObecna,SprawdzanieCzyPoTerminie) <= 0 )
                                 {
@@ -151,17 +154,12 @@ public class OperacjePlikHistoria{
 
 
                             Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik, DataWyporzyczenia, DataTermin, NazwaCzytelnik); // przekazanie parametrów do funkcji tworzenia wpisu.
-
                             NowaHistoria.close();
-                            RandomAccessFile StrumienKsiazki = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-                            Ksiazka PobieranieDaty = OperacjePlikKsiazki.OdczytywanieKsiazek(StrumienKsiazki);
-
                             OperacjePlikKsiazki.KasowanieKsiazki(IdKsiazki);
-                            OperacjePlikKsiazki.ZapisywanieKsiazek(PobieranieDaty,"Books.bin");
 
                             //System.out.println(IdKsiazki);
                         }else{
-                            System.out.print("Użytkownik jest zablokowany");
+                            System.out.print("Użytkownik jest zablokowany\n");
                         }
                     }else{
                         System.out.println("Użytkownik nie istnieje.");
