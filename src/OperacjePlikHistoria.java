@@ -16,14 +16,12 @@ public class OperacjePlikHistoria{
         baza.writeUTF(String.format("%1$-24s",NowyWpis.GetGatunek()));
         baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataWydania()));
         baza.writeUTF(String.format("%1$-32s",NowyWpis.GetWyporzyczajacy()));
-
         baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataWyporzyczenia()));
         baza.writeUTF(String.format("%1$-3s",NowyWpis.GetCzyWyporzyczona())); //1
-
         baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataTermin()));
         baza.writeUTF(String.format("%1$-3s",NowyWpis.GetCzyPoTerminie()));
-        baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataWpisu()));
         baza.writeInt(NowyWpis.GetIdUzytkownika());
+        baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataWpisu()));
 
 
 
