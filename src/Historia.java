@@ -3,20 +3,32 @@ import java.io.RandomAccessFile;
 
 public class Historia extends Ksiazka{
     int IdHistoria;
+    String DataWpisu;
 
 
     public Historia(int IdHistoria,int IdKsiazki, String NazwaKsiazki, String Autor, String Gatunek, String DataWydania,
-                    String NowyCzytelnik,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie,int IdUzytkownik) {
+                    String NowyCzytelnik,String DataWyporzyczenia,String CzyWyporzyczona,String DataTermin,String CzyPoTerminie,int IdUzytkownik,String NowaDataWpisu)
+    {
         super(IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdUzytkownik);
 
         this.IdHistoria=IdHistoria;
+        this.DataWpisu=NowaDataWpisu;
 
     }
 
+    public String GetDataWpisu()
+    {
+     return DataWpisu;
+    }
+    public void SetDataWpisu(String DataWpisu)
+    {
+      this.DataWpisu = DataWpisu;
+    }
     public int GetIdHistorii() {
 
         return IdHistoria;
     }
+
     public String GetIdHistoiraWypisiywanie()
     {
         String IdKsiazkiJakoString = (""+IdHistoria);
@@ -55,7 +67,7 @@ public class Historia extends Ksiazka{
         return  IdKsiazkiJakoString;
     }
 
-    public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik) throws IOException
+    public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik,String DataWpisu) throws IOException
     {
 
         int IdHistoria;
@@ -95,14 +107,15 @@ public class Historia extends Ksiazka{
             //DoWyporzyczenia.SetDataWyporzyczenia(DataWypozyczenia);
             //DoWyporzyczenia.SetDataTermin(DataTermin);
             CzyPoTerminie=DoWyporzyczenia.GetCzyPoTerminie();
+            DataWpisu = Daty.ObecnaData();
             NowaHistoria.close();
 
         } catch (IOException e) {
             System.out.println("Błąd IO-001");
         }
 //v
-        Historia Wpis = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);
-        Historia WpisBooks = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);
+        Historia Wpis = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik,DataWpisu);
+        Historia WpisBooks = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik,DataWpisu);
 
         OperacjePlikKsiazki.KasowanieKsiazki(IdKsiazki);
 
@@ -134,7 +147,7 @@ public class Historia extends Ksiazka{
 
         String TekstWyswietl;
 
-        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminieWyswietlanie()+"\t\t\t" +GetIdUzytkownika() +"\t\t\t" + GetCzyWyporzyczona());
+        TekstWyswietl =(GetIdHistoiraWypisiywanie()+"\t"+GetIdKsiazki()+"\t" + GetNazwaKsiazki() +GetWyporzyczajacy() + GetDataWyporzyczenia() +"\t\t\t\t"+ GetDataTermin() +"\t\t"+GetCzyPoTerminieWyswietlanie()+"\t\t\t" +GetIdUzytkownika() +"\t\t\t" + GetCzyWyporzyczona()+"\t\t"+GetDataWpisu());
         return TekstWyswietl;
     }
 }

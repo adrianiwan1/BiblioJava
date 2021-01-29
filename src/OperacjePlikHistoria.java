@@ -22,6 +22,7 @@ public class OperacjePlikHistoria{
 
         baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataTermin()));
         baza.writeUTF(String.format("%1$-3s",NowyWpis.GetCzyPoTerminie()));
+        baza.writeUTF(String.format("%1-11$",NowyWpis.GetDataWpisu()));
         baza.writeInt(NowyWpis.GetIdUzytkownika());
 
 
@@ -41,7 +42,7 @@ public class OperacjePlikHistoria{
     {
         Historia OdczytywanaHistoria=null;
         try {
-            OdczytywanaHistoria = new Historia(baza.readInt(),baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readInt());
+            OdczytywanaHistoria = new Historia(baza.readInt(),baza.readInt(),baza.readUTF(),baza.readUTF(), baza.readUTF(), baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readUTF(), baza.readUTF(),baza.readInt(), baza.readUTF());
         }
         catch (EOFException ex)
         {
@@ -151,7 +152,7 @@ public class OperacjePlikHistoria{
                             while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieCzyPoTerminie) >= 0);
 
 
-                            Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik, DataWyporzyczenia, DataTermin, NazwaCzytelnik); // przekazanie parametrów do funkcji tworzenia wpisu.
+                            Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik, DataWyporzyczenia, DataTermin, NazwaCzytelnik,DataObecna); // przekazanie parametrów do funkcji tworzenia wpisu.
                             NowaHistoria.close();
                             RandomAccessFile PlikKsiazki = OperacjePlikKsiazki.OtwarciePlikKsiazki();
                             Ksiazka PobieranieDaty = WyszukiwanieKsiazka.WyszukiwanieIDUzytkownika(IdKsiazki,PlikKsiazki);
@@ -221,6 +222,7 @@ public class OperacjePlikHistoria{
                     if(Szukana == Odczyt) // Porownanie odczytu.
                     {
                         ObiektHistoria.SetCzyWyporzyczona("nie");
+                        ObiektHistoria.SetDataWpisu(Daty.ObecnaData());
                         RandomAccessFile PlikKsiazkaOczyt = OperacjePlikKsiazki.OtwarciePlikKsiazki();
                         Ksiazka NowaKsiazka = WyszukiwanieKsiazka.WyszukiwanieIDUzytkownika(Odczyt,PlikKsiazkaOczyt);
                         PlikKsiazkaOczyt.close();

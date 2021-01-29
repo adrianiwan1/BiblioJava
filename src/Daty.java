@@ -57,9 +57,9 @@ public class Daty
 		Day = Kalendarz.get(Calendar.DAY_OF_MONTH);
 		Month = Kalendarz.get(Calendar.MONTH);
 		Year = Kalendarz.get(Calendar.YEAR);
-		String Data = (Day+"-"+(Month+1)+"-"+Year);
+		String ObecnaData = (Day+"-"+(Month+1)+"-"+Year);
 
-		return Data;
+		return ObecnaData;
 
 	}
 	public static String TerminOddania(String DataWyporzyczenia)
