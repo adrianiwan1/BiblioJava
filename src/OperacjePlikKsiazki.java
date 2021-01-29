@@ -124,9 +124,9 @@ public class OperacjePlikKsiazki{
         int Znalezione = 0;
         int ZwrotneID = 0;
         String NazwaKsiazki = "PustyPustoPustusienkoNiemaNic";
-        String Autor;
-        String Gatunek;
-        String DataWydania;
+        String Autor = "PustyPustoPustusienkoNiemaNic";
+        String Gatunek = "PustyPustoPustusienkoNiemaNic";
+        String DataWydania = "PustyPustoPustusienkoNiemaNic";
         int IdUzytkownika = 2147483646;
         String NazwaCzytelnik="PustyPustoPustusienkoNiemaNic";
         String CzyWyporzyczona = "PustyPustoPustusienkoNiemaNic";
@@ -137,6 +137,7 @@ public class OperacjePlikKsiazki{
         boolean CzyWpisacRecznie = true;
         boolean OK = true;
         String DataObecna = Daty.ObecnaData();
+        String SprawdzanieCzyPoTerminie = "czypoterminie";
 
         boolean CzyNaPewno = false;
 
@@ -160,10 +161,13 @@ public class OperacjePlikKsiazki{
                                 Autor = OdczytaneDane.GetAutor();
                                 Gatunek = OdczytaneDane.GetGatunek();
                                 DataWydania = OdczytaneDane.GetDataWydania();
-                                DataTermin = OdczytaneDane.GetDataTermin();
-                                DataWyporzyczenia = OdczytaneDane.GetDataWyporzyczenia();
-                                IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
                                 NazwaCzytelnik = OdczytaneDane.GetNazwaUzytkownik();
+                                DataWyporzyczenia = OdczytaneDane.GetDataWyporzyczenia();
+                                CzyWyporzyczona = OdczytaneDane.GetCzyWyporzyczona();
+                                DataTermin = OdczytaneDane.GetDataTermin();
+                                CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
+                                IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
+
                                 System.out.println("Stara nazwa to : " + OdczytaneDane.GetNazwaUzytkownik() + "Jesli nie chcesz jej zmieniac wcisnij 0");
                                 System.out.println("Podaj prosze nowa nazwe ksiazki.");
                                 NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
@@ -174,10 +178,91 @@ public class OperacjePlikKsiazki{
                                     return;
                                 }
                                 break;
+                            case "zmianaautor":
+                                ZwrotneID = OdczytaneDane.GetIdKsiazki();
+                                NazwaKsiazki = OdczytaneDane.GetNazwaKsiazki();
+                                Gatunek = OdczytaneDane.GetGatunek();
+                                DataWydania = OdczytaneDane.GetDataWydania();
+                                NazwaCzytelnik = OdczytaneDane.GetNazwaUzytkownik();
+                                DataWyporzyczenia = OdczytaneDane.GetDataWyporzyczenia();
+                                CzyWyporzyczona = OdczytaneDane.GetCzyWyporzyczona();
+                                DataTermin = OdczytaneDane.GetDataTermin();
+                                CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
+                                IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
+
+                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetAutor() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Podaj prosze nowego autora.");
+                                Autor = WpisywanieDanych.WpisanieSlowa();
+                                Znalezione++;
+                                if (NazwaKsiazki.equals("0"))
+                                {
+                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    return;
+                                }
+                                break;
+                            case "zmianagatunek":
+                                ZwrotneID = OdczytaneDane.GetIdKsiazki();
+                                NazwaKsiazki = OdczytaneDane.GetNazwaKsiazki();
+                                Autor = OdczytaneDane.GetAutor();
+                                DataWydania = OdczytaneDane.GetDataWydania();
+                                NazwaCzytelnik = OdczytaneDane.GetNazwaUzytkownik();
+                                DataWyporzyczenia = OdczytaneDane.GetDataWyporzyczenia();
+                                CzyWyporzyczona = OdczytaneDane.GetCzyWyporzyczona();
+                                DataTermin = OdczytaneDane.GetDataTermin();
+                                CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
+                                IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
+
+                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                Ksiazka.DostepneGatunki();
+                                System.out.println("Podaj prosze gatunek ksiazki.");
+                                do
+                                {
+                                    Gatunek = WpisywanieDanych.WpisanieSlowa();
+                                    OK = SprawdzanieKsiazka.SprawdzanieGatunku(Gatunek);
+                                }while(OK != true);
+                                Znalezione++;
+                                if (NazwaKsiazki.equals("0"))
+                                {
+                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    return;
+                                }
+                                break;
+                            case "zmianadatawydania":
+                                ZwrotneID = OdczytaneDane.GetIdKsiazki();
+                                NazwaKsiazki = OdczytaneDane.GetNazwaKsiazki();
+                                Autor = OdczytaneDane.GetAutor();
+                                Gatunek = OdczytaneDane.GetGatunek();
+                                NazwaCzytelnik = OdczytaneDane.GetNazwaUzytkownik();
+                                DataWyporzyczenia = OdczytaneDane.GetDataWyporzyczenia();
+                                CzyWyporzyczona = OdczytaneDane.GetCzyWyporzyczona();
+                                DataTermin = OdczytaneDane.GetDataTermin();
+                                CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
+                                IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
+                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                Ksiazka.DostepneGatunki();
+                                System.out.println("Podaj prosze gatunek ksiazki.");
+                                do
+                                {
+                                    System.out.println("Podaj prosze date wydania.");
+                                    DataWydania = Daty.WpisanieDaty();
+                                    if(Daty.SprawdzanieCzyPoPodanejDacie(DataObecna,DataWydania,SprawdzanieCzyPoTerminie) <= 0 )
+                                    {
+                                        System.out.println("Ksiazka nie moze byc dodana do rejestru przed jej wydaniem.\n");
+                                    }
+                                }
+                                while (Daty.SprawdzanieCzyPoPodanejDacie(DataObecna,DataWydania,SprawdzanieCzyPoTerminie) <= 0 );
+                                Znalezione++;
+                                if (NazwaKsiazki.equals("0"))
+                                {
+                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    return;
+                                }
+                                break;
                             default:
-                                System.out.println("Cos poszlo bardzo nie tak probujesz odwolac do funkcji. Ale nie wybrales odpowiedniej opcji.\n Sprobuj 'zmiananazwa' , 'ban , 'unban'");
+                                System.out.println("Cos poszlo bardzo nie tak probujesz odwolac do funkcji. Ale nie wybrales odpowiedniej opcji.\n Sprobuj 'zmiananazwa' , 'zmianagatunek' , 'zmianaautor'");
                                 return;
                         }
+
                     }
                 } else
                 {
@@ -190,7 +275,7 @@ public class OperacjePlikKsiazki{
             {
                 System.out.println(ZwrotneID);
                 OperacjePlikKsiazki.KasowanieKsiazki(ZwrotneID);
-                Ksiazka NowaKsiazka = new Uzytkownik(ZwrotneID,NazwaKsiazki,Autor);
+                Ksiazka NowaKsiazka = new Ksiazka(ZwrotneID, NazwaKsiazki, Autor, Gatunek, DataWydania, NazwaCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdUzytkownika);
                 ZapisywanieKsiazek(NowaKsiazka,"Books.bin");
             }
         } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc

@@ -150,7 +150,7 @@ public class OperacjePlikUzytkownicy {
                                     System.out.println("Uzytkownik nie jest zbanowany.Anulowanie i powrot do poprzedniej opcji.");
                                     return;
                                 }
-                                System.out.println("Czy na pewno chcesz banowac uzytkownika? Tak/Nie");
+                                System.out.println("Czy na pewno chcesz odbanowac uzytkownika? Tak/Nie");
                                 CzyNaPewno = WpisywanieDanych.WpisanieBool();
                                 ZwrotneID = OdczytaneDane.GetIdUzytkownika();
                                 NowaNazwaUzytkownika = OdczytaneDane.GetNazwaUzytkownik();
