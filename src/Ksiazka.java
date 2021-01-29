@@ -193,7 +193,7 @@ public class Ksiazka extends Uzytkownik
 			// */
 			while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieCzyPoTerminie) >= 0);
 
-			CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieIlePoTerminie));
+			CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataObecna,DataTermin,SprawdzanieIlePoTerminie));
 		}
 
 
@@ -242,8 +242,7 @@ public class Ksiazka extends Uzytkownik
 	}
 	public String GetCzyPoTerminieWyswietlanie()
 	{
-		  CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataTermin(),GetDataWyporzyczenia(),"ilepoterminie"));
-		  System.out.println(CzyPoTerminie);
+		  CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataTermin(),Daty.ObecnaData(),"ilepoterminie"));
  		return CzyPoTerminie;
 	}
 
