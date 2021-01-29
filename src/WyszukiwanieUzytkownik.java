@@ -15,32 +15,42 @@ public class WyszukiwanieUzytkownik {
         try
         {
             PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy();
-            if (Zmienna.equals("idUzytkownika"))
+            switch(Zmienna)
             {
-                System.out.println("Wpisz id wyszukiwanego użytkownika.Wpisz 0 by anulować");  // Prosba o wpisanie
-                Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
-                if(Szukany == 0)
-                {
-                    return;
-                }
-                WyszukiwanieID(Szukany,PlikOdczytany);
-            }else
-            {
-                if(Zmienna.equals("nazwa"))
-                {
-                    System.out.println("Wpisz nazwę Użytkownika.Wpisz 0 by anulować");  // Prosba o wpisanie
+                case"idUzytkownika":
+                    System.out.println("Wpisz id wyszukiwanego czytelnika.Wpisz 0 by anulować");  // Prosba o wpisanie
+                    Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+                    if(Szukany == 0)
+                    {
+                        return;
+                    }
+                    WyszukiwanieID(Szukany,PlikOdczytany);
+                    break;
+                case"nazwa":
+                    System.out.println("Wpisz nazwę czytelnika.Wpisz 0 by anulować");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
                     UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
                     if(Szukana.equals("0"))
                     {
-                     return;
+                        return;
                     }
-
-                }else {
-                    System.out.println("Wpisz czy zbanowany czy nie.");  // Prosba o wpisanie
-                    Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
+                    break;
+                case"zbanowany":
+                    System.out.println("Chcesz wyszukac zbanowanych? Tak/Nie. Wpisz nie by anulowac.");  // Prosba o wpisanie
+                    Szukana = WpisywanieDanych.WpisanieTakLubNie(); //  Wpisanie poszukiwanego slowa
+                    if(Szukana.equals("nie"))
+                    {
+                        return;
+                    }
+                case"niezbanowany":
+                    System.out.println("Chcesz wyszukac nie zbanowanych? Tak/Nie. Wpisz nie by anulowac.");  // Prosba o wpisanie
+                    Szukana = WpisywanieDanych.WpisanieTakLubNie(); //  Wpisanie poszukiwanego slowa
+                    if(Szukana.equals("nie"))
+                    {
+                        return;
+                    }
                     UltraSkroconeWyszukiwanie(Szukana, PlikOdczytany, Zmienna);
-                }
+                    break;
             }
             if(Znalezione == 0)
             {

@@ -151,8 +151,22 @@ public class Menu
 				case 3:
 					break;
 				case 4:
+					try
+					{
+						OperacjePlikHistoria.WypozyczanieKsiazki();
+					} catch(IOException e)
+					{
+						System.out.println("Błąd IO-0002");
+					}
 					break;
 				case 5:
+					try
+					{
+						OperacjePlikHistoria.ZwracanieKsiazki();
+					} catch(IOException e)
+					{
+						System.out.println("Błąd IO-0002");
+					}
 					break;
 				case 9:
 					WyswietlenieOpcjiMenuGlowne();
@@ -177,24 +191,44 @@ public class Menu
 	System.out.println("Aktualnie znajdujesz się w menu głównym");
 	System.out.println("Mozliwe sa:");
 	System.out.println("1.Menu Ksiazka");
-	System.out.println("2.Menu Czytelnik");
+	System.out.println("2.Menu Czytelnika");
 	System.out.println("3.Menu Historia");
 	System.out.println("4.Wyporzyczenie Ksiazki");
 	System.out.println("5.Zwrot Ksiazki");
 	System.out.println("9.Pomoc.");
 	System.out.println("0.Zakonczenie Programu.");
 	}
-	public static void WyswietlenieOpcjiMenuCzytelnik()
+	public static void WyswietlenieOpcjiMenuHistoria()
 	{
-		System.out.println("Witaj w programie Biblonomicon");
-		System.out.println("By zobaczyc opcje zawsze mozesz wybrac 9 opcje.");
-		System.out.println("Aktualnie znajdujesz się w menu czytelnik");
+
+		System.out.println("Aktualnie znajdujesz się w Menu Czytelnika");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyswietlanie Czytelników");
 		System.out.println("2.Wyszukiwanie Czytelników");
 		System.out.println("3.Edycja Czytelników");
 		System.out.println("4.Dodanie Nowej Czytelników");
-		System.out.println("5.Usuniecie Czytelników");
+		System.out.println("5.Banowanie Czytelników");
+		System.out.println("6.Od Banowanie Czytelników");
+		System.out.println("9.Pomoc.");
+		System.out.println("0.Cofniecie do menu głównego.");
+	}
+
+
+
+
+
+
+	public static void WyswietlenieOpcjiMenuCzytelnik()
+	{
+
+		System.out.println("Aktualnie znajdujesz się w Menu Czytelnika");
+		System.out.println("Mozliwe sa:");
+		System.out.println("1.Wyswietlanie Czytelników");
+		System.out.println("2.Wyszukiwanie Czytelników");
+		System.out.println("3.Edycja Czytelników");
+		System.out.println("4.Dodanie Nowej Czytelników");
+		System.out.println("5.Banowanie Czytelników");
+		System.out.println("6.Od Banowanie Czytelników");
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do menu głównego.");
 	}
@@ -210,14 +244,22 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
+					WyswietlanieCzytelnikow();
 					break;
 				case 2:
+					SzukanieCzytelnikow();
 					break;
 				case 3:
+					EdycjaCzytelnika();
 					break;
 				case 4:
+					TworznieUzytkownika();
 					break;
 				case 5:
+					OperacjePlikUzytkownicy.ZmianaDanych("ban");
+					break;
+				case 6:
+					OperacjePlikUzytkownicy.ZmianaDanych("unban");
 					break;
 				case 9:
 					WyswietlenieOpcjiMenuCzytelnik();
@@ -235,35 +277,158 @@ public class Menu
 
 		}while(ZakoniecznieProgramu != 0);
 	}
-	public static void WyswietlanieCzytelnikow()
+	public static void WyswietlanieOpcjiCzytelnikow()
 	{
-		System.out.println("Aktualnie znajdujesz się w Wyswietlanie ksiązek");
+		System.out.println("Aktualnie znajdujesz się w Wyswietlanie Czytelnika");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyswietlanie wszystkich Czytelników");
 		System.out.println("2.Sortowanie po: ID");
 		System.out.println("3.Sortowanie po: Nazwa Czytelnika");
-		System.out.println("4.Sortowanie po: Autor");
-		System.out.println("5.Sortowanie po: Nazwa Uzytkownika");
-		System.out.println("6.Sortowanie po: Gatunek");
+		System.out.println("4.Sortowanie po: Czy Zbanowany");
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do menu ksiazki.");
 	}
+	public static void WyswietlanieCzytelnikow()
+	{
+		int ZakoniecznieProgramu = 1;
+		do{
+			WyswietlanieOpcjiCzytelnikow();
 
+			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
+			int Wybor = WpisywanieDanych.WpisanieLiczby();
 
+			switch(Wybor)
+			{
+				case 1:
+					WypisywanieUzytkownikow();
+					break;
+				case 2:
+					SortowanieUzytkownik.WyswietlaniePosortowaneID(SortowanieUzytkownik.SortowaniePoID());
+					break;
+				case 3:
+					SortowanieUzytkownik.WyswietlaniePosortowane(SortowanieUzytkownik.Sortowanie("nazwa"),"nazwa");
+					break;
+				case 4:
+					SortowanieUzytkownik.WyswietlaniePosortowane(SortowanieUzytkownik.Sortowanie("czyzbanowany"),"czyzbanowany");
+					break;
 
+				case 9:
+					WyswietlanieOpcjiCzytelnikow();
+					break;
+				case 0:
+					System.out.println("Zakonczenie Programu");
+					ZakoniecznieProgramu = 0;
+					break;
+				default:
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					Czekaj();
+					break;
 
+			}
 
+		}while(ZakoniecznieProgramu != 0);
+	}
+	public static void WyswietlenieOpcjiWyszukiwanieCzytelnikow()
+	{
+		System.out.println("Aktualnie znajdujesz się w Wyszukiwnaie Czytelnika");
+		System.out.println("Mozliwe sa:");
+		System.out.println("1.Wyszukiwanie po: ID");
+		System.out.println("2.Wyszukiwanie po: Nazwa Czytelnika");
+		System.out.println("3.Wyszukiwanie po: Zbanowanych");
+		System.out.println("4.Wyszukiwanie po: Nie Zbanowanych");
+		System.out.println("9.Pomoc.");
+		System.out.println("0.Cofniecie do menu ksiazki.");
+	}
+	public static void SzukanieCzytelnikow()
+	{
+		int ZakoniecznieProgramu = 1;
+		do{
+			WyswietlenieOpcjiWyszukiwanieCzytelnikow();
 
+			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
+			int Wybor = WpisywanieDanych.WpisanieLiczby();
 
+			switch(Wybor)
+			{
+				case 1:
+					WyszukiwanieUzytkownik.Wyszukiwanie("idUzytkownika");
+					break;
+				case 2:
+					WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
+					break;
+				case 3:
+					WyszukiwanieUzytkownik.Wyszukiwanie("zbanowany");
+					break;
+				case 4:
+					WyszukiwanieUzytkownik.Wyszukiwanie("niezbanowany");
+					break;
+				case 9:
+					WyswietlenieOpcjiWyszukiwanieCzytelnikow();
+					break;
+				case 0:
+					System.out.println("Zakonczenie Programu");
+					ZakoniecznieProgramu = 0;
+					break;
+				default:
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					Czekaj();
+					break;
 
+			}
 
+		}while(ZakoniecznieProgramu != 0);
+	}
 
+	public static void WyswietlanieOpcjeEdycjaCzytelnika()
+	{
+		System.out.println("Aktualnie znajdujesz się w Edycja Czytelnika");
+		System.out.println("Mozliwe sa:");
+		System.out.println("1.Zmiana Nazwy Czytelnika");
+		System.out.println("2.Banowanie Czytelnika");
+		System.out.println("3.Od Banowywanie Czytelnika");
+		System.out.println("4.Dodawanie Czytelnika");
+		System.out.println("9.Pomoc.");
+		System.out.println("0.Cofniecie do menu ksiazki.");
+	}
+	public static void EdycjaCzytelnika ()
+	{
+		int ZakoniecznieProgramu = 1;
+		do{
+			WyswietlanieOpcjeEdycjaCzytelnika();
 
+			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
+			int Wybor = WpisywanieDanych.WpisanieLiczby();
 
+			switch(Wybor)
+			{
+				case 1:
+					OperacjePlikKsiazki.ZmianaDanych("zmiananazwa");
+					break;
+				case 2:
+					OperacjePlikKsiazki.ZmianaDanych("ban");
+					break;
+				case 3:
+					OperacjePlikKsiazki.ZmianaDanych("unban");
+					break;
+				case 4:
+					TworznieUzytkownika();
+					break;
+				case 9:
+					WyswietlanieOpcjeEdycjaCzytelnika();
+					break;
+				case 0:
+					System.out.println("Zakonczenie Programu");
+					ZakoniecznieProgramu = 0;
+					break;
+				default:
+					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
+					Czekaj();
+					break;
 
+			}
 
-
-
+		}while(ZakoniecznieProgramu != 0);
+	}
 
 	public static void WyswietlenieOpcjiMenuKsiazki()
 	{
