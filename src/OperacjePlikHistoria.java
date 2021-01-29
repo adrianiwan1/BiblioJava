@@ -95,8 +95,6 @@ public class OperacjePlikHistoria{
                                 PlikKsiazki.close();
                                 System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
                                 CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-                                System.out.println(DataWydania);
-                                System.out.println(DataObecna);
 
                                 if (Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataObecna,SprawdzanieCzyPoTerminie) <= 0 )
                                 {
