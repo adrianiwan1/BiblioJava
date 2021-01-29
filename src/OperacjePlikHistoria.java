@@ -22,7 +22,7 @@ public class OperacjePlikHistoria{
 
         baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataTermin()));
         baza.writeUTF(String.format("%1$-3s",NowyWpis.GetCzyPoTerminie()));
-        baza.writeUTF(String.format("%1-11$",NowyWpis.GetDataWpisu()));
+        baza.writeUTF(String.format("%1$-11s",NowyWpis.GetDataWpisu()));
         baza.writeInt(NowyWpis.GetIdUzytkownika());
 
 

@@ -91,9 +91,7 @@ public class Historia extends Ksiazka{
             IdHistoria = GeneratorLosowegoID.Id();
             OK = SprawdzanieHistoria.CzyPodaneIdIstnieje(IdHistoria);
         }while(OK!= false);
-        Menu.WypisywanieKsiazek();
         RandomAccessFile NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-
         try {
             Ksiazka DoWyporzyczenia = OperacjePlikKsiazki.OdczytywanieKsiazek(NowaHistoria);
             Autor=DoWyporzyczenia.GetAutor();
@@ -122,6 +120,34 @@ public class Historia extends Ksiazka{
         OperacjePlikHistoria.ZapisywanieHistorii(Wpis,"History.bin");
         OperacjePlikKsiazki.ZapisywanieKsiazek(WpisBooks,"Books.bin");
         Historia.Czekaj();
+
+    }
+    public static  void TworzenieWpisuBezBooks(Ksiazka ObiektKsiazka) throws IOException
+    {
+
+        int IdHistoria = 0;
+        boolean OK=false;
+
+        do {
+             IdHistoria = GeneratorLosowegoID.Id();
+            OK = SprawdzanieHistoria.CzyPodaneIdIstnieje(IdHistoria);
+        }while(OK!= false);
+
+            int IdKsiazka=ObiektKsiazka.GetIdKsiazki();
+            String Autor=WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetAutor());
+            String NazwaKsiazki= WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetNazwaKsiazki());
+            String Gatunek= WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetGatunek());
+            String DataWydania= WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetDataWydania());
+            String NowyCzytelnik=WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetWyporzyczajacy());
+            String DataWyporzyczenia= WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetDataWyporzyczenia());
+            String CzyWyporzyczona= WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetCzyWyporzyczona());
+            String DataTermin = WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetDataTermin());
+            String CzyPoTerminie=WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetCzyPoTerminie());
+            int IdCzytelnik=ObiektKsiazka.GetIdUzytkownika();
+            String DataWpisu = Daty.ObecnaData();
+        System.out.println("IdKsiazki " + IdHistoria + "Id Ksiazki " +" "+ IdKsiazka  +" "+Autor+" "+Gatunek+" "+DataWydania+" "+NowyCzytelnik+" "+DataWyporzyczenia+" "+CzyWyporzyczona+" "+DataTermin+" "+CzyPoTerminie+" "+IdCzytelnik+" "+DataWpisu );
+        Historia Wpis = new Historia(IdHistoria,IdKsiazka,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik,DataWpisu);
+        OperacjePlikHistoria.ZapisywanieHistorii(Wpis,"History.bin");
 
     }
     public String GetCzyPoTerminieWyswietlanie()

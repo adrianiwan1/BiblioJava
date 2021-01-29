@@ -35,11 +35,9 @@ public class SprawdzanieHistoria {
         }
         if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
         {
-            System.out.println("Nie istnieje");
             return Istnieje = false;
         }else
         {
-            System.out.println(" istnieje");
             return Istnieje = true;
         }
     }

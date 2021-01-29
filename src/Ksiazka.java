@@ -120,110 +120,105 @@ public class Ksiazka extends Uzytkownik
 
 		System.out.println("Czy chcesz by książka była już  wyporzyczona? Tak/Nie");
 		CzyWyporzyczona = WpisywanieDanych.WpisanieTakLubNie();
+		Ksiazka ObiektKsiazka = null;
 		if(CzyWyporzyczona.equals("tak"))
 		{
 			Menu.WypisywanieUzytkownikow();
 			System.out.println("Podaj ID Czytelnika:");
 
-		do
-		{
-			IdUzytkownika = WpisywanieDanych.WpisanieLiczby();
-			OK = SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdUzytkownika);
-			NazwaCzytelnik = SprawdzanieUzytkownik.IdNazwaCztelnik(IdUzytkownika);
-			if(NazwaCzytelnik.equals("PustyPustoPustusienkoNiemaNic"))
+			do
 			{
-				OK = false;
-			}
-			if(OK == false)
-			{
-				System.out.println("Brak czytelnika o podanym Id. Spróbuj ponownie\n");
-			}
-			if(SprawdzanieUzytkownik.CzyZablokowany(IdUzytkownika))
-			{
-				System.out.println("Czytelnik jest zbanowany nie moze wyporzyczac ksiazek. Sprobuj jeszcze raz.");
-				OK = false;
-			}
-		} while(OK == false);
+				IdUzytkownika = WpisywanieDanych.WpisanieLiczby();
+				OK = SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdUzytkownika);
+				NazwaCzytelnik = SprawdzanieUzytkownik.IdNazwaCztelnik(IdUzytkownika);
+				if(NazwaCzytelnik.equals("PustyPustoPustusienkoNiemaNic"))
+				{
+					OK = false;
+				}
+				if(OK == false)
+				{
+					System.out.println("Brak czytelnika o podanym Id. Spróbuj ponownie\n");
+				}
+				if(SprawdzanieUzytkownik.CzyZablokowany(IdUzytkownika))
+				{
+					System.out.println("Czytelnik jest zbanowany nie moze wyporzyczac ksiazek. Sprobuj jeszcze raz.");
+					OK = false;
+				}
+			} while(OK == false);
 
 
-		do
-		{
-			System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
-			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-
-
-			if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataObecna, SprawdzanieCzyPoTerminie) <= 0)
+			do
 			{
+				System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
+				CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
+
+
+				if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataObecna, SprawdzanieCzyPoTerminie) <= 0)
+				{
+					if(CzyWpisacRecznie == false)
+					{
+						System.out.println("Datak Wydania: " + DataWydania);
+						System.out.println("Podaj prosze date wyporzyczenia.");
+						DataWyporzyczenia = Daty.WpisanieDaty();
+					} else
+					{
+						DataWyporzyczenia = Daty.ObecnaData();
+					}
+					if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataWyporzyczenia, SprawdzanieCzyPoTerminie) >= 0)
+					{
+						System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
+
+					}
+				} else
+				{
+					if(CzyWpisacRecznie == true)
+					{
+						System.out.println("Datak Wydania: " + DataWydania);
+						System.out.println("Nie mozna uzyc daty aktualnej.Prosze podac date recznie");
+						System.out.println("Podaj prosze date wyporzyczenia.");
+						DataWyporzyczenia = Daty.WpisanieDaty();
+					} else
+					{
+						DataWyporzyczenia = Daty.ObecnaData();
+					}
+					if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataWyporzyczenia, SprawdzanieCzyPoTerminie) >= 0)
+					{
+						System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
+
+					}
+				}
+
+			} while(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataWyporzyczenia, SprawdzanieCzyPoTerminie) >= 0);
+			do
+			{
+				System.out.println("Czy chcesz automatycznie wygenerowac termin oddania.  Tak/Nie");
+				CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
 				if(CzyWpisacRecznie == false)
 				{
-					System.out.println("Datak Wydania: " + DataWydania);
-					System.out.println("Podaj prosze date wyporzyczenia.");
-					DataWyporzyczenia = Daty.WpisanieDaty();
+					System.out.println("Datak Wypożyczenia: " + DataWyporzyczenia);
+					System.out.println("Podaj prosze termin oddania.");
+					DataTermin = Daty.WpisanieDaty();
 				} else
 				{
-					DataWyporzyczenia = Daty.ObecnaData();
+					DataTermin = Daty.TerminOddania(DataWyporzyczenia);
 				}
-				if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataWyporzyczenia, SprawdzanieCzyPoTerminie) >= 0)
+				if(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia, DataTermin, SprawdzanieCzyPoTerminie) >= 0)
 				{
-					System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
-
-				}
-			} else
-			{
-				if(CzyWpisacRecznie == true)
-				{
-					System.out.println("Datak Wydania: " + DataWydania);
-					System.out.println("Nie mozna uzyc daty aktualnej.Prosze podac date recznie");
-					System.out.println("Podaj prosze date wyporzyczenia.");
-					DataWyporzyczenia = Daty.WpisanieDaty();
-				} else
-				{
-					DataWyporzyczenia = Daty.ObecnaData();
-				}
-				if(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataWyporzyczenia, SprawdzanieCzyPoTerminie) >= 0)
-				{
-					System.out.println("Nie mozna wyporzyczyc ksiazki przed jej wydaniem! Prosze sprobowac ponownie.");
+					System.out.println("Termin oddania nie moze byc mniejszy niz data wyporzyczenia!. Prosze sprobowac ponownie.");
 
 				}
 			}
+			// */
+			while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia, DataTermin, SprawdzanieCzyPoTerminie) >= 0);
 
-		} while(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania, DataWyporzyczenia, SprawdzanieCzyPoTerminie) >= 0);
-		do
-		{
-			System.out.println("Czy chcesz automatycznie wygenerowac termin oddania.  Tak/Nie");
-			CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-			if(CzyWpisacRecznie == false)
-			{
-				System.out.println("Datak Wypożyczenia: " + DataWyporzyczenia);
-				System.out.println("Podaj prosze termin oddania.");
-				DataTermin = Daty.WpisanieDaty();
-			} else
-			{
-				DataTermin = Daty.TerminOddania(DataWyporzyczenia);
-			}
-			if(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia, DataTermin, SprawdzanieCzyPoTerminie) >= 0)
-			{
-				System.out.println("Termin oddania nie moze byc mniejszy niz data wyporzyczenia!. Prosze sprobowac ponownie.");
+			CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataObecna, DataTermin, SprawdzanieIlePoTerminie));
 
-			}
+			//ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, NazwaCzytelnik, DataWyporzyczenia, CzyWyporzyczona, DataTermin, CzyPoTerminie, IdUzytkownika);
 		}
-		// */
-		while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia, DataTermin, SprawdzanieCzyPoTerminie) >= 0);
-
-		CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataObecna, DataTermin, SprawdzanieIlePoTerminie));
-
-
-		try
-		{
-			Historia.TworzenieWpisu(IdKsiazki, IdUzytkownika, DataWyporzyczenia, DataTermin, NazwaCzytelnik,DataObecna); // przekazanie parametrów do funkcji tworzenia wpisu.
-		} catch(IOException e)
-		{
-		}
-	}
-	Ksiazka ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, NazwaCzytelnik, DataWyporzyczenia, CzyWyporzyczona, DataTermin, CzyPoTerminie, IdUzytkownika); // Tworzenie Ksiazki za pomoca Konstruktora
+		ObiektKsiazka = new Ksiazka(IdKsiazki, NazwaKsiazki, Autor, Gatunek, DataWydania, NazwaCzytelnik, DataWyporzyczenia, CzyWyporzyczona, DataTermin, CzyPoTerminie, IdUzytkownika);
 
 		return ObiektKsiazka; //Zwraca obiekt ksiazka.
-}
+	}
 
 	//Getery dla innych klas
 	public String GetIdKsiazkaWypisiywanie()

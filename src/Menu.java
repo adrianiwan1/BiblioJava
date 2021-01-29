@@ -65,10 +65,19 @@ public class Menu
 		Ksiazka ObiektKsiazka = Ksiazka.TworzenieKsiazka();
 		try
 		{
-			OperacjePlikKsiazki.ZapisywanieKsiazek(ObiektKsiazka,"Books.bin");
+			if(ObiektKsiazka.GetCzyWyporzyczona().equals("nie"))
+			{
+				OperacjePlikKsiazki.ZapisywanieKsiazek(ObiektKsiazka, "Books.bin");
+			}else
+			{
+				OperacjePlikKsiazki.ZapisywanieKsiazek(ObiektKsiazka, "Books.bin");
+				Historia.TworzenieWpisuBezBooks(ObiektKsiazka); // przekazanie parametrów do funkcji tworzenia wpisu.
+				//Historia.TworzenieWpisu(ObiektKsiazka.GetIdKsiazki(), ObiektKsiazka.GetIdUzytkownika(), ObiektKsiazka.GetDataWyporzyczenia(), ObiektKsiazka.GetDataTermin(), ObiektKsiazka.GetWyporzyczajacy(),Daty.ObecnaData());
+			}
 		} catch(IOException e)
 		{
 		}
+
 
 	}
 	//
@@ -622,7 +631,7 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					WypisywanieKsiazek();
+					MenuWyswietlanieKsiazka();
 					break;
 				case 2:
 					SzukanieKsiazek();
@@ -682,7 +691,7 @@ public class Menu
 		System.out.println("9.Pomoc.");
 		System.out.println("0.Cofniecie do Menu ksiazki.");
 	}
-	public static void WyswietlanieKsiazka()
+	public static void MenuWyswietlanieKsiazka()
 	{
 		int ZakoniecznieProgramu = 1;
 		do{
@@ -694,7 +703,7 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					WyswietlanieKsiazka();
+					WypisywanieKsiazek();
 					break;
 				case 2:
 					SortowanieKsiazka.WyswietlaniePosortowaneID(SortowanieKsiazka.SortowaniePoID());
