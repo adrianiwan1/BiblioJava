@@ -19,7 +19,7 @@ public class Daty
 			Rok = WpisywanieDanych.WpisanieLiczby();
 			if(Rok > 99999 || Rok <= 0)
 			{
-				System.out.println("Rok nie może przekraczać 99999. Rok nie moze byc mniejszy lub rowny zeru.");
+				System.out.println("Rok nie może przekraczać 99999. Rok nie może być mniejszy lub równy zeru.");
 			}
 		}while(Rok > 99999 || Rok <= 0);
 		do
@@ -36,7 +36,7 @@ public class Daty
 			Year = Kalendarz.get(Calendar.YEAR);
 			if (Month != Miesiac)
 			{
-				System.out.println("Podano niepoprawna ilosc dni do miesiaca. Dni nie moga przekroczyc. \n");
+				System.out.println("Podano niepoprawną ilość dni do miesiąca.\n");
 				OK = false;
 			}else
 				{
@@ -91,7 +91,7 @@ public class Daty
 		DzienLiczba = Integer.parseInt(Dzien); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.");
+			System.out.println("To nie jest liczba.Bład IM-001");
 			OK = false;
 		}
 		return DzienLiczba;
@@ -109,7 +109,7 @@ public class Daty
 			DzienMiesiac = Integer.parseInt(Miesiac); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.");
+			System.out.println("To nie jest liczba.Bład IM-001");
 			OK = false;
 		}
 		return DzienMiesiac;
@@ -128,7 +128,7 @@ public class Daty
 			DzienRok = Integer.parseInt(Rok); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
-			System.out.println("To nie jest liczba.");
+			System.out.println("To nie jest liczba.Bład IM-001");
 			OK = false;
 		}
 		return DzienRok;
@@ -156,8 +156,6 @@ public class Daty
 
 		switch(Zmienna)
 		{
-
-//Commi
 				case "czypoterminie":
 					Porownanie = KalendarzObecna.compareTo(KalendarzTermin);
 					return Porownanie;

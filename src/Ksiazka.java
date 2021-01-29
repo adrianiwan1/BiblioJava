@@ -71,7 +71,7 @@ public class Ksiazka extends Uzytkownik
 		CzyRandomId = WpisywanieDanych.WpisanieTakLubNie();
 		if (CzyRandomId.equals("nie")) {
 			do {
-				IdKsiazki = Unikalne.Id();
+				IdKsiazki = GeneratorLosowegoID.Id();
 				OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdKsiazki);
 			}while(OK!= false);
 		} else {
@@ -113,6 +113,7 @@ public class Ksiazka extends Uzytkownik
 		if (CzyWyporzyczona.equals("tak"))
 		{
 			System.out.println("Podaj ID Czytelnika:");
+			Menu.WypisywanieUzytkownikow();
 			do {
 				IdUzytkownika = WpisywanieDanych.WpisanieLiczby();
 				OK = SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdUzytkownika);
@@ -169,9 +170,9 @@ public class Ksiazka extends Uzytkownik
 			}while(Daty.SprawdzanieCzyPoPodanejDacie(DataWydania,DataWyporzyczenia,SprawdzanieCzyPoTerminie) >= 0);
 			do
 			{
-				System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
+				System.out.println("Czy chcesz automatycznie wygenerowac termin oddania.  Tak/Nie");
 				CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-				if(CzyWpisacRecznie == true)
+				if(CzyWpisacRecznie == false)
 				{
 					System.out.println("Podaj prosze termin oddania.");
 					DataTermin = Daty.WpisanieDaty();
@@ -187,7 +188,7 @@ public class Ksiazka extends Uzytkownik
 			}
 			while(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieCzyPoTerminie) >= 0);
 
-			CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataTermin,DataWyporzyczenia,SprawdzanieIlePoTerminie));
+			CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(DataWyporzyczenia,DataTermin,SprawdzanieIlePoTerminie));
 		}
 
 
@@ -336,7 +337,7 @@ public class Ksiazka extends Uzytkownik
 			if(GetCzyPoTerminie().equals("tak"))
 			{
 				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t\t" + GetNazwaKsiazki() + GetAutor() + GetGatunek()  + GetDataWydania()+ "\t\t\t"+ GetWyporzyczajacy() + "\t\t" + GetCzyWyporzyczona() +
-						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin());
+						  "\t\t" + GetDataWyporzyczenia() +"\t\t" + GetCzyPoTerminie() + "\t\t" + GetDataTermin() + Daty.SprawdzanieCzyPoPodanejDacie(Daty.ObecnaData() , GetDataTermin() , "ilepoterminie"));
 			}
 			else
 			{
@@ -358,4 +359,5 @@ public class Ksiazka extends Uzytkownik
 	{
 		System.out.println("Dostepne gatunki: \nsci-fi , drama , literatura faktu , horror , biografia , romans , komedia , kryminal , thriller , naukowe , poradniki , przygodowe.");
 	}
+
 }

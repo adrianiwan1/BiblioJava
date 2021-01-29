@@ -1,7 +1,3 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-
 public class Uzytkownik
 {
 
@@ -34,7 +30,7 @@ public class Uzytkownik
 		CzyRandomId = WpisywanieDanych.WpisanieTakLubNie();
 		if (CzyRandomId.equals("nie")) {
 			do {
-				IdUzytkownika = Unikalne.Id();
+				IdUzytkownika = GeneratorLosowegoID.Id();
 				OK = SprawdzanieKsiazka.CzyPodaneIdIstnieje(IdUzytkownika);
 			} while (OK != false);
 		}else {

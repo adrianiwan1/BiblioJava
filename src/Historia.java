@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -77,7 +76,7 @@ public class Historia extends Ksiazka{
         boolean OK=false;
 
         do {
-            IdHistoria = Unikalne.Id();
+            IdHistoria = GeneratorLosowegoID.Id();
             OK = SprawdzanieHistoria.CzyPodaneIdIstnieje(IdHistoria);
         }while(OK!= false);
         Menu.WypisywanieKsiazek();
@@ -99,7 +98,7 @@ public class Historia extends Ksiazka{
             NowaHistoria.close();
 
         } catch (IOException e) {
-
+            System.out.println("Błąd IO-001");
         }
 
         Historia Wpis = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik);

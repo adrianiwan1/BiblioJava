@@ -95,7 +95,7 @@ public class WyszukiwanieKsiazka
 							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
 							break;
 					}
-					if (Odczyt.equals("PustyPustoPustusienkoNiemaNic")) //Jesl nic nie wpisano do odczytu.
+					if (Odczyt.equals("PustyPustoPustusienkoNiemaNic" )) //Jesl nic nie wpisano do odczytu.
 					{
 						i = 9002; // Zakonczenie petli jesli null
 					}
@@ -108,7 +108,9 @@ public class WyszukiwanieKsiazka
 						}
 				}
 					i++;
-				}
+				} else {
+						i = 9002;
+						}
 			} while(i < 9000);
 		}catch(IOException e)// Maksymalna wartosc petli
 		{

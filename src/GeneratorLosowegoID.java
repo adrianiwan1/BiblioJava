@@ -1,6 +1,7 @@
 import java.util.Random;
 
-public class Unikalne {
+public class GeneratorLosowegoID
+{
 
     public static int Id()
     {
