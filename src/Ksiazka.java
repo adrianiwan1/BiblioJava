@@ -215,7 +215,7 @@ public class Ksiazka extends Uzytkownik
 
 		try
 		{
-			Historia.TworzenieWpisu(IdKsiazki, IdUzytkownika, DataWyporzyczenia, DataTermin, NazwaCzytelnik); // przekazanie parametrów do funkcji tworzenia wpisu.
+			Historia.TworzenieWpisu(IdKsiazki, IdUzytkownika, DataWyporzyczenia, DataTermin, NazwaCzytelnik,DataObecna); // przekazanie parametrów do funkcji tworzenia wpisu.
 		} catch(IOException e)
 		{
 		}
