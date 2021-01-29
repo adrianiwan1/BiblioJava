@@ -108,7 +108,10 @@ public class WyszukiwanieKsiazka
 						}
 				}
 					i++;
+				}else{
+					i=90002;
 				}
+
 			} while(i < 9000);
 		}catch(IOException e)// Maksymalna wartosc petli
 		{
@@ -221,6 +224,38 @@ public class WyszukiwanieKsiazka
 		return CzyWypozyczone;
 	}
 
+
+	public static Ksiazka WyszukiwanieIDUzytkownika(int Szukany,RandomAccessFile PlikOdczytany) // Wyszukiwanie inta - > ID
+	{
+
+		int i = 0;
+		int ZnalezioneId = 0;
+		try
+		{
+			do
+			{
+				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+				if(OdczytaneDane != null) // Jesli nie jest puste wykonaj
+				{
+					int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+					if(Szukany == Odczyt) // Porownanie odczytu.
+					{
+						Ksiazka NowaKsiazka = OdczytaneDane;
+						return NowaKsiazka;
+					}
+				} else
+				{
+					i = 9002; // Zakonczenie petli jesli null
+				}
+				i++;
+			} while(i < 9000); // Maksymalna wartosc petli
+		}catch(IOException e)
+		{
+
+		}
+		return null;
+
+	}
 
 	//
 	//

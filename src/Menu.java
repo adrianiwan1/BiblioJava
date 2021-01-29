@@ -84,81 +84,8 @@ public class Menu
 		}
 	}
 
-	public static void WypozyczanieKsiazki() throws IOException {
-		int IdKsiazki;
-		int IdCzytelnik = 0;
-		String NazwaCzytelnik;
-		String TerminWyporyczena;
-		String Wyporzyczajacy;
-		boolean OK = true;
-		String CzyWypozyczona ="tak";
-		boolean CzyWpisacRecznie;
-		String DataWyporzyczenia;
-		String DataTermin;
 
 
-		Menu.WypisywanieKsiazek();
-
-		do {
-			RandomAccessFile NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-			System.out.println("Podaj Id ksiazki, ktora chcesz wyporzyczyc:");
-			IdKsiazki = WpisywanieDanych.WpisanieLiczby();
-			if (WyszukiwanieKsiazka.IdCzyIstnieje(IdKsiazki,NowaHistoria) == 1) {
-				NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-				if(WyszukiwanieKsiazka.CzyWypozyczona(IdKsiazki,NowaHistoria).equals("nie")){
-					Menu.WypisywanieUzytkownikow();
-					System.out.println("Podaj Id Czytelnika, który chce wyporzyczyć ksiażkę:");
-					IdCzytelnik = WpisywanieDanych.WpisanieLiczby();
-
-					if (SprawdzanieUzytkownik.CzyPodaneIdIstnieje(IdCzytelnik) == true) {
-
-						NazwaCzytelnik = SprawdzanieUzytkownik.IdNazwaCztelnik(IdCzytelnik);
-						System.out.println("Czy chcesz wziasc aktualna date dla daty wyporzyczenia? Tak/Nie");
-						CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-							if (CzyWpisacRecznie == false) {
-								System.out.println("Podaj prosze date wyporzyczenia.");
-								DataWyporzyczenia = Daty.WpisanieDaty();
-							} else {
-								DataWyporzyczenia = Daty.ObecnaData();
-							}
-							System.out.println("Czy chcesz wpisac recznie termin oddania.  Tak/Nie");
-							CzyWpisacRecznie = WpisywanieDanych.WpisanieBool();
-							if (CzyWpisacRecznie == true) {
-								System.out.println("Podaj prosze termin wyporzyczenia.");
-								DataTermin = Daty.WpisanieDaty();
-							} else {
-								DataTermin = Daty.TerminOddania(DataWyporzyczenia);
-							}/*
-						try {
-							NowaHistoria = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-
-						} catch (FileNotFoundException e) {
-
-						}
-						 NowaHistoria.close();
-
-						 */
-
-						Historia.TworzenieWpisu(IdKsiazki, IdCzytelnik, DataWyporzyczenia, DataTermin, NazwaCzytelnik); // przekazanie parametrów do funkcji tworzenia wpisu.
-						//System.out.println(IdKsiazki);
-					}else{
-						System.out.println("Użytkownik nie istnieje.");
-						OK=false;
-					}
-
-				} else {
-					System.out.println("Ksiażka jest już wypożyczona.");
-					OK=false;
-				}
-
-			} else {
-				System.out.println("Ksiazka o podanym ID nie istnieje");
-				OK=false;
-			}
-		}while(OK!=true);
-
-
-	}
 
 	public static void WyswietlanieHistori()
 	{

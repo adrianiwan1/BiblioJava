@@ -30,16 +30,25 @@ public class MainProjektBiblioteka
 
 		//Menu.WyswietlanieHistori();
 
+		OperacjePlikHistoria.ZwracanieKsiazki();
+
 
 
 		//Menu.UsuwanieUzytkownika();
-		Menu.WypisywanieUzytkownikow();
-		OperacjePlikUzytkownicy.ZmianaDanych("ban");
-		Menu.WypisywanieUzytkownikow();
-		OperacjePlikUzytkownicy.ZmianaDanych("unban");
-		//OperacjePlikUzytkownicy.ZmianaDanych("unban");
-		//OperacjePlikUzytkownicy.ZmianaDanych("zmainanazwa");
+		//System.out.println("+++++++"+SprawdzanieUzytkownik.CzyZablokowany(1185314396));
+		//Menu.WypisywanieUzytkownikow();
+		//Menu.WypozyczanieKsiazki();
+		//Menu.TworznieUzytkownika();
+		//Menu.WypisywanieUzytkownikow();
+		//OperacjePlikUzytkownicy.ZmianaDanych("ban");
 
+		//OperacjePlikUzytkownicy.ZmianaDanych("unban");
+		//OperacjePlikUzytkownicy.ZmianaDanych("unban");
+
+		//Menu.WypisywanieUzytkownikow();
+
+		//OperacjePlikUzytkownicy.ZmianaDanych("zmainanazwa");
+		//Menu.WypisywanieUzytkownikow();
 
 		/*
 		Menu.WypisywanieUzytkownikow();
@@ -50,6 +59,8 @@ public class MainProjektBiblioteka
 		OperacjePlikUzytkownicy.ZmianaDanych("zmiananazwa");
 
 		 */
+		//Menu.WypisywanieKsiazek();
+
 
 
 

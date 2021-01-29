@@ -7,13 +7,13 @@ public class EdycjaKsiazki
 	public static void WypozyczanieKsiazki(int IdKsiazki , String Zmienna ) throws IOException
 	{
 		int IdCzytelnik = 0;
-		String NazwaCzytelnik;
+		String NazwaCzytelnik = null;
 		String TerminWyporyczena;
 		String Wyporzyczajacy;
 		boolean OK = true;
 		String CzyWypozyczona ="tak";
 		boolean CzyWpisacRecznie;
-		String DataWyporzyczenia;
+		String DataWyporzyczenia = null;
 		String DataTermin;
 
 
