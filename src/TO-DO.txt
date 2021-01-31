@@ -20,6 +20,5 @@ Program MUSI zawierać dołączoną bazę danych z kilkunastoma książkami i u�
 Ocenie podlega niezawodność działania programu i sposób dekompozycji obiektowej.
 Ocenie podlega zakodowana funkcjonalność z wymienionych powyżej. Dodatkowe funkcjonalności mile widziane.
 
-ToDo Funkcje Wyszukiwania Uzytkownika. Po ID i Nazwie. i czy zbanowy.
-ToDO Funkcje sorotowania i wyszukiwania w pliku HISTORIA.- Zrobione Do psrawdzenia.
-ToDo W histori dodać informację "Czy oddana typu string".
+TODO Ulepszyc Wyświetlanie wszystkich funkcji.
+TODO Poprawić wszystkie literówki.
