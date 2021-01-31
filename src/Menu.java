@@ -10,7 +10,7 @@ public class Menu
 		try
 		{
 			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-			System.out.println("ID"+"\t\t\t\t"+"NazwaKsiazki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t\t"+"Wypozyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t" +"Termin" 	);
+			System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
@@ -24,6 +24,7 @@ public class Menu
 				i++;
 			} while(i < 200);
 			PlikOdczytany.close();
+			Czekaj();
 		} catch(IOException e )
 		{
 		}
@@ -47,6 +48,7 @@ public class Menu
 				}
 				i++;
 			}while(i < 200);
+			Czekaj();
 			PlikOdczytany.close();
 		}catch(IOException e)
 		{
@@ -87,7 +89,7 @@ public class Menu
 	public static void WyswietlanieHistori()
 	{
 			int i = 0;
-			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego"+"\t"+"CzyWyporzyczona");
+			System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Nazwa Książki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Oddania"+"\t    "+"Po terminie?"+"   "+"Id Wypozyczajacego"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 			try
 			{
 				RandomAccessFile PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
@@ -103,6 +105,7 @@ public class Menu
 					}
 					i++;
 				} while(i < 200);
+				Czekaj();
 				PlikOdczytany.close();
 			} catch(IOException e )
 			{

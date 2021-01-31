@@ -136,6 +136,7 @@ public class Ksiazka extends Uzytkownik
 				{
 					System.out.println("Ustawianie książki jako nie wyporzyczona i przejście dalej.");
 					CzyWyporzyczona = ("tak");
+					IdUzytkownika = 2147483646;
 					OK =true;
 				}else
 					{
@@ -376,18 +377,18 @@ public class Ksiazka extends Uzytkownik
 
 			if(GetCzyPoTerminieWyswietlanie().equals("tak"))
 			{
-				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
-						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t\t" + GetDataTermin());
+				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t" + GetDataTermin()+ "|");
 			}
 			else
 			{
-				TekstWyswietl =(GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania() + "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
-						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t\t" + GetDataTermin());
+				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania() + "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t" + GetDataTermin()+ "|");
 			}
 		}
 		else
 		{
-			TekstWyswietl = (GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania());
+			TekstWyswietl = ("| " +GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania()	+ "\t|\t");
 		}
 
 
