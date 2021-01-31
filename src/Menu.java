@@ -1,7 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-
 public class Menu
 {
 
@@ -11,7 +10,6 @@ public class Menu
 		try
 		{
 			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-
 			System.out.println("ID"+"\t\t\t\t"+"NazwaKsiazki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t\t"+"Wypozyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t" +"Termin" 	);
 			do
 			{
@@ -34,9 +32,7 @@ public class Menu
 	//
 	public static void WypisywanieUzytkownikow()
 	{
-
 		int i=0;
-
 		System.out.println("ID Czytelnika"+"\t\t"+"Imie i Nazwisko"+"\t\t\t\t\t"+"Czy Zbanowany?");
 		try{
 			RandomAccessFile PlikOdczytany = OperacjePlikUzytkownicy.OtwarciePlikUzytkownicy();
@@ -55,10 +51,8 @@ public class Menu
 		}catch(IOException e)
 		{
 		}
-
 	}
 	//
-
 	//
 	public static void TworzenieKsiazki()
 	{
@@ -77,10 +71,7 @@ public class Menu
 		} catch(IOException e)
 		{
 		}
-
-
 	}
-	//
 	//
 	public static void TworznieUzytkownika()
 	{
@@ -92,14 +83,10 @@ public class Menu
 		{
 		}
 	}
-
-
-
-
+//
 	public static void WyswietlanieHistori()
 	{
 			int i = 0;
-
 			System.out.println("ID Wpisu"+"\t"+"ID ksiazki"+"\t"+"Nazwa ksiazki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Odddania"+"\t"+"Po terminie"+"\t"+"Id Wypozyczajacego"+"\t"+"CzyWyporzyczona");
 			try
 			{
@@ -121,7 +108,7 @@ public class Menu
 			{
 			}
 	}
-
+	//
 	public static void UsuwanieKsiazki()
 	{
 		Menu.WypisywanieKsiazek();
@@ -166,7 +153,6 @@ public class Menu
 						OperacjePlikHistoria.WypozyczanieKsiazki();
 					} catch(IOException e)
 					{
-						System.out.println("Błąd IO-0002");
 					}
 					break;
 				case 5:
@@ -175,7 +161,7 @@ public class Menu
 						OperacjePlikHistoria.ZwracanieKsiazki();
 					} catch(IOException e)
 					{
-						System.out.println("Błąd IO-0002");
+
 					}
 					break;
 				case 9:
@@ -313,9 +299,7 @@ public class Menu
 					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
-
 			}
-
 		}while(ZakoniecznieProgramu != 0);
 	}
 	public static void OpcjeWyszukiwanieHistori()
@@ -338,10 +322,8 @@ public class Menu
 		int ZakoniecznieProgramu = 1;
 		do{
 			OpcjeWyszukiwanieHistori();
-
 			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
 			int Wybor = WpisywanieDanych.WpisanieLiczby();
-
 			switch(Wybor)
 			{
 				case 1:
@@ -349,27 +331,21 @@ public class Menu
 					break;
 				case 2:
 					WyszukiwanieHistoria.Wyszukiwanie("idksiazki");
-
 					break;
 				case 3:
 					WyszukiwanieHistoria.Wyszukiwanie("idczytelnika");
-
 					break;
 				case 4:
 					WyszukiwanieHistoria.Wyszukiwanie("nazwa");
-
 					break;
 				case 5:
 					WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
-
 					break;
 				case 6:
 					WyszukiwanieHistoria.Wyszukiwanie("czywyporzyczona");
-
 					break;
 				case 7:
 					WyszukiwanieHistoria.Wyszukiwanie("czypoterminie");
-
 					break;
 				case 8:
 					WyszukiwanieHistoria.Wyszukiwanie("gatunek");
@@ -385,15 +361,11 @@ public class Menu
 					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
-
 			}
-
 		}while(ZakoniecznieProgramu != 0);
 	}
-
 	public static void WyswietlenieOpcjiMenuCzytelnik()
 	{
-
 		System.out.println("Aktualnie znajdujesz się w Menu Czytelnika");
 		System.out.println("Mozliwe sa:");
 		System.out.println("1.Wyswietlanie Czytelników");
@@ -410,10 +382,8 @@ public class Menu
 		int ZakoniecznieProgramu = 1;
 		do{
 			WyswietlenieOpcjiMenuCzytelnik();
-
 			System.out.println("Prosze dokonac wyboru. Poprzez podanie liczby.");
 			int Wybor = WpisywanieDanych.WpisanieLiczby();
-
 			switch(Wybor)
 			{
 				case 1:
@@ -447,7 +417,6 @@ public class Menu
 					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.");
 					Czekaj();
 					break;
-
 			}
 
 		}while(ZakoniecznieProgramu != 0);
@@ -599,7 +568,6 @@ public class Menu
 					System.out.println("Nie ma takiego wyboru.Prosze spróbować ponownie.\n");
 					Czekaj();
 					break;
-
 			}
 
 		}while(ZakoniecznieProgramu != 0);
@@ -645,7 +613,6 @@ public class Menu
 						OperacjePlikHistoria.WypozyczanieKsiazki();
 					} catch(IOException e)
 					{
-						System.out.println("Błąd IO-0002");
 					}
 					break;
 				case 5:
@@ -654,7 +621,6 @@ public class Menu
 						OperacjePlikHistoria.ZwracanieKsiazki();
 					} catch(IOException e)
 					{
-						System.out.println("Błąd IO-0002");
 					}
 					break;
 				case 6:
@@ -680,9 +646,9 @@ public class Menu
 	}
 	public static void WyswietlenieOpcjiWyswietlaniaKsiazki()
 	{
-		System.out.println("Aktualnie znajdujesz się w Wyswietlanie ksiązek");
-		System.out.println("Mozliwe sa:");
-		System.out.println("1.Wyswietlanie wszystkich książek");
+		System.out.println("Aktualnie znajdujesz się w Wyświetlanie książek");
+		System.out.println("Możliwe są:");
+		System.out.println("1.Wyświetlanie wszystkich książek");
 		System.out.println("2.Sortowanie po: ID");
 		System.out.println("3.Sortowanie po: Nazwa Ksiazki");
 		System.out.println("4.Sortowanie po: Autor");

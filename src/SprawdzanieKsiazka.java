@@ -35,7 +35,7 @@ public class SprawdzanieKsiazka
 				case "komedia":
 					OK = true;
 					break;
-				case "kryminał":
+				case "kryminal":
 					OK = true;
 					break;
 				case "thriller":
@@ -118,7 +118,7 @@ public class SprawdzanieKsiazka
 					String Wyporzyczenie =OdczytaneDane.GetCzyWyporzyczona();//Wpisanie czy wyporzyczona
 					if(PodaneID == Odczyt && Wyporzyczenie.equals("tak")) // Porownanie odczytu.
 					{
-
+						Znalezione++;
 					}
 				} else
 				{

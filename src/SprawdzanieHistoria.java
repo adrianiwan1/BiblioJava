@@ -41,4 +41,6 @@ public class SprawdzanieHistoria {
             return Istnieje = true;
         }
     }
+
+
 }

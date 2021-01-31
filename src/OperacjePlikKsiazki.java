@@ -34,7 +34,7 @@ public class OperacjePlikKsiazki{
 
 
 
-        System.out.println("Zapis udany");
+        //System.out.println("Zapis udany");
 
         baza.close();
     }
@@ -104,7 +104,7 @@ public class OperacjePlikKsiazki{
                     }
                 }
                 else{
-                    System.out.println("Ksiazka Jest Wyporzyczona");
+                    System.out.println("Książka jest już wypożyczona");
                 }
 
             }
@@ -138,17 +138,16 @@ public class OperacjePlikKsiazki{
         boolean OK = true;
         String DataObecna = Daty.ObecnaData();
         String SprawdzanieCzyPoTerminie = "czypoterminie";
-
         boolean CzyNaPewno = false;
-
         try
         {
             RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
-            System.out.println("Wpisz id czytelnika ktorego chcesz edytować.Wpisz 0 by anulowac");  // Prosba o wpisanie
+            System.out.println("Wpisz id czytelnika którego chcesz edytować.Wpisz 0 by anulować");  // Prosba o wpisanie
             Szukana = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego int
             if(Szukana == 0)
             {
                 System.out.println("Powrót do poprzedniej opcji.");
+                PlikOdczytany.close();
                 return;
             }
             do
@@ -173,13 +172,14 @@ public class OperacjePlikKsiazki{
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
 
-                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetNazwaKsiazki() + "Jesli nie chcesz jej zmieniac wcisnij 0");
-                                System.out.println("Podaj prosze nowa nazwe ksiazki.");
+                                System.out.println("Stara nazwa to : " + OdczytaneDane.GetNazwaKsiazki() + "Jeśli nie chcesz jej zmieniać wcisnij 0");
+                                System.out.println("Podaj proszę nową nazwę książki.");
                                 NazwaKsiazki = WpisywanieDanych.WpisanieSlowa();
                                 Znalezione++;
                                 if (NazwaKsiazki.equals("0"))
                                 {
-                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    System.out.println("Anulowanie i powrót do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 break;
@@ -195,13 +195,14 @@ public class OperacjePlikKsiazki{
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
 
-                                System.out.println("Stary autor to : " + OdczytaneDane.GetAutor() + "Jesli nie chcesz jej zmieniac wcisnij 0");
-                                System.out.println("Podaj prosze nowego autora.");
+                                System.out.println("Stary autor to : " + OdczytaneDane.GetAutor() + "Jesli nie chcesz jej zmieniać wcisnij 0");
+                                System.out.println("Podaj proszę nowego autora.");
                                 Autor = WpisywanieDanych.WpisanieSlowa();
                                 Znalezione++;
                                 if (NazwaKsiazki.equals("0"))
                                 {
-                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    System.out.println("Anulowanie i powrót do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 break;
@@ -217,9 +218,9 @@ public class OperacjePlikKsiazki{
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
 
-                                System.out.println("Stary gatunek to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Stary gatunek to : " + OdczytaneDane.GetGatunek() + "Jesli nie chcesz jej zmieniać wcisnij 0");
                                 Ksiazka.DostepneGatunki();
-                                System.out.println("Podaj prosze gatunek ksiazki.");
+                                System.out.println("Podaj proszę gatunek książki.");
                                 do
                                 {
                                     Gatunek = WpisywanieDanych.WpisanieSlowa();
@@ -228,7 +229,8 @@ public class OperacjePlikKsiazki{
                                 Znalezione++;
                                 if (NazwaKsiazki.equals("0"))
                                 {
-                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    System.out.println("Anulowanie i powrót do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 break;
@@ -243,21 +245,22 @@ public class OperacjePlikKsiazki{
                                 DataTermin = OdczytaneDane.GetDataTermin();
                                 CzyPoTerminie = OdczytaneDane.GetCzyPoTerminie();
                                 IdUzytkownika = OdczytaneDane.GetIdUzytkownika();
-                                System.out.println("Stara data to : " + OdczytaneDane.GetDataWydania() + "Jesli nie chcesz jej zmieniac wcisnij 0");
+                                System.out.println("Stara data to : " + OdczytaneDane.GetDataWydania() + "Jesli nie chcesz jej zmieniać wcisnij 0");
                                 do
                                 {
-                                    System.out.println("Podaj prosze date wydania.");
+                                    System.out.println("Podaj proszę date wydania.");
                                     DataWydania = Daty.WpisanieDaty();
                                     if(Daty.SprawdzanieCzyPoPodanejDacie(DataObecna,DataWydania,SprawdzanieCzyPoTerminie) <= 0 )
                                     {
-                                        System.out.println("Ksiazka nie moze byc dodana do rejestru przed jej wydaniem.\n");
+                                        System.out.println("Książka nie może być dodana do rejestru przed jej wydaniem.\n");
                                     }
                                 }
                                 while (Daty.SprawdzanieCzyPoPodanejDacie(DataObecna,DataWydania,SprawdzanieCzyPoTerminie) <= 0 );
                                 Znalezione++;
                                 if (NazwaKsiazki.equals("0"))
                                 {
-                                    System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    System.out.println("Anulowanie i powrót do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 break;
@@ -265,7 +268,6 @@ public class OperacjePlikKsiazki{
                                 System.out.println("Cos poszlo bardzo nie tak probujesz odwolac do funkcji. Ale nie wybrales odpowiedniej opcji.\n Sprobuj 'zmiananazwa' , 'zmianagatunek' , 'zmianaautor'");
                                 return;
                         }
-
                     }
                 } else
                 {
@@ -276,7 +278,7 @@ public class OperacjePlikKsiazki{
             PlikOdczytany.close(); // Zamkniecie odczytu
             if (Znalezione > 0)
             {
-                System.out.println(ZwrotneID);
+                //System.out.println(ZwrotneID);
                 OperacjePlikKsiazki.KasowanieKsiazki(ZwrotneID);
                 Ksiazka NowaKsiazka = new Ksiazka(ZwrotneID, NazwaKsiazki, Autor, Gatunek, DataWydania, NazwaCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdUzytkownika);
                 ZapisywanieKsiazek(NowaKsiazka,"Books.bin");
@@ -290,13 +292,7 @@ public class OperacjePlikKsiazki{
             System.out.println("Nie znaleziono.");
         }else
         {
-
-
         }
     }
 
     }
-
-
-
-

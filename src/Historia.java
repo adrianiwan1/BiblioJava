@@ -109,7 +109,6 @@ public class Historia extends Ksiazka{
             NowaHistoria.close();
 
         } catch (IOException e) {
-            System.out.println("Błąd IO-001");
         }
 //v
         Historia Wpis = new Historia(IdHistoria,IdKsiazki,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik,DataWpisu);
@@ -145,7 +144,7 @@ public class Historia extends Ksiazka{
             String CzyPoTerminie=WyszukiwanieKsiazka.BezSpacji(ObiektKsiazka.GetCzyPoTerminie());
             int IdCzytelnik=ObiektKsiazka.GetIdUzytkownika();
             String DataWpisu = Daty.ObecnaData();
-        System.out.println("IdKsiazki " + IdHistoria + "Id Ksiazki " +" "+ IdKsiazka  +" "+Autor+" "+Gatunek+" "+DataWydania+" "+NowyCzytelnik+" "+DataWyporzyczenia+" "+CzyWyporzyczona+" "+DataTermin+" "+CzyPoTerminie+" "+IdCzytelnik+" "+DataWpisu );
+        //System.out.println("IdKsiazki " + IdHistoria + "Id Ksiazki " +" "+ IdKsiazka  +" "+Autor+" "+Gatunek+" "+DataWydania+" "+NowyCzytelnik+" "+DataWyporzyczenia+" "+CzyWyporzyczona+" "+DataTermin+" "+CzyPoTerminie+" "+IdCzytelnik+" "+DataWpisu );
         Historia Wpis = new Historia(IdHistoria,IdKsiazka,NazwaKsiazki,Autor,Gatunek,DataWydania,NowyCzytelnik,DataWyporzyczenia,CzyWyporzyczona,DataTermin,CzyPoTerminie,IdCzytelnik,DataWpisu);
         OperacjePlikHistoria.ZapisywanieHistorii(Wpis,"History.bin");
 

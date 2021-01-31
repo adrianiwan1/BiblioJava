@@ -16,8 +16,6 @@ public class Uzytkownik
 	}
 
 
-
-
 	public static Uzytkownik TworzenieUzytkownik()
 	{
 		int IdUzytkownika = 0;

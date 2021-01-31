@@ -22,6 +22,7 @@ public class WyszukiwanieHistoria {
                     {
 
                         System.out.println("Powrót do poprzedniej opcji.");
+                        PlikOdczytany.close();
                         return;
                     }
                     WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
@@ -32,6 +33,7 @@ public class WyszukiwanieHistoria {
                     if(Szukany == 0)
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
+                        PlikOdczytany.close();
                         return;
                     }
                     WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
@@ -42,6 +44,7 @@ public class WyszukiwanieHistoria {
                     if(Szukany == 0)
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
+                        PlikOdczytany.close();
                         return;
                     }
                     WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
@@ -52,6 +55,7 @@ public class WyszukiwanieHistoria {
                     if(Szukana.equals("0") )
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
+                        PlikOdczytany.close();
                         return;
                     }
                     UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
@@ -103,8 +107,8 @@ public class WyszukiwanieHistoria {
             } while(i < 9000); // Maksymalna wartosc petli
         }catch(IOException e)
         {
-
         }
+
         return Znalezione;
     }
 

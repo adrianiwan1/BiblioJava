@@ -15,17 +15,14 @@ public class OperacjePlikUzytkownicy {
         baza.writeUTF(String.format("%1$-32s",NowyUzytkownik.GetNazwaUzytkownik()));
         baza.writeUTF(String.format("%1$-3s",NowyUzytkownik.GetCzyZbanowany()));
         baza.close();
-        System.out.println("Urzytkownik zapisany");
-
-
-
+        //System.out.println("Urzytkownik zapisany");
     }
-
+    //
     public static RandomAccessFile OtwarciePlikUzytkownicy() throws FileNotFoundException {
         RandomAccessFile baza =new RandomAccessFile("Users.bin","rw");
         return baza;
     }
-
+    //
     public static Uzytkownik OdczytywanieUzytkownikow (RandomAccessFile baza) throws IOException
     {
         Uzytkownik OdczytywanyUzytkownik=null;
@@ -38,7 +35,7 @@ public class OperacjePlikUzytkownicy {
         }
         return OdczytywanyUzytkownik;
     }
-
+//
     public static void UsuwanieUzytkownik(int Id)
     {
         int i = 0;
@@ -87,8 +84,7 @@ public class OperacjePlikUzytkownicy {
             e.printStackTrace();
         }
     }
-
-
+    //
     public static void ZmianaDanych(String Zmienianna) // Wyszukiwanie inta - > ID
     {
         int i = 0;
@@ -107,6 +103,7 @@ public class OperacjePlikUzytkownicy {
             if(Szukana == 0)
             {
                 System.out.println("Powrót do poprzedniej opcji.");
+                PlikOdczytany.close();
                 return;
             }
             do
@@ -129,6 +126,7 @@ public class OperacjePlikUzytkownicy {
                                 if (NowaNazwaUzytkownika.equals("0"))
                                 {
                                   System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                  PlikOdczytany.close();
                                   return;
                                 }
                                 break;
@@ -136,6 +134,7 @@ public class OperacjePlikUzytkownicy {
                                 if (OdczytaneDane.GetCzyZbanowany().equals("tak"))
                                 {
                                     System.out.println("Uzytkownik juz jest zbanowany.Anulowanie i powrot do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 System.out.println("Czy na pewno chcesz banowac uzytkownika? Tak/Nie");
@@ -147,6 +146,7 @@ public class OperacjePlikUzytkownicy {
                                 if (CzyNaPewno == false)
                                 {
                                     System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 break;
@@ -154,6 +154,7 @@ public class OperacjePlikUzytkownicy {
                                 if (OdczytaneDane.GetCzyZbanowany().equals("nie"))
                                 {
                                     System.out.println("Uzytkownik nie jest zbanowany.Anulowanie i powrot do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 System.out.println("Czy na pewno chcesz odbanowac uzytkownika? Tak/Nie");
@@ -165,6 +166,7 @@ public class OperacjePlikUzytkownicy {
                                 if (CzyNaPewno == false)
                                 {
                                     System.out.println("Anulowanie i powrot do poprzedniej opcji.");
+                                    PlikOdczytany.close();
                                     return;
                                 }
                                 break;
@@ -194,12 +196,6 @@ public class OperacjePlikUzytkownicy {
         if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
         {
             System.out.println("Nie znaleziono.");
-        }else
-            {
-
-
-            }
+        }
     }
-
-
 }

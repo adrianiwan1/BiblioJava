@@ -1,11 +1,9 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-
 public class WyszukiwanieKsiazka
 {
 	//
-
 	//
 	public static void Wyszukiwanie(String Zmienna)
 	{
@@ -25,6 +23,7 @@ public class WyszukiwanieKsiazka
 				if(Szukany == 0)
 				{
 					System.out.println("Powrót do poprzedniej opcji.");
+					PlikOdczytany.close();
 					return;
 				}
 			WyszukiwanieID(Szukany,PlikOdczytany);
@@ -35,6 +34,7 @@ public class WyszukiwanieKsiazka
 					if(Szukana.equals("0") )
 					{
 						System.out.println("Powrót do poprzedniej opcji.");
+						PlikOdczytany.close();
 						return;
 					}
 					UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
@@ -264,7 +264,6 @@ public class WyszukiwanieKsiazka
 		return null;
 
 	}
-
 	//
 	//
 	public  static String BezSpacji(String Slowo)

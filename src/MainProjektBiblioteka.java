@@ -10,8 +10,6 @@ import java.text.ParseException;
 
 public class MainProjektBiblioteka
 {
-
-
 	public static void main(String[] args) throws IOException
 	{
 		/*
@@ -27,8 +25,6 @@ public class MainProjektBiblioteka
 		System.out.println("Ile po terminie " + Porownanie);
 		 */
 		Menu.MenuGlowne();
-
-
 	}
 }
 
