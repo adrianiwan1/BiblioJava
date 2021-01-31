@@ -89,7 +89,7 @@ public class Menu
 	public static void WyswietlanieHistori()
 	{
 			int i = 0;
-			System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Nazwa Książki"+"\t\t\t\t\t"+"Wypozyczajacy"+"\t\t\t\t\t"+"Data Wypożyczenia"+"\t\t"+"Data Oddania"+"\t    "+"Po terminie?"+"   "+"Id Wypozyczajacego"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
+			System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Nazwa Książki"+"\t\t\t\t\t  "+"Wypozyczajacy"+"\t\t\t\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"  "+"Id Wypozyczajacego"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 			try
 			{
 				RandomAccessFile PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
