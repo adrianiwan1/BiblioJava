@@ -129,7 +129,6 @@ public class SprawdzanieKsiazka
 			PlikOdczytany.close(); // Zamkniecie odczytu
 		} catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
 		{
-			e.printStackTrace();
 		}
 		if(Znalezione == 0) // Obsluga nie znalezienia zadnej wartosci
 		{

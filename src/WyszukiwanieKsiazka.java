@@ -16,19 +16,25 @@ public class WyszukiwanieKsiazka
 		try
 		{
 			PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-			if (Zmienna.equals("id"))
+			switch(Zmienna)
 			{
-			System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
-			Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
-				if(Szukany == 0)
-				{
-					System.out.println("Powrót do poprzedniej opcji.");
-					PlikOdczytany.close();
-					return;
-				}
-			WyszukiwanieID(Szukany,PlikOdczytany);
-			}else
-				{
+				case"id":
+					System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
+					Szukany = WpisywanieDanych.WpisanieLiczby(); //  Wpisanie poszukiwanego slowa
+					if(Szukany == 0)
+					{
+						System.out.println("Powrót do poprzedniej opcji.");
+						PlikOdczytany.close();
+						return;
+					}
+					Znalezione = WyszukiwanieID(Szukany,PlikOdczytany);
+					break;
+				case"czywporzyczenietak":
+					Szukana = "nie";
+					Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+					Znalezione = 20 + Znalezione;
+					break;
+				default:
 					System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
 					Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
 					if(Szukana.equals("0") )
@@ -37,11 +43,16 @@ public class WyszukiwanieKsiazka
 						PlikOdczytany.close();
 						return;
 					}
-					UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
-				}
+					Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+					break;
+			}
 			if(Znalezione == 0)
 			{
 			System.out.println("Nie znaleziono wyszukiwanej treści.");
+			}
+			if(Znalezione == 20)
+			{
+				System.out.println("Nie ma książek do wypożyczenia.");
 			}
 			PlikOdczytany.close(); // Zamkniecie odczytu
 		} catch(IOException e)
@@ -96,6 +107,7 @@ public class WyszukiwanieKsiazka
 							Odczyt = OdczytaneDane.GetWyporzyczajacy(); //Wpisanie danej do Stringa
 							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
 							break;
+						case"czywporzyczenietak":
 						case"czywyporzyczona":
 							Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do Stringa
 							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
@@ -121,7 +133,9 @@ public class WyszukiwanieKsiazka
 				}else{
 					i=90002;
 					}
+
 			} while(i < 9000);
+			PlikOdczytany.close();
 		}catch(IOException e)// Maksymalna wartosc petli
 		{
 
@@ -188,6 +202,7 @@ public class WyszukiwanieKsiazka
 				i++;
 
 			} while(i < 9000); // Maksymalna wartosc petli
+			PlikOdczytany.close();
 		}catch(IOException e)
 		{
 
@@ -257,6 +272,7 @@ public class WyszukiwanieKsiazka
 				}
 				i++;
 			} while(i < 9000); // Maksymalna wartosc petli
+			PlikOdczytany.close();
 		}catch(IOException e)
 		{
 

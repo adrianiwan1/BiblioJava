@@ -105,18 +105,66 @@ public class OperacjePlikKsiazki{
                 }
                 else{
                     System.out.println("Książka jest już wypożyczona");
+                    PlikOdczytany.close();
                 }
-
             }
             else{
                 System.out.println("Książka nie istnieje");
             }
+
+
 
         } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
         {
             e.printStackTrace();
         }
         }
+    public  static void KasowanieOddanych(int ID)
+    {
+        int i = 0;
+        int Szukana = 0;
+        Szukana = ID;
+        try
+        {
+            RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
+            if(SprawdzanieKsiazka.CzyPodaneIdIstnieje(Szukana)==true)
+            {
+                    do {
+                        Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany); // Odczytranie linjki tekstu
+                        if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
+                        {
+                            int Odczyt = OdczytaneDane.GetIdKsiazki(); //Wpisanie danej do int
+                            if (Szukana != Odczyt) // Porownanie odczytu.
+                            {
+                                ZapisywanieKsiazek(OdczytaneDane, "TempBooks.bin");
+                            }
+                        } else {
+                            i = 9002; // Zakonczenie petli jesli null
+                        }
+                        i++;
+                    } while (i < 9000); // Maksymalna wartosc petli
+                    PlikOdczytany.close(); // Zamkniecie odczytu
+                    new File("Books.bin").delete();
+                    Path Zrodlo = Paths.get("TempBooks.bin");
+                    try {
+
+                        Files.move(Zrodlo, Zrodlo.resolveSibling("Books.bin"));
+
+                    } catch (IOException e) {
+
+                    }
+            }
+            else{
+                System.out.println("Książka nie istnieje");
+            }
+
+
+
+        } catch(IOException e) //Obsluga bledu ktory nie powinien sie wydarzyc
+        {
+            e.printStackTrace();
+        }
+    }
     public static void ZmianaDanych(String Zmienianna) // Wyszukiwanie inta - > ID
     {
         int i = 0;

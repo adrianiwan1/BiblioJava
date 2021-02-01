@@ -64,7 +64,7 @@ public class OperacjePlikHistoria{
             int Szukana;
             int Odczyt = 0;
 
-            Menu.WypisywanieKsiazek();
+            WyszukiwanieKsiazka.Wyszukiwanie("czywporzyczenietak");
             RandomAccessFile PLikKsiazkiOdczyt = OperacjePlikKsiazki.OtwarciePlikKsiazki(); //Otwarcie pliku
             System.out.println("Wpisz id książki którą chcesz wypożyczyć.Wpisz 0 by anulowac");
             do
@@ -229,7 +229,7 @@ public class OperacjePlikHistoria{
         int Szukana;
         int i = 0;
         int Odczyt = 0;
-        Menu.WyswietlanieHistori();
+        WyszukiwanieHistoria.Wyszukiwanie("czywyporzyczonatak");
         RandomAccessFile PlikHistoriaOdczytana = OperacjePlikHistoria.OtwarciePlikHistoria(); //Otwarcie pliku
         System.out.println("Wpisz id książki którą chcesz zwrócić.Wpisz 0 by anulowac");
         do
@@ -279,7 +279,7 @@ public class OperacjePlikHistoria{
                         PlikKsiazkaOczyt.close();
                         PlikHistoriaOdczytana.close();
                         NowaKsiazka.SetCzyWyporzyczona("nie");
-                        OperacjePlikKsiazki.KasowanieKsiazki(Szukana);
+                        OperacjePlikKsiazki.KasowanieOddanych(Szukana);
                         OperacjePlikKsiazki.ZapisywanieKsiazek(NowaKsiazka, "Books.bin");
                         ZapisywanieHistorii(ObiektHistoria, "History.bin");
                         Znaleziono ++;

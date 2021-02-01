@@ -24,7 +24,13 @@ public class MainProjektBiblioteka
 		Porownanie = Daty.CzyPoTerminie(DataWpisania,DataTermin,"ilepoterminie");
 		System.out.println("Ile po terminie " + Porownanie);
 		 */
-		Menu.MenuGlowne();
+		try
+		{
+			Menu.MenuGlowne();
+		}catch(NullPointerException e)
+		{
+
+		}
 	}
 }
 

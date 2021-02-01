@@ -12,7 +12,7 @@ public class WyszukiwanieHistoria {
 
         RandomAccessFile PlikOdczytany = null; //Otwarcie pliku
         try
-        {
+        {   PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
             switch(Zmienna)
             {
                 case"idksiazki":
@@ -22,10 +22,17 @@ public class WyszukiwanieHistoria {
                     {
 
                         System.out.println("Powrót do poprzedniej opcji.");
-                        PlikOdczytany.close();
+                        try
+                        {
+                            PlikOdczytany.close();
+                        }catch(NullPointerException e)
+                        {
+
+                        }
                         return;
                     }
-                    WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+                    Znalezione = WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+
                     break;
                 case"id":
                     System.out.println("Wpisz id wpisu z histori.Wpisz 0 by anulowac.");  // Prosba o wpisanie
@@ -33,10 +40,16 @@ public class WyszukiwanieHistoria {
                     if(Szukany == 0)
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
-                        PlikOdczytany.close();
+                        try
+                        {
+                            PlikOdczytany.close();
+                        }catch(NullPointerException e)
+                        {
+
+                        }
                         return;
                     }
-                    WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+                    Znalezione = WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
                     break;
                 case"idczytelnika":
                     System.out.println("Wpisz id wyszukiwanego czytelnika.Wpisz 0 by anulowac.");  // Prosba o wpisanie
@@ -44,28 +57,48 @@ public class WyszukiwanieHistoria {
                     if(Szukany == 0)
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
-                        PlikOdczytany.close();
+                        try
+                        {
+                            PlikOdczytany.close();
+                        }catch(NullPointerException e)
+                        {
+
+                        }
                         return;
                     }
-                    WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
+                    Znalezione = WyszukiwanieID(Szukany,PlikOdczytany,Zmienna);
                     break;
+                case"czywyporzyczonatak":
+                    Szukana = ("tak");
+                    Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+                    Znalezione = Znalezione + 20;
+                        break;
                 default:
                     System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
                     if(Szukana.equals("0") )
                     {
                         System.out.println("Powrót do poprzedniej opcji.");
-                        PlikOdczytany.close();
+                        try
+                        {
+                            PlikOdczytany.close();
+                        }catch(NullPointerException e)
+                            {
+
+                            }
                         return;
                     }
-                    UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+                    Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
                     break;
 
             }
-            PlikOdczytany = OperacjePlikHistoria.OtwarciePlikHistoria();
             if(Znalezione == 0)
             {
                 System.out.println("Nie znaleziono wyszukiwanej treści.");
+            }
+            if(Znalezione == 20)
+            {
+                System.out.println("Nie ma książek do oddania.");
             }
             PlikOdczytany.close(); // Zamkniecie odczytu
         } catch(IOException e)
@@ -105,6 +138,7 @@ public class WyszukiwanieHistoria {
                 }
                 i++;
             } while(i < 9000); // Maksymalna wartosc petli
+            PlikOdczytany.close();
         }catch(IOException e)
         {
         }
@@ -161,6 +195,10 @@ public class WyszukiwanieHistoria {
                             Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do Stringa
                             OdczytBezSpacji = WyszukiwanieKsiazka.BezSpacji(Odczyt); //Usuniecie spacji
                             break;
+                        case "czywyporzyczonatak":
+                            Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do Stringa
+                            OdczytBezSpacji = WyszukiwanieKsiazka.BezSpacji(Odczyt); //Usuniecie spacji
+                            break;
                         case "czypoterminie":
                             Odczyt = OdczytaneDane.GetCzyPoTerminie(); //Wpisanie danej do Stringa
                             OdczytBezSpacji = WyszukiwanieKsiazka.BezSpacji(Odczyt); //Usuniecie spacji
@@ -177,8 +215,9 @@ public class WyszukiwanieHistoria {
                         }
                     }
                     i++;
-                }
+                }else {i=9002;}
             } while (i < 9000);
+            PlikOdczytany.close();
         } catch (IOException e)// Maksymalna wartosc petli
         {
 

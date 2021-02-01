@@ -27,12 +27,12 @@ public class WyszukiwanieUzytkownik {
                 case"nazwa":
                     System.out.println("Wpisz nazwę czytelnika.Wpisz 0 by anulować");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
-                    UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
                     if(Szukana.equals("0"))
                     {
                         PlikOdczytany.close();
                         return;
                     }
+                    Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
                     break;
                 case"zbanowany":
                     System.out.println("Chcesz wyszukac zbanowanych? Tak/Nie. Wpisz nie by anulowac.");  // Prosba o wpisanie
@@ -42,6 +42,8 @@ public class WyszukiwanieUzytkownik {
                         PlikOdczytany.close();
                         return;
                     }
+                    Znalezione = UltraSkroconeWyszukiwanie(Szukana, PlikOdczytany, Zmienna);
+                    break;
                 case"niezbanowany":
                     System.out.println("Chcesz wyszukac nie zbanowanych? Tak/Nie. Wpisz nie by anulowac.");  // Prosba o wpisanie
                     Szukana = WpisywanieDanych.WpisanieTakLubNie(); //  Wpisanie poszukiwanego slowa
@@ -50,7 +52,8 @@ public class WyszukiwanieUzytkownik {
                         PlikOdczytany.close();
                         return;
                     }
-                    UltraSkroconeWyszukiwanie(Szukana, PlikOdczytany, Zmienna);
+                    Szukana = "nie";
+                    Znalezione = UltraSkroconeWyszukiwanie(Szukana, PlikOdczytany, Zmienna);
                     break;
             }
             if(Znalezione == 0)
@@ -125,27 +128,25 @@ public class WyszukiwanieUzytkownik {
         int Znalezione = 0;
         String OdczytBezSpacji = ("PustyPustoPustusienkoNiemaNic");
         String Odczyt = ("PustyPustoPustusienkoNiemaNic");
-
-
-
         Szukana = BezSpacji(Szukana); // Usuniecie spacji
         try {
             do {
 
                 Uzytkownik OdczytaneDane = OperacjePlikUzytkownicy.OdczytywanieUzytkownikow(PlikOdczytany); // Odczytranie linjki tekstu
+                //System.out.println(OdczytaneDane);
+
                 if (OdczytaneDane != null) // Jesli nie jest puste wykonaj
                 {
                     switch (Zmienna)
                         {
-                            case "CzyZbanowany":
+                            case "niezbanowany":
+                            case "zbanowany":
                                 Odczyt = OdczytaneDane.GetCzyZbanowany(); //Wpisanie danej do Stringa
                                 OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
                                 break;
                             case "nazwa":
                                 Odczyt = OdczytaneDane.GetNazwaUzytkownik(); //Wpisanie danej do Stringa
-                                //System.out.println("To odczytałem:"+Odczyt);
-                                //System.out.println("Takiego typu szukam:"+Zmienna);
-                                //System.out.println("Tego szukam:"+Szukana);
+
                                 OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
                                 break;
                         }
@@ -153,6 +154,7 @@ public class WyszukiwanieUzytkownik {
                     if (Odczyt.equals("PustyPustoPustusienkoNiemaNic")) //Jesl nic nie wpisano do odczytu.
                     {
                         i = 9002; // Zakonczenie petli jesli null
+                        System.out.println(i);
                     } else {
                         if (Szukana.equals(OdczytBezSpacji)) // Porownanie odczytu.
                         {
@@ -162,8 +164,10 @@ public class WyszukiwanieUzytkownik {
                     }
                     i++;
                 }
-                PlikOdczytany.close();
+                else{i = 9002;}
+
             } while (i < 9000);
+            PlikOdczytany.close();
         } catch (IOException e)// Maksymalna wartosc petli
         {
         }

@@ -223,10 +223,10 @@ public class Menu
 					MenuWyswietlanieHistori();
 					break;
 				case 2:
-					OpcjeWyszukiwanieHistori();
+					SzukanieHistori();
 					break;
 				case 9:
-					SzukanieHistori();
+					WyswietlenieOpcjiMenuHistoria();
 					break;
 				case 0:
 					System.out.println("Cofniecie do Menu głównego\n");
