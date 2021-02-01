@@ -31,40 +31,114 @@ public class Historia extends Ksiazka{
 
     public String GetIdHistoiraWypisiywanie()
     {
-        String IdKsiazkiJakoString = (""+IdHistoria);
+        String IdHistoriJakoString = (""+IdHistoria);
+        int dlugosc =IdHistoriJakoString.length();
+        switch(dlugosc)
+        {
+            case 1:
+                IdHistoriJakoString = (IdHistoria + "         ");
+                break;
+            case 2:
+                IdHistoriJakoString = (IdHistoria + "        ");
+                break;
+            case 3:
+                IdHistoriJakoString = (IdHistoria + "       ");
+                break;
+            case 4:
+                IdHistoriJakoString = (IdHistoria + "      ");
+                break;
+            case 5:
+                IdHistoriJakoString = (IdHistoria + "     ");
+                break;
+            case 6:
+                IdHistoriJakoString = (IdHistoria + "    ");
+                break;
+            case 7:
+                IdHistoriJakoString = (IdHistoria + "   ");
+                break;
+            case 8:
+                IdHistoriJakoString = (IdHistoria + "  ");
+                break;
+            case 9:
+                IdHistoriJakoString = (IdHistoria + " ");
+                break;
+
+        }
+        return  IdHistoriJakoString;
+    }
+    public String GetIdKsiazkiJakoString()
+    {
+        String IdKsiazkiJakoString = (""+GetIdKsiazki());
         int dlugosc =IdKsiazkiJakoString.length();
         switch(dlugosc)
         {
             case 1:
-                IdKsiazkiJakoString = (IdHistoria + "         ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "         ");
                 break;
             case 2:
-                IdKsiazkiJakoString = (IdHistoria + "        ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "        ");
                 break;
             case 3:
-                IdKsiazkiJakoString = (IdHistoria + "       ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "       ");
                 break;
             case 4:
-                IdKsiazkiJakoString = (IdHistoria + "      ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "      ");
                 break;
             case 5:
-                IdKsiazkiJakoString = (IdHistoria + "     ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "     ");
                 break;
             case 6:
-                IdKsiazkiJakoString = (IdHistoria + "    ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "    ");
                 break;
             case 7:
-                IdKsiazkiJakoString = (IdHistoria + "   ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "   ");
                 break;
             case 8:
-                IdKsiazkiJakoString = (IdHistoria + "  ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + "  ");
                 break;
             case 9:
-                IdKsiazkiJakoString = (IdHistoria + " ");
+                IdKsiazkiJakoString = (GetIdKsiazki() + " ");
                 break;
 
         }
         return  IdKsiazkiJakoString;
+    }
+    public String GetIdUzytkownikaWypisywanie()
+    {
+        String IdUzytkownikaJakoString = (""+GetIdUzytkownika());
+        int dlugosc =IdUzytkownikaJakoString.length();
+        switch(dlugosc)
+        {
+            case 1:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "         ");
+                break;
+            case 2:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "        ");
+                break;
+            case 3:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "       ");
+                break;
+            case 4:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "      ");
+                break;
+            case 5:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "     ");
+                break;
+            case 6:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "    ");
+                break;
+            case 7:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "   ");
+                break;
+            case 8:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + "  ");
+                break;
+            case 9:
+                IdUzytkownikaJakoString = (GetIdUzytkownika() + " ");
+                break;
+
+        }
+        return  IdUzytkownikaJakoString;
     }
 
     public static  void TworzenieWpisu(int IdPorzyczanejKsiazki, int IdWyporzyczajacego,String NowyDataWypozyczenia,String NowyDataTermin,String NowyNazwaCzytelnik,String DataWpisu) throws IOException
@@ -172,7 +246,7 @@ public class Historia extends Ksiazka{
 
         String TekstWyswietl;
 
-        TekstWyswietl =("| "+GetIdHistoiraWypisiywanie()+"\t| "+GetIdKsiazki()+"\t| " + GetNazwaKsiazki() +"| "+GetWyporzyczajacy() +"| "+ GetDataWyporzyczenia() +"\t\t|\t\t"+ GetDataTermin() +"\t|\t"+GetCzyPoTerminieWyswietlanie()+"\t\t|\t" +GetIdUzytkownika() +"\t\t|\t\t" + GetCzyWyporzyczona()+"\t\t|\t\t\t"+GetDataWpisu()+"|");
+        TekstWyswietl =("| "+GetIdHistoiraWypisiywanie()+"\t| "+GetIdKsiazkaWypisiywanie()+"\t| " + GetIdUzytkownikaWypisywanie() +"\t| " + GetNazwaKsiazki() +"| "+GetWyporzyczajacy() +"| "+ GetDataWyporzyczenia() +"\t\t|\t\t"+ GetDataTermin() +"\t|\t"+GetCzyPoTerminieWyswietlanie() +"\t\t|\t\t" + GetCzyWyporzyczona()+"\t\t|\t\t\t"+GetDataWpisu()+"|");
         return TekstWyswietl;
     }
 }

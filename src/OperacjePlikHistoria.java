@@ -229,7 +229,7 @@ public class OperacjePlikHistoria{
         int Szukana;
         int i = 0;
         int Odczyt = 0;
-        WyszukiwanieHistoria.Wyszukiwanie("czywyporzyczonatak");
+        WyszukiwanieKsiazka.Wyszukiwanie("czywporzyczenienie");
         RandomAccessFile PlikHistoriaOdczytana = OperacjePlikHistoria.OtwarciePlikHistoria(); //Otwarcie pliku
         System.out.println("Wpisz id książki którą chcesz zwrócić.Wpisz 0 by anulowac");
         do

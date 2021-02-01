@@ -34,6 +34,11 @@ public class WyszukiwanieKsiazka
 					Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
 					Znalezione = 20 + Znalezione;
 					break;
+				case"czywporzyczenienie":
+					Szukana = "tak";
+					Znalezione = UltraSkroconeWyszukiwanie(Szukana,PlikOdczytany,Zmienna);
+					Znalezione = 25 + Znalezione;
+					break;
 				default:
 					System.out.println("Wpisz nazwe poszukiwanej treści.Wpisz 0 by anulować");  // Prosba o wpisanie
 					Szukana = WpisywanieDanych.WpisanieSlowa(); //  Wpisanie poszukiwanego slowa
@@ -53,6 +58,10 @@ public class WyszukiwanieKsiazka
 			if(Znalezione == 20)
 			{
 				System.out.println("Nie ma książek do wypożyczenia.");
+			}
+			if(Znalezione == 25)
+			{
+				System.out.println("Nie ma książek do oddania.");
 			}
 			PlikOdczytany.close(); // Zamkniecie odczytu
 		} catch(IOException e)
@@ -107,6 +116,7 @@ public class WyszukiwanieKsiazka
 							Odczyt = OdczytaneDane.GetWyporzyczajacy(); //Wpisanie danej do Stringa
 							OdczytBezSpacji = BezSpacji(Odczyt); //Usuniecie spacji
 							break;
+						case"czywporzyczenienie":
 						case"czywporzyczenietak":
 						case"czywyporzyczona":
 							Odczyt = OdczytaneDane.GetCzyWyporzyczona(); //Wpisanie danej do Stringa
