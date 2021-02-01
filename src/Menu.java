@@ -327,36 +327,28 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("id");
 					break;
 				case 2:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("idksiazki");
 					break;
 				case 3:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("idczytelnika");
 					break;
 				case 4:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("nazwa");
 					break;
 				case 5:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("wyporzyczajacy");
 					break;
 				case 6:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("czywyporzyczona");
 					break;
 				case 7:
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("czypoterminie");
 					break;
 				case 8:
 					Ksiazka.DostepneGatunki();
-					System.out.println("ID Wpisu"+"\t\t"+"ID ksiazki"+"\t\t "+"Id Czytelnika"+"\t\t"+"Nazwa Ksiązki"+ "\t\t\t\t\t"+"Nazwa Wyporzyczajacego"+"\t\t\t"+"Data Wypożyczenia"+"\t"+"Data Oddania"+"\t   "+"Po terminie?"+"\t "+"Czy Wypożyczona?"+"\t"+"Data Wyporzyczenia");
 					WyszukiwanieHistoria.Wyszukiwanie("gatunek");
 					break;
 				case 9:
@@ -455,9 +447,11 @@ public class Menu
 					WypisywanieUzytkownikow();
 					break;
 				case 2:
+					System.out.println("ID Czytelnika*"+"\t\t"+"Imie i Nazwisko"+"\t\t\t\t\t"+"Czy Zbanowany?");
 					SortowanieUzytkownik.WyswietlaniePosortowaneID(SortowanieUzytkownik.SortowaniePoID());
 					break;
 				case 3:
+					System.out.println("ID Czytelnika"+"\t\t"+"Imie i Nazwisko*"+"\t\t\t\t\t"+"Czy Zbanowany?");
 					SortowanieUzytkownik.WyswietlaniePosortowane(SortowanieUzytkownik.Sortowanie("nazwa"),"nazwa");
 					break;
 				case 9:
@@ -683,16 +677,19 @@ public class Menu
 					SortowanieKsiazka.WyswietlaniePosortowaneID(SortowanieKsiazka.SortowaniePoID());
 					break;
 				case 3:
-					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki*"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("nazwaksiazki"),"nazwaksiazki");
 					break;
 				case 4:
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor*"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("autor"),"autor");
 					break;
 				case 5:
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający*"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("uzytkownik"),"uzytkownik");
 					break;
 				case 6:
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek*"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("gatunek"),"gatunek");
 					break;
 				case 9:
