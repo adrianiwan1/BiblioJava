@@ -384,18 +384,20 @@ public class Ksiazka extends Uzytkownik
 
 			if(GetCzyPoTerminieWyswietlanie(GetDataTermin()).equals("tak"))
 			{
-				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ "\t|"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
-						  "\t|\t" + GetDataWyporzyczenia() +"\t|" + GetCzyPoTerminieWyswietlanie(GetDataTermin()) + "\t\t  |" + GetDataTermin()+ "|"+ GetIlePoTerminieWyswietlanie(GetDataTermin())+ "|");
+				TekstWyswietl =("|" +GetIdKsiazkaWypisiywanie()+ " |" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ " |"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "          |" + GetDataWyporzyczenia() +"   |" + GetCzyPoTerminieWyswietlanie(GetDataTermin()) + "         |"
+						  + GetDataTermin()+ "|"+ GetIlePoTerminieWyswietlanie(GetDataTermin()));
 			}
 			else
 			{
-				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|" + GetNazwaKsiazki() + "|" +GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania() + "\t|"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
-						  "\t|\t" + GetDataWyporzyczenia() +"\t|" + GetCzyPoTerminieWyswietlanie(GetDataTermin()) + "\t\t  |" + GetDataTermin()+ "|" );
+				TekstWyswietl =("|" +GetIdKsiazkaWypisiywanie()+ " |" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ " |"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "          |" + GetDataWyporzyczenia() +"   |" + GetCzyPoTerminieWyswietlanie(GetDataTermin()) + "         |"
+						  + GetDataTermin()+ "|");
 			}
 		}
 		else
 		{
-			TekstWyswietl = ("| " +GetIdKsiazkaWypisiywanie()+ "\t|" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania()	+ "\t|\t");
+			TekstWyswietl = ("|" +GetIdKsiazkaWypisiywanie()+ " |" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania()	+ " |");
 		}
 
 

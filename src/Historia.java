@@ -246,7 +246,7 @@ public class Historia extends Ksiazka{
 
         String TekstWyswietl;
 
-        TekstWyswietl =("| "+GetIdHistoiraWypisiywanie()+"\t| "+GetIdKsiazkaWypisiywanie()+"\t| " + GetIdUzytkownikaWypisywanie() +"\t| " + GetNazwaKsiazki() +"| "+GetWyporzyczajacy() +"| "+ GetDataWyporzyczenia() +"\t\t|\t\t"+ GetDataTermin() +"\t|\t"+GetCzyPoTerminieWyswietlanie() +"\t\t|\t\t" + GetCzyWyporzyczona()+"\t\t|\t\t\t"+GetDataWpisu()+"|");
+        TekstWyswietl =("| "+GetIdHistoiraWypisiywanie()+"    | "+GetIdKsiazkaWypisiywanie()+"    | " + GetIdUzytkownikaWypisywanie() +"    | " + GetNazwaKsiazki() +"| "+GetWyporzyczajacy() +"| "+ GetDataWyporzyczenia() +"     | "+ GetDataTermin() +"    | "+GetCzyPoTerminieWyswietlanie() +"        | "+ GetCzyWyporzyczona()+"            | "+GetDataWpisu()+"   |");
         return TekstWyswietl;
     }
 }

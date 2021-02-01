@@ -132,7 +132,7 @@ public class Uzytkownik
 	{
 		String TekstWyswietl;
 
-		return TekstWyswietl = ("|"+GetIdUzytkownikWypisiywanie()+ "\t\t|\t" + GetNazwaUzytkownik() +"|"+ GetCzyZbanowany()+"\t\t|");
+		return TekstWyswietl = ("| "+GetIdUzytkownikWypisiywanie()+ "    | " + GetNazwaUzytkownik() +" | "+ GetCzyZbanowany()+"          |");
 	}
 
 

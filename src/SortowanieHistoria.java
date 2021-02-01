@@ -90,7 +90,7 @@ public static ArrayList<Integer> PoId(String Zmienna)
                         }
                         if(Porownywana == Odczyt) // Porownanie odczytu.
                         {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
+                            System.out.println(OdczytaneDane.ShowDaneHistoria()); //Wyswietlenie odczytu
                         }
                     } else
                     {
@@ -204,7 +204,7 @@ public static ArrayList<Integer> PoId(String Zmienna)
                         }
                         if(Porownywana.equals(Odczyt)) // Porownanie odczytu.
                         {
-                            System.out.println(OdczytaneDane.ShowDane()); //Wyswietlenie odczytu
+                            System.out.println(OdczytaneDane.ShowDaneHistoria()); //Wyswietlenie odczytu
                         }
                     } else
                     {
