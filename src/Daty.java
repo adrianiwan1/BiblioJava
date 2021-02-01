@@ -125,7 +125,7 @@ public class Daty
 		int DzienRok=0;
 		try
 		{
-			DzienRok = Integer.parseInt(Rok); //Zamiana String do Int
+			DzienRok = Integer.parseInt(WyszukiwanieKsiazka.BezSpacji(Rok)); //Zamiana String do Int
 		} catch(InputMismatchException | NumberFormatException ex) // Sprawdzenie
 		{
 			//System.out.println("To nie jest liczba.Bład IM-001");
@@ -134,8 +134,9 @@ public class Daty
 		return DzienRok;
 
 	}
-	public static long	 SprawdzanieCzyPoPodanejDacie(String DataObecna , String DataTermin,String Zmienna)
+	public static long SprawdzanieCzyPoPodanejDacie(String DataObecna , String DataTermin,String Zmienna)
 	{
+
 		int DzienWyporzyczenia = GetDzien(DataObecna);
 		int MiesiacWyporzyczenia = GetMiesiac((DataObecna));
 		MiesiacWyporzyczenia = MiesiacWyporzyczenia -1;
@@ -154,6 +155,7 @@ public class Daty
 
 
 
+
 		switch(Zmienna)
 		{
 				case "czypoterminie":
@@ -169,12 +171,18 @@ public class Daty
 
 	}
 
+	public static String CzyPoDacieStringint(long IleDniPoTerminie)
+	{
+		String CzyPoTerminie = (""+IleDniPoTerminie);
+		return CzyPoTerminie;
+	}
+
 	public static String CzyPoDacieString(long IleDniPoTerminie)
 	{
-		String CzyPoTerminie = "nie";
-		if (IleDniPoTerminie > 0)
+		String CzyPoTerminie = "tak";
+		if (IleDniPoTerminie < 0)
 		{
-		CzyPoTerminie = "tak";
+		CzyPoTerminie = "nie";
 		}
 		return CzyPoTerminie;
 	}

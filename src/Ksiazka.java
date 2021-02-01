@@ -271,10 +271,17 @@ public class Ksiazka extends Uzytkownik
 		}
 		return  IdKsiazkiJakoString;
 	}
-	public String GetCzyPoTerminieWyswietlanie()
+	public String GetCzyPoTerminieWyswietlanie(String Termin)
 	{
-		  CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(GetDataTermin(),Daty.ObecnaData(),"ilepoterminie"));
+		  CzyPoTerminie = Daty.CzyPoDacieString(Daty.SprawdzanieCzyPoPodanejDacie(Daty.ObecnaData(),Termin,"czypoterminie"));
+
  		return CzyPoTerminie;
+	}
+	public String GetIlePoTerminieWyswietlanie(String Termin)
+	{
+		CzyPoTerminie = Daty.CzyPoDacieStringint(Daty.SprawdzanieCzyPoPodanejDacie(Daty.ObecnaData(),Termin,"ilepoterminie"));
+
+		return CzyPoTerminie;
 	}
 
 	public int GetIdKsiazki()
@@ -375,20 +382,20 @@ public class Ksiazka extends Uzytkownik
 		if(GetCzyWyporzyczona().equals("tak"))
 		{
 
-			if(GetCzyPoTerminieWyswietlanie().equals("tak"))
+			if(GetCzyPoTerminieWyswietlanie(GetDataTermin()).equals("tak"))
 			{
-				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
-						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t" + GetDataTermin()+ "|");
+				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|" + GetNazwaKsiazki() + "|" + GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania()+ "\t|"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "\t|\t" + GetDataWyporzyczenia() +"\t|" + GetCzyPoTerminieWyswietlanie(GetDataTermin()) + "\t\t  |" + GetDataTermin()+ "|"+ GetIlePoTerminieWyswietlanie(GetDataTermin())+ "|");
 			}
 			else
 			{
-				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania() + "\t|\t"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
-						  "\t|\t" + GetDataWyporzyczenia() +"\t|\t\t" + GetCzyPoTerminieWyswietlanie() + "\t\t|\t" + GetDataTermin()+ "|");
+				TekstWyswietl =("| " +GetIdKsiazkaWypisiywanie()+ "\t|" + GetNazwaKsiazki() + "|" +GetAutor() + "|" + GetGatunek()  + "|" + GetDataWydania() + "\t|"+ GetWyporzyczajacy() + "|" + GetCzyWyporzyczona() +
+						  "\t|\t" + GetDataWyporzyczenia() +"\t|" + GetCzyPoTerminieWyswietlanie(GetDataTermin()) + "\t\t  |" + GetDataTermin()+ "|" );
 			}
 		}
 		else
 		{
-			TekstWyswietl = ("| " +GetIdKsiazkaWypisiywanie()+ "\t|\t" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania()	+ "\t|\t");
+			TekstWyswietl = ("| " +GetIdKsiazkaWypisiywanie()+ "\t|" + GetNazwaKsiazki() + "|" +  GetAutor() + "|" + GetGatunek() + "|" + GetDataWydania()	+ "\t|\t");
 		}
 
 

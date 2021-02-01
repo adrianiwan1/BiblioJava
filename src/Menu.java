@@ -10,7 +10,7 @@ public class Menu
 		try
 		{
 			RandomAccessFile PlikOdczytany = OperacjePlikKsiazki.OtwarciePlikKsiazki();
-			System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+			System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t  "+"Gatunek"+"\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+  "  Wypożyczona" + "\t" + "Po Terminie?" + "  " +"Termin" + "    Dni Po Terminie" 	);
 			do
 			{
 				Ksiazka OdczytaneDane = OperacjePlikKsiazki.OdczytywanieKsiazek(PlikOdczytany);
@@ -673,23 +673,23 @@ public class Menu
 					WypisywanieKsiazek();
 					break;
 				case 2:
-					System.out.println("ID*"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+					System.out.println("ID*"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t  "+"Gatunek"+"\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+  "  Wypożyczona" + "\t" + "Po Terminie?" + "  " +"Termin" + "    Dni Po Terminie" 	);
 					SortowanieKsiazka.WyswietlaniePosortowaneID(SortowanieKsiazka.SortowaniePoID());
 					break;
 				case 3:
-					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki*"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki*"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t  "+"Gatunek"+"\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+  "  Wypożyczona" + "\t" + "Po Terminie?" + "  " +"Termin" + "    Dni Po Terminie" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("nazwaksiazki"),"nazwaksiazki");
 					break;
 				case 4:
-					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor*"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t"+"Autor*"+"\t\t\t\t\t\t\t  "+"Gatunek"+"\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+  "  Wypożyczona" + "\t" + "Po Terminie?" + "  " +"Termin" + "    Dni Po Terminie" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("autor"),"autor");
 					break;
 				case 5:
-					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający*"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t  "+"Gatunek"+"\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający*"+"\t\t\t\t "+"Wypożyczona?"+  "  Wypożyczona" + "\t" + "Po Terminie?" + "  " +"Termin" + "    Dni Po Terminie" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("uzytkownik"),"uzytkownik");
 					break;
 				case 6:
-					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t"+"Gatunek*"+"\t\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+"\t" + " Wypożyczona" + "\t" + "Po Terminie?" + "\t\t" +"Termin" 	);
+					System.out.println("ID"+"\t\t\t\t"+"Nazwa Książki"+"\t\t\t\t\t"+"Autor"+"\t\t\t\t\t\t\t  "+"Gatune*k"+"\t\t\t\t"+"Data Wydania"+ "\t"+"Wypożyczający"+"\t\t\t\t "+"Wypożyczona?"+  "  Wypożyczona" + "\t" + "Po Terminie?" + "  " +"Termin" + "    Dni Po Terminie" 	);
 					SortowanieKsiazka.WyswietlaniePosortowane(SortowanieKsiazka.Sortowanie("gatunek"),"gatunek");
 					break;
 				case 9:
