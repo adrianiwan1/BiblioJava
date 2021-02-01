@@ -351,6 +351,7 @@ public class Menu
 					WyszukiwanieHistoria.Wyszukiwanie("czypoterminie");
 					break;
 				case 8:
+					Ksiazka.DostepneGatunki();
 					WyszukiwanieHistoria.Wyszukiwanie("gatunek");
 					break;
 				case 9:
@@ -493,11 +494,9 @@ public class Menu
 			switch(Wybor)
 			{
 				case 1:
-					Menu.WypisywanieUzytkownikow();
 					WyszukiwanieUzytkownik.Wyszukiwanie("idUzytkownika");
 					break;
 				case 2:
-					Menu.WypisywanieUzytkownikow();
 					WyszukiwanieUzytkownik.Wyszukiwanie("nazwa");
 					break;
 				case 3:
@@ -742,6 +741,7 @@ public class Menu
 					WyszukiwanieKsiazka.Wyszukiwanie("wyporzyczajacy");
 					break;
 				case 5:
+					Ksiazka.DostepneGatunki();
 					WyszukiwanieKsiazka.Wyszukiwanie("gatunek");
 					break;
 				case 6:
